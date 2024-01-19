@@ -33,9 +33,3 @@ def init_web_driver(width=1400, height=950, mobile=False):
 def patient_click(element, delay=1):
   element.click()
   time.sleep(delay)
-
-def decimal_to_american_odds(line):
-  if line >= 2.00:
-    return round((line - 1) * 100)
-  else:
-    return round((-100)/(line-1))
