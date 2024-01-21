@@ -25,20 +25,20 @@ def scrape_game_log(player_name, rookie_year, player_url_id):
         while file.read(1) != b'\n':  # Keep stepping back until you find the newline
           file.seek(-2, os.SEEK_CUR)
         most_recent_year_in_file = int(file.readline().decode().split(',')[2].split('-')[0])
-        if year != 2024 and most_recent_year_in_file >= year:
+        if most_recent_year_in_file >= year: # TODO add (and year != 2024) once df stuff is fixed below
           continue
 
-    # navigate to correct section
+    print('Building ' + output_file_name + ' (' + str(year) + ' gamelog)...')
     driver.get(url + str(year) + '#all_pgl_basic')
-    season_header_text = str(year - 1) + '-' + str(year)[2:] + ' Regular Season'
-    season_header = driver.find_element(By.XPATH, '//h2[contains(text(), "{}")]/..'.format(season_header_text))
-    driver.execute_script("arguments[0].scrollIntoView(true);", season_header)
-    driver.execute_script("window.scrollBy(0, -50);")
-    time.sleep(2)
+    time.sleep(3)
 
     # turn the table into CSV format and grab stats
+    season_header_text = str(year - 1) + '-' + str(year)[2:] + ' Regular Season'
+    try:
+      season_header = driver.find_element(By.XPATH, '//h2[contains(text(), "{}")]/..'.format(season_header_text))
+    except:
+      continue
     share_export_menu = season_header.find_element(By.CLASS_NAME, 'section_heading_text')
-    time.sleep(2)
     actions = ActionChains(driver)
     actions.move_to_element(share_export_menu).perform()
     patient_click(driver.find_element(By.XPATH, '//*[contains(text(), "Get table as CSV")]'))
@@ -53,11 +53,12 @@ def scrape_game_log(player_name, rookie_year, player_url_id):
       with open(output_file_path, 'a') as file:
         file.write(stats)
 
-    # drop duplicate games for current season
-    if year == 2024:
-      df = pd.read_csv(output_file_path)
-      df.drop_duplicates(inplace=True)
-      df.to_csv(output_file_path, index=False)
+    # # drop duplicate games for current season
+    # # TODO need to also name cols (home/away) and drop stuff (e.g. game/rk #) here
+    # if year == 2024:
+    #   df = pd.read_csv(output_file_path)
+    #   df.drop_duplicates(inplace=True)
+    #   df.to_csv(output_file_path, index=False)
 
 active_players = pd.read_csv('active_players.csv')
 for index, row in active_players.iterrows():
@@ -70,5 +71,8 @@ for index, row in active_players.iterrows():
     try:
       scrape_game_log(name, rookie_year, br_url_id)
       break
-    except:
+    except KeyboardInterrupt:
+      raise
+    except Exception as e:
+      print(str(e))
       continue
