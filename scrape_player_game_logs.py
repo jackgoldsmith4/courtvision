@@ -43,7 +43,11 @@ def scrape_game_log(player_name, rookie_year, player_url_id):
     actions = ActionChains(driver)
     actions.move_to_element(share_export_menu).perform()
     patient_click(driver.find_element(By.XPATH, '//*[contains(text(), "Get table as CSV")]'))
-    stats = driver.find_element(By.TAG_NAME, 'pre').text.split(GAMELOG_HEADER_TITLES)[1]
+    try:
+      stats = driver.find_element(By.TAG_NAME, 'pre').text.split(GAMELOG_HEADER_TITLES)[1]
+    except:
+      print('WARN: ' + output_file_name + ' ' + str(year) + ' logs not found')
+      continue     
 
     # if a file doesn't exist with this player's name, create one and populate with col headers and this season
     if output_file_name not in gamelog_filenames:
