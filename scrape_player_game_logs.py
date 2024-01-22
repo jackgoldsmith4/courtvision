@@ -37,6 +37,7 @@ def scrape_game_log(player_name, rookie_year, player_url_id):
     try:
       season_header = driver.find_element(By.XPATH, '//h2[contains(text(), "{}")]/..'.format(season_header_text))
     except:
+      print('WARN: ' + output_file_name + ' ' + str(year) + ' logs not found')
       continue
     share_export_menu = season_header.find_element(By.CLASS_NAME, 'section_heading_text')
     actions = ActionChains(driver)
@@ -74,5 +75,5 @@ for index, row in active_players.iterrows():
     except KeyboardInterrupt:
       raise
     except Exception as e:
-      print(str(e))
+      print(e)
       continue
