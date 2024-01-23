@@ -1,0 +1,275 @@
+Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-
+1,,2020-12-23,19-320,DEN,,SAC,L (-2),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+2,,2020-12-25,19-322,DEN,,LAC,L (-13),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+3,1,2020-12-28,19-325,DEN,,HOU,W (+13),0,4:07,1,1,1.000,0,0,,0,0,,0,1,1,0,0,0,0,1,2,1.6,-10
+4,2,2020-12-29,19-326,DEN,@,SAC,L (-10),0,0:24,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,0
+5,3,2021-01-01,19-329,DEN,,PHO,L (-3),0,1:37,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-1
+6,4,2021-01-03,19-331,DEN,@,MIN,W (+15),0,0:55,0,1,.000,0,0,,0,0,,1,0,1,0,0,0,1,0,0,-1.0,-5
+7,5,2021-01-05,19-333,DEN,,MIN,W (+7),0,0:06,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-4
+8,,2021-01-07,19-335,DEN,,DAL,L (-7),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+9,6,2021-01-09,19-337,DEN,@,PHI,W (+12),0,5:22,1,2,.500,0,1,.000,0,0,,0,0,0,0,0,0,0,0,2,1.0,-8
+10,7,2021-01-10,19-338,DEN,@,NYK,W (+25),0,3:44,1,1,1.000,0,0,,0,0,,0,0,0,0,0,0,0,1,2,1.3,+1
+11,8,2021-01-12,19-340,DEN,@,BRK,L (-6),0,0:01,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-1
+12,,2021-01-14,19-342,DEN,,GSW,W (+10),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+13,,2021-01-17,19-345,DEN,,UTA,L (-4),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+14,9,2021-01-19,19-347,DEN,,OKC,W (+18),0,6:39,0,2,.000,0,0,,2,2,1.000,0,2,2,0,0,0,1,0,2,0.2,-11
+15,,2021-01-22,19-350,DEN,@,PHO,W (+4),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+16,,2021-01-23,19-351,DEN,@,PHO,W (+8),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+17,10,2021-01-25,19-353,DEN,@,DAL,W (+4),0,5:45,0,1,.000,0,0,,0,0,,1,0,1,0,0,0,0,1,0,-0.4,+6
+18,11,2021-01-27,19-355,DEN,@,MIA,W (+27),0,7:40,0,2,.000,0,1,.000,0,0,,0,0,0,0,2,0,1,1,0,-0.8,+6
+19,12,2021-01-29,19-357,DEN,@,SAS,L (-10),0,0:34,1,1,1.000,0,0,,0,0,,0,0,0,0,0,0,0,0,2,1.7,+2
+20,13,2021-01-31,19-359,DEN,,UTA,W (+11),0,6:00,0,0,,0,0,,0,0,,0,1,1,0,1,0,2,0,0,-0.7,-3
+21,14,2021-02-04,19-363,DEN,@,LAL,L (-21),0,2:53,0,1,.000,0,0,,0,0,,1,0,1,1,0,0,1,1,0,-0.7,-4
+22,15,2021-02-06,19-365,DEN,@,SAC,L (-5),0,27:29,3,6,.500,1,1,1.000,0,0,,4,6,10,2,0,1,1,2,7,8.9,-4
+23,16,2021-02-08,20-001,DEN,,MIL,L (-13),0,16:45,1,2,.500,1,1,1.000,0,0,,0,7,7,2,0,0,0,0,3,5.5,-8
+24,17,2021-02-10,20-003,DEN,,CLE,W (+38),0,19:05,4,7,.571,1,2,.500,0,0,,1,3,4,3,2,1,1,0,9,11.1,+6
+25,18,2021-02-12,20-005,DEN,,OKC,W (+2),0,18:53,3,6,.500,1,4,.250,0,2,.000,0,4,4,1,0,0,1,2,7,3.3,-10
+26,19,2021-02-14,20-007,DEN,,LAL,W (+17),0,20:23,1,6,.167,0,3,.000,2,2,1.000,0,4,4,1,0,0,1,3,4,-0.1,+2
+27,20,2021-02-16,20-009,DEN,@,BOS,L (-13),0,23:55,2,6,.333,0,2,.000,0,0,,1,3,4,0,0,0,0,3,4,1.0,-16
+28,21,2021-02-17,20-010,DEN,@,WAS,L (-2),0,7:18,1,2,.500,1,1,1.000,0,0,,0,0,0,0,0,0,0,1,3,1.6,-5
+29,22,2021-02-19,20-012,DEN,@,CLE,W (+17),0,20:23,2,4,.500,0,2,.000,1,2,.500,0,2,2,1,0,0,0,3,5,2.7,-10
+30,23,2021-02-21,20-014,DEN,@,ATL,L (-8),0,10:44,1,2,.500,0,0,,0,0,,0,2,2,1,0,0,1,2,2,0.5,+4
+31,,2021-02-23,20-016,DEN,,POR,W (+5),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+32,,2021-02-25,20-018,DEN,,WAS,L (-2),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+33,24,2021-02-27,20-020,DEN,@,OKC,W (+30),0,9:14,2,5,.400,0,0,,2,2,1.000,1,2,3,0,0,0,0,0,6,4.6,+2
+34,,2021-03-01,20-022,DEN,@,CHI,W (+6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+35,,2021-03-02,20-023,DEN,@,MIL,W (+31),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+36,,2021-03-04,20-025,DEN,@,IND,W (+10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+37,,2021-03-12,20-033,DEN,@,MEM,W (+1),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+38,,2021-03-13,20-034,DEN,,DAL,L (-13),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+39,,2021-03-15,20-036,DEN,,IND,W (+15),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+40,,2021-03-17,20-038,DEN,,CHO,W (+25),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+41,,2021-03-19,20-040,DEN,,CHI,W (+4),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+42,,2021-03-21,20-042,DEN,,NOP,L (-5),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+43,,2021-03-23,20-044,DEN,@,ORL,W (+11),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+44,25,2021-03-24,20-045,DEN,@,TOR,L (-24),0,13:16,1,2,.500,0,0,,2,2,1.000,0,3,3,2,0,0,0,1,4,4.9,-2
+45,,2021-03-26,20-047,ORL,,POR,L (-7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+46,26,2021-03-28,20-049,ORL,@,LAL,L (-3),0,17:09,4,8,.500,1,2,.500,1,1,1.000,2,1,3,1,1,0,2,1,10,7.0,-7
+47,27,2021-03-30,20-051,ORL,@,LAC,W (+7),0,13:41,2,5,.400,0,1,.000,1,2,.500,1,2,3,1,0,0,0,0,5,3.9,-3
+48,28,2021-04-01,20-053,ORL,@,NOP,W (+5),0,17:30,3,6,.500,0,1,.000,2,2,1.000,0,4,4,1,1,0,1,1,8,6.5,+13
+49,29,2021-04-03,20-055,ORL,@,UTA,L (-46),0,30:48,5,14,.357,0,2,.000,2,5,.400,0,8,8,2,1,1,2,1,12,6.1,-33
+50,30,2021-04-04,20-056,ORL,@,DEN,L (-10),1,32:44,7,13,.538,2,5,.400,0,0,,1,3,4,3,2,0,1,3,16,13.2,-15
+51,31,2021-04-07,20-059,ORL,,WAS,L (-15),0,27:30,5,10,.500,3,5,.600,1,2,.500,0,6,6,1,0,0,0,2,14,10.3,-8
+52,32,2021-04-09,20-061,ORL,,IND,L (-5),0,18:36,3,4,.750,0,1,.000,0,2,.000,0,2,2,0,1,1,3,1,6,2.5,-14
+53,33,2021-04-11,20-063,ORL,,MIL,L (-37),0,26:02,3,11,.273,1,5,.200,0,0,,1,2,3,3,2,0,3,1,7,2.5,-24
+54,34,2021-04-12,20-064,ORL,,SAS,L (-23),0,26:29,7,10,.700,1,2,.500,1,2,.500,1,7,8,0,0,0,2,2,16,11.4,-17
+55,35,2021-04-14,20-066,ORL,@,CHI,W (+9),0,17:47,0,4,.000,0,3,.000,2,2,1.000,0,1,1,0,1,1,0,1,2,0.8,+5
+56,36,2021-04-16,20-068,ORL,@,TOR,L (-11),0,19:06,3,8,.375,0,2,.000,1,2,.500,1,3,4,1,1,0,1,1,7,4.1,-19
+57,37,2021-04-18,20-070,ORL,,HOU,L (-4),0,21:32,2,7,.286,0,2,.000,3,3,1.000,1,2,3,6,0,0,3,1,7,5.0,-5
+58,38,2021-04-20,20-072,ORL,@,ATL,L (-16),0,21:00,3,8,.375,1,3,.333,1,2,.500,1,4,5,1,0,0,2,3,8,2.6,-15
+59,39,2021-04-22,20-074,ORL,,NOP,L (-35),0,26:56,5,13,.385,0,1,.000,0,0,,0,3,3,2,2,1,1,3,10,5.7,-12
+60,40,2021-04-25,20-077,ORL,,IND,L (-19),0,28:58,5,10,.500,2,4,.500,2,2,1.000,0,2,2,2,0,0,1,2,14,9.2,-18
+61,41,2021-04-26,20-078,ORL,,LAL,L (-11),0,24:38,1,4,.250,0,2,.000,3,4,.750,1,1,2,1,0,0,3,4,5,-0.7,-2
+62,42,2021-04-28,20-080,ORL,@,CLE,W (+5),0,20:21,2,5,.400,0,1,.000,0,2,.000,0,7,7,2,1,0,0,2,4,4.2,-7
+63,43,2021-04-30,20-082,ORL,@,MEM,L (-17),0,22:51,3,8,.375,1,4,.250,4,4,1.000,1,3,4,1,0,0,5,2,11,3.1,-8
+64,44,2021-05-01,20-083,ORL,,MEM,W (+1),0,30:16,7,14,.500,2,3,.667,2,2,1.000,1,6,7,5,2,1,0,1,18,19.3,+15
+65,45,2021-05-03,20-085,ORL,@,DET,W (+7),0,35:11,5,11,.455,1,2,.500,5,6,.833,0,7,7,10,1,2,1,0,16,20.4,+14
+66,46,2021-05-05,20-087,ORL,,BOS,L (-36),0,31:22,6,14,.429,1,2,.500,5,7,.714,2,8,10,5,0,0,1,0,18,16.1,-11
+67,47,2021-05-07,20-089,ORL,@,CHO,L (-10),0,29:42,7,15,.467,0,3,.000,2,4,.500,0,5,5,3,0,0,0,3,16,9.9,-6
+68,48,2021-05-09,20-091,ORL,,MIN,L (-32),0,28:48,7,13,.538,2,4,.500,3,5,.600,2,3,5,3,0,0,1,2,19,14.5,-12
+69,49,2021-05-11,20-093,ORL,@,MIL,L (-12),0,24:44,5,12,.417,0,1,.000,1,2,.500,0,4,4,5,0,0,3,2,11,5.1,-3
+70,50,2021-05-13,20-095,ORL,@,ATL,L (-23),0,31:44,7,15,.467,4,5,.800,0,0,,1,7,8,5,0,1,3,0,18,14.3,-7
+71,51,2021-05-14,20-096,ORL,@,PHI,L (-25),0,29:37,4,11,.364,0,3,.000,4,7,.571,2,9,11,9,0,0,3,0,12,12.1,-12
+72,,2021-05-16,20-098,ORL,@,PHI,L (-11),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+1,1,2021-10-20,20-255,ORL,@,SAS,L (-26),0,26:29,2,8,.250,1,2,.500,1,2,.500,0,7,7,3,1,0,2,1,6,3.6,-22
+2,2,2021-10-22,20-257,ORL,,NYK,L (-25),0,19:57,3,6,.500,2,3,.667,0,0,,1,3,4,2,0,0,2,2,8,5.2,-10
+3,3,2021-10-24,20-259,ORL,@,NYK,W (+6),0,15:44,3,12,.250,1,5,.200,0,0,,0,2,2,0,0,0,0,2,7,-0.4,+3
+4,4,2021-10-25,20-260,ORL,@,MIA,L (-17),0,25:42,4,8,.500,2,3,.667,2,4,.500,0,6,6,4,1,1,1,2,12,11.7,-12
+5,5,2021-10-27,20-262,ORL,,CHO,L (-9),0,10:26,0,2,.000,0,1,.000,0,0,,0,0,0,2,0,0,2,3,0,-3.2,-18
+6,6,2021-10-29,20-264,ORL,@,TOR,L (-1),0,5:47,1,2,.500,1,1,1.000,0,0,,0,0,0,0,0,0,2,2,3,-0.8,-9
+7,7,2021-10-30,20-265,ORL,@,DET,L (-7),0,19:13,4,7,.571,1,2,.500,2,2,1.000,1,2,3,2,0,0,0,2,11,9.6,-6
+8,8,2021-11-01,20-267,ORL,@,MIN,W (+18),0,14:32,1,5,.200,0,2,.000,1,1,1.000,0,2,2,0,0,0,1,0,3,-0.5,+4
+9,9,2021-11-03,20-269,ORL,,BOS,L (-13),0,19:18,4,8,.500,1,3,.333,3,4,.750,0,3,3,1,0,0,5,0,12,4.2,-3
+10,10,2021-11-05,20-271,ORL,,SAS,L (-13),0,20:41,4,7,.571,3,3,1.000,0,2,.000,1,1,2,3,1,2,1,1,11,11.0,-2
+11,11,2021-11-07,20-273,ORL,,UTA,W (+7),0,19:41,3,4,.750,1,1,1.000,1,2,.500,1,1,2,1,1,1,3,2,8,5.6,+14
+12,12,2021-11-10,20-276,ORL,,BRK,L (-33),0,20:08,4,8,.500,0,4,.000,1,2,.500,2,1,3,2,0,0,0,1,9,7.3,-25
+13,13,2021-11-13,20-279,ORL,,WAS,L (-12),0,24:00,3,8,.375,1,3,.333,1,2,.500,0,3,3,2,1,0,0,2,8,5.7,+8
+14,14,2021-11-15,20-281,ORL,@,ATL,L (-18),0,14:42,2,5,.400,1,2,.500,2,4,.500,0,5,5,5,1,0,2,2,7,6.7,-9
+15,15,2021-11-17,20-283,ORL,@,NYK,W (+6),0,13:33,0,1,.000,0,0,,1,2,.500,0,1,1,0,0,0,0,2,1,-0.6,-6
+16,16,2021-11-19,20-285,ORL,@,BRK,L (-2),0,9:31,3,3,1.000,1,1,1.000,0,0,,0,4,4,0,1,0,3,0,7,5.3,+1
+17,17,2021-11-20,20-286,ORL,@,MIL,L (-9),0,28:03,6,12,.500,5,9,.556,2,2,1.000,0,5,5,9,1,0,2,1,19,19.4,+15
+18,18,2021-11-22,20-288,ORL,@,MIL,L (-31),0,31:09,6,15,.400,1,5,.200,1,1,1.000,2,6,8,5,2,0,1,3,14,12.4,-3
+19,19,2021-11-24,20-290,ORL,,CHO,L (-7),0,22:27,0,7,.000,0,2,.000,0,0,,0,3,3,6,0,0,1,0,0,-0.8,-17
+20,20,2021-11-26,20-292,ORL,,CHI,L (-35),0,20:27,1,4,.250,1,2,.500,3,7,.429,0,0,0,0,0,0,2,2,6,-0.8,-32
+21,21,2021-11-27,20-293,ORL,@,CLE,L (-13),0,20:41,2,8,.250,0,3,.000,3,5,.600,0,4,4,3,0,0,0,1,7,4.3,-7
+22,22,2021-11-29,20-295,ORL,@,PHI,L (-5),0,14:20,2,4,.500,1,2,.500,2,2,1.000,0,3,3,1,1,0,4,2,7,2.8,-11
+23,23,2021-12-01,20-297,ORL,,DEN,W (+5),0,11:44,2,3,.667,0,1,.000,1,4,.250,0,4,4,2,1,0,0,0,5,6.1,-2
+24,24,2021-12-03,20-299,ORL,@,HOU,L (-2),0,15:11,2,6,.333,1,3,.333,0,0,,0,0,0,4,0,0,2,0,5,2.4,-7
+25,25,2021-12-06,20-302,ORL,@,GSW,L (-31),0,23:29,5,6,.833,1,1,1.000,5,6,.833,0,2,2,0,1,0,6,3,16,7.8,-18
+26,26,2021-12-08,20-304,ORL,@,SAC,L (-12),0,13:14,0,6,.000,0,1,.000,1,2,.500,1,2,3,2,0,0,0,1,1,-1.3,-6
+27,27,2021-12-11,20-307,ORL,@,LAC,L (-2),0,13:34,1,5,.200,0,1,.000,1,2,.500,0,2,2,2,0,0,0,1,3,1.1,-4
+28,28,2021-12-12,20-308,ORL,@,LAL,L (-12),0,14:36,2,7,.286,1,2,.500,0,0,,0,0,0,1,1,0,1,0,5,1.6,-2
+29,29,2021-12-15,20-311,ORL,,ATL,L (-12),1,27:16,4,9,.444,3,4,.750,4,5,.800,0,0,0,4,0,0,0,2,15,11.9,-6
+30,,2021-12-17,20-313,ORL,,MIA,L (-10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+31,,2021-12-18,20-314,ORL,@,BRK,W (+7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+32,,2021-12-22,20-318,ORL,@,ATL,W (+6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+33,,2021-12-23,20-319,ORL,,NOP,L (-6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+34,30,2021-12-26,20-322,ORL,@,MIA,L (-10),0,31:42,6,14,.429,2,7,.286,0,2,.000,0,1,1,5,2,1,0,0,14,12.3,-8
+35,31,2021-12-28,20-324,ORL,,MIL,L (-17),0,28:15,4,11,.364,1,6,.167,0,0,,1,2,3,4,2,1,1,1,9,8.3,-33
+36,32,2021-12-30,20-326,ORL,,MIL,L (-18),0,32:09,5,12,.417,2,5,.400,3,4,.750,0,3,3,5,0,0,1,2,15,10.8,-23
+37,33,2022-01-02,20-329,ORL,@,BOS,L (-5),0,11:31,1,3,.333,0,0,,0,0,,1,2,3,1,0,0,0,0,2,2.3,-2
+38,34,2022-01-03,20-330,ORL,@,CHI,L (-4),0,31:57,3,9,.333,0,2,.000,3,4,.750,2,6,8,3,0,0,2,5,9,4.8,-17
+39,35,2022-01-05,20-332,ORL,,PHI,L (-10),0,18:03,0,5,.000,0,3,.000,0,0,,0,1,1,3,0,0,2,3,0,-4.3,-7
+40,36,2022-01-08,20-335,ORL,@,DET,L (-5),0,15:51,2,5,.400,1,2,.500,0,0,,0,2,2,2,2,1,1,1,5,5.6,-13
+41,37,2022-01-09,20-336,ORL,,WAS,L (-2),0,18:33,2,4,.500,1,1,1.000,0,0,,0,5,5,3,2,0,0,5,5,6.6,+5
+42,38,2022-01-12,20-339,ORL,@,WAS,L (-6),0,17:11,1,4,.250,0,1,.000,0,0,,0,4,4,4,1,1,2,1,2,2.9,+2
+43,39,2022-01-14,20-341,ORL,@,CHO,W (+7),0,21:06,3,7,.429,1,4,.250,0,0,,0,3,3,2,1,0,1,1,7,5.2,+4
+44,40,2022-01-15,20-342,ORL,@,DAL,L (-16),0,23:31,3,8,.375,0,2,.000,0,0,,1,3,4,2,2,0,2,3,6,3.4,-6
+45,41,2022-01-17,20-344,ORL,,POR,L (-10),0,18:12,2,6,.333,1,1,1.000,4,6,.667,0,1,1,0,3,0,0,0,9,8.1,+8
+46,42,2022-01-19,20-346,ORL,@,PHI,L (-13),0,11:36,1,6,.167,0,1,.000,0,0,,0,3,3,2,0,0,1,0,2,-0.5,0
+47,,2022-01-21,20-348,ORL,,LAL,L (-11),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+48,,2022-01-23,20-350,ORL,,CHI,W (+19),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+49,,2022-01-26,20-353,ORL,,LAC,L (-9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+50,,2022-01-28,20-355,ORL,,DET,W (+16),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+51,,2022-01-30,20-357,ORL,,DAL,W (+2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+52,,2022-02-01,20-359,ORL,@,CHI,L (-11),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+53,,2022-02-02,20-360,ORL,@,IND,W (+1),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+54,,2022-02-05,20-363,ORL,,MEM,L (-20),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+55,,2022-02-06,20-364,ORL,,BOS,L (-33),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+56,,2022-02-08,21-001,ORL,@,POR,W (+18),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+57,,2022-02-11,21-004,ORL,@,UTA,L (-15),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+58,,2022-02-12,21-005,ORL,@,PHO,L (-27),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+59,,2022-02-14,21-007,ORL,@,DEN,L (-10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+60,,2022-02-16,21-009,ORL,,ATL,L (-21),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+61,43,2022-02-25,21-018,ORL,,HOU,W (+8),0,23:10,3,7,.429,1,2,.500,4,6,.667,0,5,5,4,0,2,2,0,11,10.2,+13
+62,44,2022-02-28,21-021,ORL,,IND,W (+16),0,17:20,5,9,.556,2,4,.500,0,0,,0,2,2,1,1,0,1,0,12,9.0,+1
+63,45,2022-03-02,21-023,ORL,,IND,L (-8),0,16:52,2,4,.500,1,1,1.000,0,0,,0,1,1,0,0,0,2,4,5,-0.3,-20
+64,46,2022-03-04,21-025,ORL,@,TOR,W (+6),0,24:55,4,11,.364,2,6,.333,1,1,1.000,0,2,2,1,0,1,0,0,11,6.9,+5
+65,47,2022-03-05,21-026,ORL,@,MEM,L (-28),1,33:31,1,7,.143,0,3,.000,2,4,.500,1,3,4,2,1,1,2,3,4,0.2,-24
+66,48,2022-03-08,21-029,ORL,,PHO,L (-3),1,23:44,2,5,.400,0,2,.000,2,2,1.000,0,3,3,3,3,0,3,1,6,5.9,-4
+67,49,2022-03-09,21-030,ORL,@,NOP,W (+6),0,28:24,0,2,.000,0,0,,2,2,1.000,0,4,4,2,0,0,1,3,2,1.0,0
+68,50,2022-03-11,21-032,ORL,,MIN,W (+8),0,21:31,2,3,.667,2,3,.667,0,0,,0,1,1,1,0,0,0,0,6,5.7,+7
+69,51,2022-03-13,21-034,ORL,,PHI,L (-2),0,27:28,4,8,.500,3,6,.500,0,2,.000,0,2,2,3,0,0,1,1,11,7.5,+4
+70,52,2022-03-15,21-036,ORL,,BRK,L (-42),1,31:25,2,8,.250,1,5,.200,1,2,.500,0,3,3,2,0,0,2,2,6,0.3,-20
+71,53,2022-03-17,21-038,ORL,,DET,L (-14),1,29:14,3,11,.273,1,6,.167,1,2,.500,0,2,2,3,0,1,0,1,8,4.1,-5
+72,54,2022-03-20,21-041,ORL,,OKC,W (+5),1,24:18,4,7,.571,0,1,.000,0,0,,1,3,4,3,1,0,3,2,8,5.6,+1
+73,55,2022-03-22,21-043,ORL,,GSW,W (+4),1,27:32,2,6,.333,1,4,.250,0,0,,0,3,3,5,3,0,0,2,5,8.2,+6
+74,56,2022-03-23,21-044,ORL,@,OKC,L (-16),1,29:44,5,11,.455,2,6,.333,2,2,1.000,1,6,7,1,1,0,2,2,14,9.7,-12
+75,57,2022-03-26,21-047,ORL,,SAC,L (-4),1,33:28,3,8,.375,1,2,.500,0,0,,1,4,5,2,0,0,1,3,7,3.7,-4
+76,58,2022-03-28,21-049,ORL,@,CLE,L (-6),1,12:53,2,2,1.000,2,2,1.000,0,0,,0,1,1,0,0,0,0,4,6,4.1,+7
+77,59,2022-03-30,21-051,ORL,@,WAS,L (-17),1,27:18,2,7,.286,1,4,.250,2,2,1.000,0,1,1,2,1,0,0,2,7,4.8,-10
+78,60,2022-04-01,21-053,ORL,,TOR,L (-13),1,27:55,3,10,.300,0,3,.000,3,4,.750,1,4,5,2,1,0,1,2,9,5.3,-20
+79,61,2022-04-03,21-055,ORL,,NYK,L (-30),1,27:39,2,11,.182,0,4,.000,3,5,.600,1,0,1,2,0,0,4,1,7,-3.0,-37
+80,62,2022-04-05,21-057,ORL,,CLE,W (+5),0,29:59,4,11,.364,0,2,.000,2,2,1.000,0,2,2,7,1,0,1,3,10,8.2,+6
+81,63,2022-04-07,21-059,ORL,@,CHO,L (-27),0,35:26,5,13,.385,1,3,.333,1,1,1.000,1,7,8,5,0,0,4,1,12,6.8,-34
+82,64,2022-04-10,21-062,ORL,,MIA,W (+14),1,33:15,8,16,.500,4,7,.571,1,1,1.000,2,4,6,5,0,0,1,2,21,17.3,+6
+1,1,2022-10-19,21-254,ORL,@,DET,L (-4),0,11:29,1,2,.500,1,1,1.000,2,2,1.000,1,3,4,2,1,0,0,0,5,8.0,+7
+2,2,2022-10-21,21-256,ORL,@,ATL,L (-10),0,16:23,1,3,.333,0,1,.000,0,0,,0,0,0,2,0,0,2,2,2,-1.1,-5
+3,3,2022-10-22,21-257,ORL,,BOS,L (-6),0,9:01,0,0,,0,0,,1,2,.500,0,0,0,0,1,0,0,1,1,1.2,-2
+4,4,2022-10-24,21-259,ORL,@,NYK,L (-13),0,7:04,0,1,.000,0,0,,0,0,,0,0,0,0,0,0,0,1,0,-1.1,-3
+5,,2022-10-26,21-261,ORL,@,CLE,L (-11),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+6,5,2022-10-28,21-263,ORL,,CHO,W (+20),0,24:37,2,7,.286,0,1,.000,5,5,1.000,1,3,4,4,2,0,1,1,9,9.9,-3
+7,6,2022-10-30,21-265,ORL,@,DAL,L (-9),0,21:19,6,9,.667,3,4,.750,0,0,,2,2,4,1,2,0,0,1,15,15.4,-6
+8,7,2022-11-01,21-267,ORL,@,OKC,L (-8),0,20:48,4,7,.571,2,4,.500,0,0,,0,2,2,1,0,1,1,3,10,6.5,-8
+9,8,2022-11-03,21-269,ORL,,GSW,W (+1),0,20:17,4,6,.667,3,5,.600,4,4,1.000,1,1,2,0,1,1,3,3,15,10.9,+6
+10,9,2022-11-05,21-271,ORL,,SAC,L (-3),0,17:09,2,6,.333,0,1,.000,1,1,1.000,1,1,2,1,0,0,1,1,5,1.9,-11
+11,,2022-11-07,21-273,ORL,,HOU,L (-7),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+12,10,2022-11-09,21-275,ORL,,DAL,W (+7),0,8:33,1,2,.500,0,1,.000,0,0,,0,0,0,2,0,1,2,0,2,1.1,-7
+13,11,2022-11-11,21-277,ORL,,PHO,W (+17),0,10:56,3,3,1.000,2,2,1.000,0,0,,0,0,0,2,1,1,1,1,8,8.8,+11
+14,12,2022-11-14,21-280,ORL,,CHO,L (-7),0,10:21,3,7,.429,1,4,.250,3,3,1.000,0,0,0,1,1,0,1,0,10,7.0,+6
+15,13,2022-11-16,21-282,ORL,,MIN,L (-18),0,10:15,2,6,.333,0,2,.000,0,0,,0,0,0,1,0,0,1,1,4,-0.1,-12
+16,,2022-11-18,21-284,ORL,@,CHI,W (+1),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+17,14,2022-11-19,21-285,ORL,@,IND,L (-1),0,25:29,5,8,.625,2,3,.667,2,4,.500,0,1,1,0,2,0,1,2,14,10.1,+1
+18,15,2022-11-21,21-287,ORL,@,IND,L (-21),0,21:12,2,7,.286,0,3,.000,2,3,.667,1,1,2,5,1,0,1,1,6,5.6,-11
+19,16,2022-11-25,21-291,ORL,,PHI,L (-8),0,28:43,4,11,.364,2,6,.333,0,0,,0,4,4,1,1,0,1,1,10,5.4,-1
+20,17,2022-11-27,21-293,ORL,,PHI,L (-30),0,25:47,3,9,.333,0,4,.000,5,5,1.000,1,2,3,3,2,0,1,1,11,9.9,-20
+21,18,2022-11-28,21-294,ORL,@,BRK,L (-7),0,20:43,1,7,.143,0,4,.000,0,0,,0,2,2,4,1,0,2,0,2,-0.1,+2
+22,19,2022-11-30,21-296,ORL,,ATL,L (-17),0,1:58,1,1,1.000,1,1,1.000,0,0,,0,0,0,0,0,0,0,0,3,2.7,0
+23,,2022-12-02,21-298,ORL,@,CLE,L (-11),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+24,20,2022-12-03,21-299,ORL,@,TOR,L (-13),0,8:15,1,2,.500,0,1,.000,2,2,1.000,0,2,2,2,0,0,0,0,4,5.0,+9
+25,21,2022-12-05,21-301,ORL,,MIL,L (-7),0,6:26,0,1,.000,0,1,.000,0,0,,1,1,2,0,0,0,0,0,0,0.3,+3
+26,,2022-12-07,21-303,ORL,,LAC,W (+5),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+27,,2022-12-09,21-305,ORL,,TOR,W (+4),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+28,,2022-12-11,21-307,ORL,,TOR,W (+12),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+29,,2022-12-14,21-310,ORL,,ATL,W (+11),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+30,22,2022-12-23,21-319,ORL,,SAS,W (+20),0,4:49,0,1,.000,0,0,,1,2,.500,0,0,0,0,0,0,0,0,1,-0.1,-3
+31,23,2022-12-27,21-323,ORL,,LAL,L (-19),0,2:26,0,1,.000,0,0,,0,0,,0,1,1,1,0,0,0,0,0,0.3,-1
+32,24,2022-12-28,21-324,ORL,@,DET,L (-20),0,2:44,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-1
+33,,2022-12-30,21-326,ORL,,WAS,L (-19),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+34,25,2023-01-04,21-331,ORL,,OKC,W (+11),0,23:05,4,7,.571,1,4,.250,3,4,.750,0,4,4,1,0,0,2,2,12,7.4,+14
+35,,2023-01-05,21-332,ORL,,MEM,L (-8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+36,,2023-01-07,21-334,ORL,@,GSW,W (+14),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+37,,2023-01-09,21-336,ORL,@,SAC,L (-25),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+38,,2023-01-10,21-337,ORL,@,POR,W (+3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+39,,2023-01-13,21-340,ORL,@,UTA,L (-4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+40,,2023-01-15,21-342,ORL,@,DEN,L (-3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+41,26,2023-01-20,21-347,ORL,,NOP,W (+13),0,0:55,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-1
+42,,2023-01-21,21-348,ORL,@,WAS,L (-20),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+43,,2023-01-23,21-350,ORL,,BOS,W (+15),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+44,,2023-01-25,21-352,ORL,,IND,W (+6),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+45,,2023-01-27,21-354,ORL,@,MIA,L (-5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+46,,2023-01-28,21-355,ORL,,CHI,L (-19),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+47,,2023-01-30,21-357,ORL,@,PHI,W (+10),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+48,,2023-02-01,21-359,ORL,@,PHI,L (-11),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+49,,2023-02-03,21-361,ORL,@,MIN,W (+7),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+50,,2023-02-05,21-363,ORL,@,CHO,W (+6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+51,,2023-02-07,22-000,ORL,,NYK,L (-4),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+52,,2023-02-09,22-002,ORL,,DEN,W (+11),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+53,,2023-02-11,22-004,ORL,,MIA,L (-4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+54,,2023-02-13,22-006,ORL,@,CHI,W (+9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+55,,2023-02-14,22-007,ORL,@,TOR,L (-10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+56,27,2023-02-25,22-018,DET,,TOR,L (-4),0,4:41,0,0,,0,0,,0,0,,0,0,0,0,1,0,0,0,0,1.0,-1
+57,28,2023-02-27,22-020,DET,@,CHO,L (-11),0,23:26,1,6,.167,0,3,.000,0,0,,0,5,5,1,1,1,1,1,2,0.7,+5
+58,29,2023-03-01,22-022,DET,,CHI,L (-2),0,7:07,0,1,.000,0,0,,0,0,,0,0,0,0,0,0,0,0,0,-0.7,-10
+59,30,2023-03-04,22-025,DET,@,CLE,L (-24),0,16:54,3,8,.375,1,4,.250,4,4,1.000,0,1,1,2,0,0,4,2,11,3.5,-17
+60,31,2023-03-06,22-027,DET,,POR,L (-6),0,19:40,4,6,.667,2,2,1.000,0,0,,1,3,4,3,5,0,2,2,10,13.3,+1
+61,32,2023-03-07,22-028,DET,,WAS,L (-2),0,17:41,3,7,.429,2,5,.400,3,4,.750,0,1,1,1,0,0,0,0,11,7.9,+2
+62,33,2023-03-09,22-030,DET,,CHO,L (-10),0,16:56,2,4,.500,1,1,1.000,3,4,.750,2,1,3,0,0,0,0,1,8,6.9,-11
+63,34,2023-03-11,22-032,DET,,IND,L (-6),0,20:22,3,6,.500,1,4,.250,1,4,.250,0,1,1,1,0,0,1,2,8,3.0,-11
+64,35,2023-03-13,22-034,DET,,IND,W (+20),0,24:09,5,8,.625,3,3,1.000,2,2,1.000,2,4,6,3,0,0,2,2,15,13.3,+8
+65,36,2023-03-14,22-035,DET,@,WAS,L (-20),1,27:19,2,7,.286,1,3,.333,0,0,,1,2,3,1,0,0,1,1,5,1.5,-17
+66,37,2023-03-16,22-037,DET,,DEN,L (-19),0,15:26,1,3,.333,0,1,.000,1,1,1.000,0,1,1,0,0,0,0,0,3,1.6,-2
+67,,2023-03-19,22-040,DET,,MIA,L (-12),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+68,38,2023-03-21,22-042,DET,@,ATL,L (-22),0,20:47,3,6,.500,2,3,.667,1,3,.333,0,0,0,1,1,0,2,2,9,4.1,-5
+69,39,2023-03-24,22-045,DET,@,TOR,L (-21),0,21:27,4,8,.500,2,6,.333,3,5,.600,0,0,0,0,0,1,1,3,13,6.7,-3
+70,40,2023-03-27,22-048,DET,,MIL,L (-9),0,14:46,1,7,.143,0,5,.000,1,2,.500,0,3,3,0,0,0,2,0,3,-3.0,-19
+71,41,2023-03-29,22-050,DET,@,OKC,L (-1),0,24:13,3,9,.333,3,6,.500,3,4,.750,1,2,3,2,0,0,2,3,12,6.0,+11
+72,42,2023-03-31,22-052,DET,@,HOU,L (-6),0,7:43,0,2,.000,0,1,.000,0,0,,0,1,1,1,2,0,0,0,0,1.6,
+73,43,2023-04-02,22-054,DET,@,ORL,L (-26),0,21:25,2,4,.500,0,2,.000,0,2,.000,0,2,2,0,0,0,1,3,4,-0.4,-16
+74,44,2023-04-04,22-056,DET,,MIA,L (-13),0,15:23,1,5,.200,0,3,.000,0,0,,0,3,3,0,0,1,0,1,2,0.1,-12
+75,45,2023-04-05,22-057,DET,,BRK,L (-15),0,34:08,9,15,.600,5,8,.625,4,4,1.000,1,4,5,2,0,1,1,4,27,21.5,-5
+76,46,2023-04-07,22-059,DET,@,IND,W (+7),1,31:59,5,11,.455,0,3,.000,0,0,,1,5,6,2,1,1,1,2,10,7.8,+2
+77,47,2023-04-09,22-061,DET,@,CHI,L (-22),1,3:20,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-9
+1,,2023-10-25,22-260,MIA,,DET,W (+1),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+2,,2023-10-27,22-262,MIA,@,BOS,L (-8),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+3,1,2023-10-28,22-263,MIA,@,MIN,L (-16),0,2:02,0,1,.000,0,0,,0,0,,0,0,0,0,0,0,0,0,0,-0.7,+7
+4,,2023-10-30,22-265,MIA,@,MIL,L (-8),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+5,,2023-11-01,22-267,MIA,,BRK,L (-4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+6,,2023-11-03,22-269,MIA,,WAS,W (+7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+7,,2023-11-06,22-272,MIA,,LAL,W (+1),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+8,,2023-11-08,22-274,MIA,@,MEM,W (+6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+9,,2023-11-11,22-277,MIA,@,ATL,W (+8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+10,,2023-11-12,22-278,MIA,@,SAS,W (+5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+11,,2023-11-14,22-280,MIA,@,CHO,W (+6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+12,,2023-11-16,22-282,MIA,,BRK,W (+7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+13,,2023-11-18,22-284,MIA,@,CHI,L (-5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+14,,2023-11-20,22-286,MIA,@,CHI,W (+18),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+15,,2023-11-22,22-288,MIA,@,CLE,W (+33),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+16,,2023-11-24,22-290,MIA,@,NYK,L (-2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+17,,2023-11-25,22-291,MIA,@,BRK,L (-15),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+18,,2023-11-28,22-294,MIA,,MIL,L (-7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+19,,2023-11-30,22-296,MIA,,IND,W (+10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+20,,2023-12-02,22-298,MIA,,IND,L (-15),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+21,,2023-12-06,22-302,MIA,@,TOR,W (+9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+22,,2023-12-08,22-304,MIA,,CLE,L (-12),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+23,,2023-12-11,22-307,MIA,@,CHO,W (+2),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+24,,2023-12-13,22-309,MIA,,CHO,W (+11),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+25,2,2023-12-14,22-310,MIA,,CHI,L (-8),0,9:27,1,1,1.000,1,1,1.000,0,0,,0,2,2,0,0,0,1,1,3,1.9,+6
+26,,2023-12-16,22-312,MIA,,CHI,W (+2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+27,,2023-12-18,22-314,MIA,,MIN,L (-4),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+28,,2023-12-20,22-316,MIA,@,ORL,W (+9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+29,,2023-12-22,22-318,MIA,,ATL,W (+9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+30,3,2023-12-25,22-321,MIA,,PHI,W (+6),0,17:26,0,4,.000,0,3,.000,0,0,,0,0,0,4,0,0,0,0,0,0.0,-9
+31,4,2023-12-28,22-324,MIA,@,GSW,W (+12),1,24:53,3,6,.500,0,2,.000,1,2,.500,2,0,2,3,0,0,1,3,7,4.9,+8
+32,5,2023-12-30,22-326,MIA,@,UTA,L (-8),1,8:06,0,1,.000,0,1,.000,0,0,,0,2,2,0,0,0,1,1,0,-1.5,-5
+33,6,2024-01-01,22-328,MIA,@,LAC,L (-17),0,11:34,0,1,.000,0,1,.000,0,0,,0,0,0,0,0,0,0,2,0,-1.5,+9
+34,7,2024-01-03,22-330,MIA,@,LAL,W (+14),0,0:39,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,0
+35,8,2024-01-05,22-332,MIA,@,PHO,L (-16),0,1:55,0,0,,0,0,,0,0,,0,0,0,1,0,0,0,1,0,0.3,+5
+36,,2024-01-08,22-335,MIA,,HOU,W (+7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+37,,2024-01-10,22-337,MIA,,OKC,L (-8),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+38,,2024-01-12,22-339,MIA,,ORL,W (+3),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+39,,2024-01-14,22-341,MIA,,CHO,W (+17),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+40,,2024-01-15,22-342,MIA,@,BRK,W (+1),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+41,,2024-01-17,22-344,MIA,@,TOR,L (-24),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+42,,2024-01-19,22-346,MIA,,ATL,L (-1),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+43,,2024-01-21,22-348,MIA,@,ORL,L (-18),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
