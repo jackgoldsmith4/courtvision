@@ -10,11 +10,12 @@ driver.implicitly_wait(2)
 lowercase_letters = list(string.ascii_lowercase)
 players = []
 for letter in lowercase_letters:
+  print(f"Scraping players beginning with {letter}...")
   driver.get("https://www.basketball-reference.com/players/" + letter)
   time.sleep(2)
   players_table = driver.find_element(By.XPATH, '//*[contains(text(), "Birth Date")]/../../..')
-  players = players_table.find_elements(By.TAG_NAME, 'tr')
-  for elem in players:
+  player_elems = players_table.find_elements(By.TAG_NAME, 'tr')
+  for elem in player_elems:
     txt = elem.text
     if 'Player' in txt:
       continue
