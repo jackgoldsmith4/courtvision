@@ -10,32 +10,31 @@ import os
 
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
-NUM_THREADS = 3
+NUM_THREADS = 7
 
 def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path):
   driver = init_web_driver()
   driver.implicitly_wait(5)
 
   url = 'https://www.basketball-reference.com/players/' + player_url_id + '/gamelog/'
-
   were_games_scraped = False
-  for year in range(int(rookie_year), int(final_year) + 1):
+
+  # find year to start
+  start_year = int(rookie_year)
+  gamelog_filenames = os.listdir('./player_game_logs')
+  if output_file_name in gamelog_filenames:
+    with open(output_file_path, 'rb') as file:
+      file.seek(-2, os.SEEK_END)  # go to the second last byte in the file
+      while file.read(1) != b'\n':  # keep stepping back until you find the newline
+        file.seek(-2, os.SEEK_CUR)
+      most_recent_year_in_file = file.readline().decode().split(',')[2].split('-')[0].astype(int)
+    # start from most recent season
+    # (some overlap may occur with most recent season in previous file version, so dupes dropped later)
+    start_year = most_recent_year_in_file + 1
+
+  for year in range(start_year, int(final_year) + 1):
     # +/- is only present in gamelogs starting in 1997
     GAMELOG_HEADER_TITLES = GAMELOG_HEADER_TITLES_NEW if year >= 1997 else GAMELOG_HEADER_TITLES_OLD
-
-    # check if this year and player have already been read (always read current season for newest games)
-    gamelog_filenames = os.listdir('./player_game_logs')
-    if output_file_name in gamelog_filenames:
-      with open(output_file_path, 'rb') as file:
-        file.seek(-2, os.SEEK_END)  # Go to the second last byte in the file
-        while file.read(1) != b'\n':  # Keep stepping back until you find the newline
-          file.seek(-2, os.SEEK_CUR)
-        most_recent_year_in_file, most_recent_month_in_file = file.readline().decode().split(',')[2].split('-')[0:2]
-        if int(most_recent_year_in_file) >= year: # and year != 2024: TODO cant add new 2024 games in old format once cleaned
-          continue
-        elif int(most_recent_year_in_file) == year - 1 and int(most_recent_month_in_file) > 9:
-          # this means the player played this specific season, but not this specific year
-          continue
 
     driver.get(url + str(year) + '#all_pgl_basic')
     time.sleep(3)
@@ -69,12 +68,16 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
     print(f"Scraped {output_file_name} {year} gamelog")
   return were_games_scraped
 
-def scrape_wrapper(players):
+def scrape_wrapper(players, only_scrape_actives=False):
   for _, row in players.iterrows():
     name = row['Name']
     br_url_id = row['Basketball-Reference URL ID']
     rookie_year = row['Rookie Year']
     final_year = row['Final Year']
+
+    # skip retired players if flag is set
+    if only_scrape_actives and final_year != 2024:
+      continue
 
     # pass over players who have played in two or fewer seasons, or who played before 1980 (when 3PT began)
     if (int(final_year) - int(rookie_year) < 2) or (int(rookie_year) < 1980):
@@ -105,28 +108,9 @@ def scrape_wrapper(players):
       # drop duplicate games in case games were scraped more than once
       player_df.drop_duplicates(inplace=True)
 
-      # rename some cols for clarity
-      player_df.rename(columns={
-        'Unnamed: 5': 'Home/Away',
-        'Unnamed: 7': 'Win/Loss',
-        'Rk': 'Game of season',
-        'G': 'Game for player',
-        'Tm': 'Team',
-        'Age': 'Age (days)'
-      }, inplace=True)
-
-      # cleanup some of the columns
-      player_df['Home/Away'].fillna('H', inplace=True)
-      player_df['Home/Away'].replace('@','A', inplace=True)
-      player_df['Date'] = pd.to_datetime(player_df['Date'])
-
-      # convert age to days
-      years, days = player_df['Age (days)'].str.split('-', expand=True).astype(int).values.T
-      player_df['Age (days)'] = player_df['Age (days)'] = years * 365 + days
-
       # drop rows in which player didn't play
-      player_df = player_df.dropna(subset=['Game for player'])
-      player_df = player_df.astype({'Game for player': 'int32'})
+      player_df = player_df.dropna(subset=['G'])
+      player_df = player_df.astype({'G': 'int32'})
 
       # output back to CSV
       player_df.to_csv(output_file_path, index=False)
