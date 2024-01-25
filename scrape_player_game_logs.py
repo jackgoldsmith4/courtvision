@@ -9,7 +9,7 @@ import os
 
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
-NUM_THREADS = 4
+NUM_THREADS = 6
 
 def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path):
   driver = init_web_driver()
@@ -53,8 +53,9 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
     patient_click(driver.find_element(By.XPATH, '//*[contains(text(), "Get table as CSV")]'))
     try:
       stats = driver.find_element(By.TAG_NAME, 'pre').text.split(GAMELOG_HEADER_TITLES)[1]
-    except:
+    except Exception as e:
       print('WARN: ' + output_file_name + ' ' + str(year) + ' logs not found DUE TO GAMELOG COLS')
+      print(e)
       continue     
 
     # write or append to the player's gamelog file
@@ -100,9 +101,8 @@ def scrape_wrapper(players):
     if were_games_scraped:
       player_df = pd.read_csv(output_file_path)
 
-      # drop duplicate games for current season
-      if final_year == 2024:
-        player_df.drop_duplicates(inplace=True)
+      # drop duplicate games in case games were scraped more than once
+      player_df.drop_duplicates(inplace=True)
 
       # rename some cols for clarity
       player_df.rename(columns={
