@@ -1,165 +1,65 @@
-Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-
-1,1,2015-10-28,21-111,BOS,,PHI,W (+17),0,1:58,0,0,,0,0,,2,2,1.000,1,1,2,1,0,0,0,1,2,3.3,0
-2,,2015-10-30,21-113,BOS,,TOR,L (-10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-3,,2015-11-01,21-115,BOS,,SAS,L (-8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-4,,2015-11-04,21-118,BOS,@,IND,L (-2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-5,2,2015-11-06,21-120,BOS,,WAS,W (+20),0,3:17,1,2,.500,0,0,,1,1,1.000,1,0,1,0,0,1,0,0,3,3.4,+1
-6,,2015-11-10,21-124,BOS,@,MIL,W (+16),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-7,,2015-11-11,21-125,BOS,,IND,L (-11),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-8,,2015-11-13,21-127,BOS,,ATL,W (+13),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-9,,2015-11-15,21-129,BOS,@,OKC,W (+15),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-10,,2015-11-16,21-130,BOS,@,HOU,W (+16),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-11,,2015-11-18,21-132,BOS,,DAL,L (-4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-12,,2015-11-20,21-134,BOS,,BRK,W (+25),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-13,,2015-11-22,21-136,BOS,@,BRK,L (-10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-14,,2015-11-24,21-138,BOS,@,ATL,L (-24),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-15,,2015-11-25,21-139,BOS,,PHI,W (+4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-16,,2015-11-27,21-141,BOS,,WAS,W (+33),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-17,,2015-11-29,21-143,BOS,@,ORL,L (-19),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-18,,2015-11-30,21-144,BOS,@,MIA,W (+10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-19,,2015-12-03,21-147,BOS,@,SAC,W (+17),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-20,,2015-12-05,21-149,BOS,@,SAS,L (-3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-21,,2015-12-07,21-151,BOS,@,NOP,W (+18),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-22,,2015-12-09,21-153,BOS,,CHI,W (+5),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-23,,2015-12-11,21-155,BOS,,GSW,L (-5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-24,,2015-12-12,21-156,BOS,@,CHO,W (+5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-25,,2015-12-15,21-159,BOS,,CLE,L (-12),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-26,,2015-12-16,21-160,BOS,@,DET,L (-3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-27,,2015-12-18,21-162,BOS,,ATL,L (-8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-28,3,2015-12-21,21-165,BOS,,MIN,W (+14),0,1:02,1,1,1.000,0,0,,0,0,,0,0,0,0,0,0,0,0,2,1.7,-1
-29,,2015-12-23,21-167,BOS,@,CHO,W (+13),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-30,,2015-12-26,21-170,BOS,@,DET,W (+6),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-31,,2015-12-27,21-171,BOS,,NYK,W (+9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-32,,2015-12-30,21-174,BOS,,LAL,L (-8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-33,,2016-01-02,21-177,BOS,,BRK,L (-3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-34,,2016-01-04,21-179,BOS,@,BRK,W (+9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-35,,2016-01-06,21-181,BOS,,DET,L (-5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-36,,2016-01-07,21-182,BOS,@,CHI,L (-9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-37,,2016-01-10,21-185,BOS,@,MEM,L (-3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-38,,2016-01-12,21-187,BOS,@,NYK,L (-6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-39,,2016-01-13,21-188,BOS,,IND,W (+9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-40,,2016-01-15,21-190,BOS,,PHO,W (+14),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-41,,2016-01-16,21-191,BOS,@,WAS,W (+2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-42,,2016-01-18,21-193,BOS,@,DAL,L (-5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-43,,2016-01-20,21-195,BOS,@,TOR,L (-6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-44,,2016-01-22,21-197,BOS,,CHI,W (+9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-45,,2016-01-24,21-199,BOS,@,PHI,W (+20),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-46,,2016-01-25,21-200,BOS,@,WAS,W (+25),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-47,,2016-01-27,21-202,BOS,,DEN,W (+8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-48,,2016-01-29,21-204,BOS,,ORL,W (+19),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-49,,2016-01-31,21-206,BOS,@,ORL,L (-5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-50,,2016-02-02,21-208,BOS,@,NYK,W (+8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-51,,2016-02-03,21-209,BOS,,DET,W (+7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-52,,2016-02-05,21-211,BOS,@,CLE,W (+1),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-53,,2016-02-07,21-213,BOS,,SAC,W (+9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-54,,2016-02-09,21-215,BOS,@,MIL,L (-1),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-55,,2016-02-10,21-216,BOS,,LAC,W (+5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-56,4,2016-02-19,21-225,BOS,@,UTA,L (-18),0,2:43,1,1,1.000,0,0,,0,0,,0,0,0,0,0,2,0,0,2,3.1,0
-57,5,2016-02-21,21-227,BOS,@,DEN,W (+20),0,2:30,1,3,.333,0,0,,0,0,,1,0,1,0,0,0,0,1,2,0.6,0
-58,6,2016-02-22,21-228,BOS,@,MIN,L (-2),0,1:47,0,1,.000,0,0,,0,0,,0,0,0,0,0,0,0,0,0,-0.7,+3
-59,,2016-02-25,21-231,BOS,,MIL,W (+5),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-60,,2016-02-27,21-233,BOS,,MIA,W (+12),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-61,7,2016-02-29,21-235,BOS,,UTA,W (+5),0,7:08,1,1,1.000,0,0,,1,2,.500,1,2,3,0,0,2,1,0,3,4.0,+7
-62,8,2016-03-02,21-237,BOS,,POR,W (+23),0,3:37,0,0,,0,0,,0,0,,0,0,0,0,0,1,0,0,0,0.7,-5
-63,,2016-03-04,21-239,BOS,,NYK,W (+1),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-64,9,2016-03-05,21-240,BOS,@,CLE,L (-17),0,1:26,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-2
-65,10,2016-03-09,21-244,BOS,,MEM,W (+20),0,1:51,0,1,.000,0,0,,0,0,,0,0,0,0,0,3,0,0,0,1.4,0
-66,11,2016-03-11,21-246,BOS,,HOU,L (-4),0,2:02,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,+3
-67,,2016-03-15,21-250,BOS,@,IND,L (-5),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-68,12,2016-03-16,21-251,BOS,,OKC,L (-21),0,8:54,2,3,.667,0,0,,1,1,1.000,1,1,2,0,0,1,0,0,5,5.4,+7
-69,13,2016-03-18,21-253,BOS,@,TOR,L (-14),0,8:37,0,2,.000,0,0,,0,2,.000,0,0,0,0,0,1,0,2,0,-2.3,+2
-70,14,2016-03-20,21-255,BOS,@,PHI,W (+15),0,0:08,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,0
-71,,2016-03-21,21-256,BOS,,ORL,W (+11),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-72,,2016-03-23,21-258,BOS,,TOR,W (+12),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-73,,2016-03-26,21-261,BOS,@,PHO,W (+3),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-74,15,2016-03-28,21-263,BOS,@,LAC,L (-24),0,6:43,1,5,.200,0,0,,0,2,.000,1,3,4,0,0,0,0,0,2,-0.3,0
-75,,2016-03-31,21-266,BOS,@,POR,L (-7),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-76,,2016-04-01,21-267,BOS,@,GSW,W (+3),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-77,,2016-04-03,21-269,BOS,@,LAL,W (+7),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
-78,,2016-04-06,21-272,BOS,,NOP,W (+7),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-79,16,2016-04-08,21-274,BOS,,MIL,W (+15),0,3:28,0,2,.000,0,0,,0,0,,0,0,0,0,0,0,0,1,0,-1.8,-9
-80,,2016-04-09,21-275,BOS,@,ATL,L (-11),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-81,,2016-04-11,21-277,BOS,,CHO,L (-14),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-82,,2016-04-13,21-279,BOS,,MIA,W (+10),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-1,,2016-10-26,22-109,BOS,,BRK,W (+5),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-2,,2016-10-27,22-110,BOS,@,CHI,L (-6),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-3,1,2016-10-29,22-112,BOS,@,CHO,W (+6),0,7:44,1,3,.333,0,0,,1,2,.500,1,1,2,1,0,0,0,0,3,2.6,-5
-4,2,2016-11-02,22-116,BOS,,CHI,W (+7),0,5:49,0,1,.000,0,0,,0,0,,0,0,0,0,0,0,1,0,0,-1.7,-2
-5,3,2016-11-03,22-117,BOS,@,CLE,L (-6),0,9:45,1,2,.500,0,0,,0,0,,0,1,1,0,0,0,0,4,2,-0.3,-8
-6,4,2016-11-06,22-120,BOS,,DEN,L (-16),0,19:04,4,4,1.000,0,0,,0,1,.000,0,2,2,1,0,0,1,2,8,5.9,+3
-7,5,2016-11-09,22-123,BOS,@,WAS,L (-25),0,7:39,1,2,.500,0,0,,0,0,,1,1,2,0,0,0,0,0,2,2.0,-9
-8,6,2016-11-11,22-125,BOS,,NYK,W (+28),0,3:20,1,2,.500,0,0,,0,0,,2,1,3,0,0,0,0,0,2,2.7,+1
-9,,2016-11-12,22-126,BOS,@,IND,W (+6),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-10,7,2016-11-14,22-128,BOS,@,NOP,L (-1),0,9:23,0,2,.000,0,0,,1,2,.500,1,3,4,1,1,0,2,2,1,-0.3,-5
-11,,2016-11-16,22-130,BOS,,DAL,W (+7),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-12,8,2016-11-18,22-132,BOS,,GSW,L (-16),0,3:05,0,1,.000,0,0,,0,0,,0,0,0,0,0,0,0,0,0,-0.7,-11
-13,,2016-11-19,22-133,BOS,@,DET,W (+2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-14,,2016-11-21,22-135,BOS,@,MIN,W (+6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-15,,2016-11-23,22-137,BOS,@,BRK,W (+19),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-16,,2016-11-25,22-139,BOS,,SAS,L (-6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-17,,2016-11-28,22-142,BOS,@,MIA,W (+8),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-18,,2016-11-30,22-144,BOS,,DET,L (-7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-19,,2016-12-02,22-146,BOS,,SAC,W (+5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-20,,2016-12-03,22-147,BOS,@,PHI,W (+1),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-21,,2016-12-05,22-149,BOS,@,HOU,L (-1),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-22,9,2016-12-07,22-151,BOS,@,ORL,W (+30),0,1:47,2,3,.667,0,0,,0,0,,3,0,3,0,0,0,0,0,4,4.8,+2
-23,,2016-12-09,22-153,BOS,,TOR,L (-7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-24,,2016-12-11,22-155,BOS,@,OKC,L (-3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-25,,2016-12-14,22-158,BOS,@,SAS,L (-7),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-26,,2016-12-16,22-160,BOS,,CHO,W (+8),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-27,,2016-12-18,22-162,BOS,@,MIA,W (+10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-28,,2016-12-20,22-164,BOS,@,MEM,W (+3),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-29,,2016-12-22,22-166,BOS,@,IND,W (+7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-30,,2016-12-23,22-167,BOS,,OKC,L (-5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-31,,2016-12-25,22-169,BOS,@,NYK,W (+5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-32,,2016-12-27,22-171,BOS,,MEM,W (+10),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-33,,2016-12-29,22-173,BOS,@,CLE,L (-6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-34,,2016-12-30,22-174,BOS,,MIA,W (+3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-35,,2017-01-03,22-178,BOS,,UTA,W (+11),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-36,,2017-01-06,22-181,BOS,,PHI,W (+4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-37,,2017-01-07,22-182,BOS,,NOP,W (+9),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-38,,2017-01-10,22-185,BOS,@,TOR,L (-8),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-39,10,2017-01-11,22-186,BOS,,WAS,W (+9),1,13:59,1,1,1.000,0,0,,2,3,.667,1,1,2,1,0,1,2,0,4,3.7,-6
-40,,2017-01-13,22-188,BOS,@,ATL,W (+2),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-41,,2017-01-16,22-191,BOS,,CHO,W (+10),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-42,11,2017-01-18,22-193,BOS,,NYK,L (-11),0,5:36,0,1,.000,0,0,,2,2,1.000,0,0,0,0,1,2,0,0,2,3.7,-1
-43,12,2017-01-21,22-196,BOS,,POR,L (-4),0,12:40,1,3,.333,0,0,,0,0,,2,1,3,1,0,0,0,1,2,2.3,-4
-44,13,2017-01-24,22-199,BOS,@,WAS,L (-15),0,6:04,0,1,.000,0,0,,0,0,,1,1,2,0,0,0,1,0,0,-0.7,+1
-45,,2017-01-25,22-200,BOS,,HOU,W (+11),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-46,14,2017-01-27,22-202,BOS,,ORL,W (+30),0,6:15,2,3,.667,0,1,.000,0,0,,0,2,2,0,0,0,0,0,4,3.3,-6
-47,,2017-01-28,22-203,BOS,@,MIL,W (+4),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-48,,2017-01-30,22-205,BOS,,DET,W (+4),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-49,,2017-02-01,22-207,BOS,,TOR,W (+5),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-50,,2017-02-03,22-209,BOS,,LAL,W (+6),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-51,,2017-02-05,22-211,BOS,,LAC,W (+5),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-52,15,2017-02-08,22-214,BOS,@,SAC,L (-16),0,2:17,0,0,,0,0,,0,0,,0,1,1,0,0,0,0,0,0,0.3,+2
-53,,2017-02-09,22-215,BOS,@,POR,W (+9),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-54,,2017-02-11,22-217,BOS,@,UTA,W (+8),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-55,16,2017-02-13,22-219,BOS,@,DAL,W (+13),0,1:06,0,0,,0,0,,0,0,,0,1,1,0,0,0,0,0,0,0.3,+1
-56,,2017-02-15,22-221,BOS,,PHI,W (+8),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-57,,2017-02-16,22-222,BOS,@,CHI,L (-1),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-58,17,2017-02-24,22-230,BOS,@,TOR,L (-10),0,0:11,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,0
-59,,2017-02-26,22-232,BOS,@,DET,W (+6),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-60,18,2017-02-27,22-233,BOS,,ATL,L (-16),0,3:24,1,2,.500,0,0,,0,0,,0,0,0,0,0,0,1,1,2,-0.4,+6
-61,,2017-03-01,22-235,BOS,,CLE,W (+4),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-62,19,2017-03-03,22-237,BOS,@,LAL,W (+20),0,2:50,0,0,,0,0,,0,0,,0,0,0,0,0,1,0,0,0,0.7,-1
-63,20,2017-03-05,22-239,BOS,@,PHO,L (-3),0,8:59,0,2,.000,0,0,,0,0,,1,2,3,2,0,1,0,2,0,1.2,+5
-64,21,2017-03-06,22-240,BOS,@,LAC,L (-14),0,2:33,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-14
-65,22,2017-03-08,22-242,BOS,@,GSW,W (+13),0,0:45,0,0,,0,0,,0,0,,0,1,1,0,0,0,0,0,0,0.3,-2
-66,23,2017-03-10,22-244,BOS,@,DEN,L (-20),0,1:58,0,0,,0,0,,1,2,.500,0,0,0,0,0,0,1,0,1,-0.4,-3
-67,,2017-03-12,22-246,BOS,,CHI,W (+20),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-68,,2017-03-15,22-249,BOS,,MIN,W (+13),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-69,,2017-03-17,22-251,BOS,@,BRK,W (+3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-70,,2017-03-19,22-253,BOS,@,PHI,L (-6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-71,,2017-03-20,22-254,BOS,,WAS,W (+8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-72,,2017-03-22,22-256,BOS,,IND,W (+9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-73,,2017-03-24,22-258,BOS,,PHO,W (+10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-74,,2017-03-26,22-260,BOS,,MIA,W (+4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-75,,2017-03-29,22-263,BOS,,MIL,L (-3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-76,,2017-03-31,22-265,BOS,,ORL,W (+1),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-77,,2017-04-02,22-267,BOS,@,NYK,W (+16),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-78,24,2017-04-05,22-270,BOS,,CLE,L (-23),0,4:43,0,1,.000,0,0,,1,2,.500,0,2,2,0,1,1,0,0,1,2.2,0
-79,25,2017-04-06,22-271,BOS,@,ATL,L (-7),0,0:02,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-2
-80,,2017-04-08,22-273,BOS,@,CHO,W (+7),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
-81,,2017-04-10,22-275,BOS,,BRK,W (+9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
-82,,2017-04-12,22-277,BOS,,MIL,W (+18),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+Game of season,Game for player,Date,Age (days),Team,Home/Away,Opp,Win/Loss,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-
+1,1,2015-10-28,7776,BOS,H,PHI,W (+17),0,1:58,0,0,,0,0,,2,2,1.000,1,1,2,1,0,0,0,1,2,3.3,0
+5,2,2015-11-06,7785,BOS,H,WAS,W (+20),0,3:17,1,2,.500,0,0,,1,1,1.000,1,0,1,0,0,1,0,0,3,3.4,+1
+28,3,2015-12-21,7830,BOS,H,MIN,W (+14),0,1:02,1,1,1.000,0,0,,0,0,,0,0,0,0,0,0,0,0,2,1.7,-1
+56,4,2016-02-19,7890,BOS,A,UTA,L (-18),0,2:43,1,1,1.000,0,0,,0,0,,0,0,0,0,0,2,0,0,2,3.1,0
+57,5,2016-02-21,7892,BOS,A,DEN,W (+20),0,2:30,1,3,.333,0,0,,0,0,,1,0,1,0,0,0,0,1,2,0.6,0
+58,6,2016-02-22,7893,BOS,A,MIN,L (-2),0,1:47,0,1,.000,0,0,,0,0,,0,0,0,0,0,0,0,0,0,-0.7,+3
+61,7,2016-02-29,7900,BOS,H,UTA,W (+5),0,7:08,1,1,1.000,0,0,,1,2,.500,1,2,3,0,0,2,1,0,3,4.0,+7
+62,8,2016-03-02,7902,BOS,H,POR,W (+23),0,3:37,0,0,,0,0,,0,0,,0,0,0,0,0,1,0,0,0,0.7,-5
+64,9,2016-03-05,7905,BOS,A,CLE,L (-17),0,1:26,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-2
+65,10,2016-03-09,7909,BOS,H,MEM,W (+20),0,1:51,0,1,.000,0,0,,0,0,,0,0,0,0,0,3,0,0,0,1.4,0
+66,11,2016-03-11,7911,BOS,H,HOU,L (-4),0,2:02,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,+3
+68,12,2016-03-16,7916,BOS,H,OKC,L (-21),0,8:54,2,3,.667,0,0,,1,1,1.000,1,1,2,0,0,1,0,0,5,5.4,+7
+69,13,2016-03-18,7918,BOS,A,TOR,L (-14),0,8:37,0,2,.000,0,0,,0,2,.000,0,0,0,0,0,1,0,2,0,-2.3,+2
+70,14,2016-03-20,7920,BOS,A,PHI,W (+15),0,0:08,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,0
+74,15,2016-03-28,7928,BOS,A,LAC,L (-24),0,6:43,1,5,.200,0,0,,0,2,.000,1,3,4,0,0,0,0,0,2,-0.3,0
+79,16,2016-04-08,7939,BOS,H,MIL,W (+15),0,3:28,0,2,.000,0,0,,0,0,,0,0,0,0,0,0,0,1,0,-1.8,-9
+3,1,2016-10-29,8142,BOS,A,CHO,W (+6),0,7:44,1,3,.333,0,0,,1,2,.500,1,1,2,1,0,0,0,0,3,2.6,-5
+4,2,2016-11-02,8146,BOS,H,CHI,W (+7),0,5:49,0,1,.000,0,0,,0,0,,0,0,0,0,0,0,1,0,0,-1.7,-2
+5,3,2016-11-03,8147,BOS,A,CLE,L (-6),0,9:45,1,2,.500,0,0,,0,0,,0,1,1,0,0,0,0,4,2,-0.3,-8
+6,4,2016-11-06,8150,BOS,H,DEN,L (-16),0,19:04,4,4,1.000,0,0,,0,1,.000,0,2,2,1,0,0,1,2,8,5.9,+3
+7,5,2016-11-09,8153,BOS,A,WAS,L (-25),0,7:39,1,2,.500,0,0,,0,0,,1,1,2,0,0,0,0,0,2,2.0,-9
+8,6,2016-11-11,8155,BOS,H,NYK,W (+28),0,3:20,1,2,.500,0,0,,0,0,,2,1,3,0,0,0,0,0,2,2.7,+1
+10,7,2016-11-14,8158,BOS,A,NOP,L (-1),0,9:23,0,2,.000,0,0,,1,2,.500,1,3,4,1,1,0,2,2,1,-0.3,-5
+12,8,2016-11-18,8162,BOS,H,GSW,L (-16),0,3:05,0,1,.000,0,0,,0,0,,0,0,0,0,0,0,0,0,0,-0.7,-11
+22,9,2016-12-07,8181,BOS,A,ORL,W (+30),0,1:47,2,3,.667,0,0,,0,0,,3,0,3,0,0,0,0,0,4,4.8,+2
+39,10,2017-01-11,8216,BOS,H,WAS,W (+9),1,13:59,1,1,1.000,0,0,,2,3,.667,1,1,2,1,0,1,2,0,4,3.7,-6
+42,11,2017-01-18,8223,BOS,H,NYK,L (-11),0,5:36,0,1,.000,0,0,,2,2,1.000,0,0,0,0,1,2,0,0,2,3.7,-1
+43,12,2017-01-21,8226,BOS,H,POR,L (-4),0,12:40,1,3,.333,0,0,,0,0,,2,1,3,1,0,0,0,1,2,2.3,-4
+44,13,2017-01-24,8229,BOS,A,WAS,L (-15),0,6:04,0,1,.000,0,0,,0,0,,1,1,2,0,0,0,1,0,0,-0.7,+1
+46,14,2017-01-27,8232,BOS,H,ORL,W (+30),0,6:15,2,3,.667,0,1,.000,0,0,,0,2,2,0,0,0,0,0,4,3.3,-6
+52,15,2017-02-08,8244,BOS,A,SAC,L (-16),0,2:17,0,0,,0,0,,0,0,,0,1,1,0,0,0,0,0,0,0.3,+2
+55,16,2017-02-13,8249,BOS,A,DAL,W (+13),0,1:06,0,0,,0,0,,0,0,,0,1,1,0,0,0,0,0,0,0.3,+1
+58,17,2017-02-24,8260,BOS,A,TOR,L (-10),0,0:11,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,0
+60,18,2017-02-27,8263,BOS,H,ATL,L (-16),0,3:24,1,2,.500,0,0,,0,0,,0,0,0,0,0,0,1,1,2,-0.4,+6
+62,19,2017-03-03,8267,BOS,A,LAL,W (+20),0,2:50,0,0,,0,0,,0,0,,0,0,0,0,0,1,0,0,0,0.7,-1
+63,20,2017-03-05,8269,BOS,A,PHO,L (-3),0,8:59,0,2,.000,0,0,,0,0,,1,2,3,2,0,1,0,2,0,1.2,+5
+64,21,2017-03-06,8270,BOS,A,LAC,L (-14),0,2:33,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-14
+65,22,2017-03-08,8272,BOS,A,GSW,W (+13),0,0:45,0,0,,0,0,,0,0,,0,1,1,0,0,0,0,0,0,0.3,-2
+66,23,2017-03-10,8274,BOS,A,DEN,L (-20),0,1:58,0,0,,0,0,,1,2,.500,0,0,0,0,0,0,1,0,1,-0.4,-3
+78,24,2017-04-05,8300,BOS,H,CLE,L (-23),0,4:43,0,1,.000,0,0,,1,2,.500,0,2,2,0,1,1,0,0,1,2.2,0
+79,25,2017-04-06,8301,BOS,A,ATL,L (-7),0,0:02,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-2
+2,1,2017-10-21,8499,MIA,H,IND,W (+4),1,13:30,4,5,.800,0,0,,0,1,.000,1,5,6,0,0,0,1,2,8,6.1,+6
+3,2,2017-10-23,8501,MIA,H,ATL,W (+11),1,14:37,1,4,.250,0,1,.000,0,0,,2,4,6,0,0,2,1,3,2,1.4,+2
+16,3,2017-11-19,8528,MIA,H,IND,L (-25),0,3:26,1,1,1.000,0,0,,2,2,1.000,1,0,1,0,0,0,0,0,4,4.4,-2
+21,4,2017-11-29,8538,MIA,A,NYK,L (-29),0,5:12,0,1,.000,0,0,,0,0,,0,4,4,0,0,0,1,0,0,-0.5,-6
+23,5,2017-12-03,8542,MIA,H,GSW,L (-28),0,6:33,0,1,.000,0,1,.000,2,2,1.000,0,1,1,0,0,1,0,0,2,2.3,+1
+26,6,2017-12-11,8550,MIA,A,MEM,W (+25),0,1:52,0,0,,0,0,,0,0,,0,1,1,0,0,0,0,0,0,0.3,+1
+28,7,2017-12-15,8554,MIA,A,CHO,W (+6),0,15:28,4,6,.667,0,1,.000,0,0,,0,7,7,1,1,0,1,2,8,7.4,+6
+29,8,2017-12-16,8555,MIA,H,LAC,W (+5),0,27:15,3,6,.500,0,1,.000,3,3,1.000,1,3,4,2,2,3,0,2,9,12.3,-3
+30,9,2017-12-18,8557,MIA,A,ATL,L (-6),0,23:50,4,7,.571,1,1,1.000,0,0,,2,8,10,1,0,1,1,4,9,8.3,-4
+31,10,2017-12-20,8559,MIA,A,BOS,W (+1),0,24:15,4,8,.500,0,1,.000,0,2,.000,2,6,8,2,0,0,3,3,8,3.6,-1
+32,11,2017-12-22,8561,MIA,H,DAL,W (+12),0,21:51,3,9,.333,0,1,.000,0,0,,1,2,3,1,0,0,1,4,6,0.3,-4
+33,12,2017-12-23,8562,MIA,H,NOP,L (-15),0,18:53,2,5,.400,0,1,.000,3,4,.750,2,4,6,2,0,0,2,5,7,3.9,-2
+34,13,2017-12-26,8565,MIA,H,ORL,W (+18),0,15:46,1,3,.333,0,1,.000,0,0,,1,2,3,0,0,0,2,3,2,-1.6,-8
+35,14,2017-12-29,8568,MIA,H,BRK,L (-24),0,19:24,2,5,.400,0,1,.000,1,2,.500,0,9,9,0,0,0,1,1,5,3.2,+1
+36,15,2017-12-30,8569,MIA,A,ORL,W (+6),0,13:01,3,5,.600,0,1,.000,0,0,,1,0,1,0,0,0,0,1,6,4.0,+3
+37,16,2018-01-03,8573,MIA,H,DET,W (+7),0,5:45,0,1,.000,0,0,,0,0,,0,0,0,0,0,0,0,0,0,-0.7,+3
+54,17,2018-02-05,8606,MIA,H,ORL,L (-2),0,5:08,0,0,,0,0,,0,0,,0,1,1,0,0,1,1,2,0,-0.8,-5
+60,18,2018-02-24,8625,MIA,H,MEM,W (+26),0,3:54,0,0,,0,0,,0,0,,0,0,0,0,0,0,0,0,0,0.0,-5
+62,19,2018-03-01,8630,MIA,H,LAL,L (-18),0,1:16,0,0,,0,0,,0,0,,1,0,1,0,0,0,0,0,0,0.7,-1
+67,20,2018-03-10,8639,MIA,H,WAS,W (+27),0,8:11,2,4,.500,0,2,.000,0,0,,1,0,1,0,2,1,1,1,4,4.0,-11
+72,21,2018-03-21,8650,MIA,H,NYK,W (+21),0,5:02,0,1,.000,0,0,,0,0,,0,1,1,0,0,0,0,0,0,-0.4,-3
+75,22,2018-03-27,8656,MIA,H,CLE,W (+19),1,22:40,3,6,.500,0,1,.000,1,2,.500,2,3,5,0,1,1,1,2,7,5.8,0
+79,23,2018-04-04,8664,MIA,A,ATL,W (+29),0,7:14,2,4,.500,1,2,.500,1,1,1.000,0,2,2,0,0,0,1,1,6,3.2,+2

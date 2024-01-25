@@ -1,3 +1,4 @@
+from selenium.common.exceptions import ElementNotInteractableException
 from selenium.webdriver.common.action_chains import ActionChains
 from utils import init_web_driver, patient_click
 from selenium.webdriver.common.by import By
@@ -9,7 +10,7 @@ import os
 
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
-NUM_THREADS = 10
+NUM_THREADS = 3
 
 def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path):
   driver = init_web_driver()
@@ -91,6 +92,8 @@ def scrape_wrapper(players):
         break
       except KeyboardInterrupt:
         raise
+      except ElementNotInteractableException:
+        continue
       except Exception as e:
         print(e)
         continue
@@ -118,13 +121,8 @@ def scrape_wrapper(players):
       player_df['Date'] = pd.to_datetime(player_df['Date'])
 
       # convert age to days
-      try:
-        years, days = player_df['Age (days)'].str.split('-', expand=True).astype(int).values.T
-        player_df['Age (days)'] = player_df['Age (days)'] = years * 365 + days
-      except:
-        print(player_name)
-        print('-------')
-        raise
+      years, days = player_df['Age (days)'].str.split('-', expand=True).astype(int).values.T
+      player_df['Age (days)'] = player_df['Age (days)'] = years * 365 + days
 
       # drop rows in which player didn't play
       player_df = player_df.dropna(subset=['Game for player'])
