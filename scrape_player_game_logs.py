@@ -13,7 +13,7 @@ NUM_THREADS = 4
 
 def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path):
   driver = init_web_driver()
-  driver.implicitly_wait(3)
+  driver.implicitly_wait(5)
 
   url = 'https://www.basketball-reference.com/players/' + player_url_id + '/gamelog/'
 
@@ -29,8 +29,11 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
         file.seek(-2, os.SEEK_END)  # Go to the second last byte in the file
         while file.read(1) != b'\n':  # Keep stepping back until you find the newline
           file.seek(-2, os.SEEK_CUR)
-        most_recent_year_in_file = int(file.readline().decode().split(',')[2].split('-')[0])
-        if most_recent_year_in_file >= year and year != 2024:
+        most_recent_year_in_file, most_recent_month_in_file = file.readline().decode().split(',')[2].split('-')[0:2]
+        if int(most_recent_year_in_file) >= year: # and year != 2024: TODO cant add new 2024 games in old format once cleaned
+          continue
+        elif int(most_recent_year_in_file) == year - 1 and int(most_recent_month_in_file) > 9:
+          # this means the player played this specific season, but not this specific year
           continue
 
     print('Building ' + output_file_name + ' (' + str(year) + ' gamelog)...')
@@ -51,7 +54,7 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
     try:
       stats = driver.find_element(By.TAG_NAME, 'pre').text.split(GAMELOG_HEADER_TITLES)[1]
     except:
-      print('WARN: ' + output_file_name + ' ' + str(year) + ' logs not found')
+      print('WARN: ' + output_file_name + ' ' + str(year) + ' logs not found DUE TO GAMELOG COLS')
       continue     
 
     # write or append to the player's gamelog file
@@ -117,8 +120,13 @@ def scrape_wrapper(players):
       player_df['Date'] = pd.to_datetime(player_df['Date'])
 
       # convert age to days
-      years, days = player_df['Age (days)'].str.split('-', expand=True).astype(int).values.T
-      player_df['Age (days)'] = player_df['Age (days)'] = years * 365 + days
+      try:
+        years, days = player_df['Age (days)'].str.split('-', expand=True).astype(int).values.T
+        player_df['Age (days)'] = player_df['Age (days)'] = years * 365 + days
+      except:
+        print(player_name)
+        print('-------')
+        raise
 
       # drop rows in which player didn't play
       player_df = player_df.dropna(subset=['Game for player'])
