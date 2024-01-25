@@ -9,7 +9,7 @@ import os
 
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
-NUM_THREADS = 6
+NUM_THREADS = 10
 
 def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path):
   driver = init_web_driver()
@@ -36,7 +36,6 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
           # this means the player played this specific season, but not this specific year
           continue
 
-    print('Building ' + output_file_name + ' (' + str(year) + ' gamelog)...')
     driver.get(url + str(year) + '#all_pgl_basic')
     time.sleep(3)
 
@@ -45,7 +44,6 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
     try:
       season_header = driver.find_element(By.XPATH, '//h2[contains(text(), "{}")]/..'.format(season_header_text))
     except:
-      print('WARN: ' + output_file_name + ' ' + str(year) + ' logs not found')
       continue
     share_export_menu = season_header.find_element(By.CLASS_NAME, 'section_heading_text')
     actions = ActionChains(driver)
@@ -58,7 +56,6 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
       continue     
 
     # write or append to the player's gamelog file
-    were_games_scraped = True
     if output_file_name not in gamelog_filenames:
       with open(output_file_path, 'w') as file:
         # always include new titles to get +/- as a column
@@ -67,6 +64,8 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
     else:
       with open(output_file_path, 'a') as file:
         file.write(stats)
+    were_games_scraped = True
+    print(f"Scraped {output_file_name} {year} gamelog")
   return were_games_scraped
 
 def scrape_wrapper(players):
