@@ -2,21 +2,26 @@ from selenium.webdriver.common.action_chains import ActionChains
 from utils import init_web_driver, patient_click
 from selenium.webdriver.common.by import By
 import pandas as pd
+import numpy as np
+import threading
 import time
 import os
 
-GAMELOG_HEADER_TITLES = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
+GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
+GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
+NUM_THREADS = 4
 
-def scrape_game_log(player_name, rookie_year, player_url_id):
+def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path):
   driver = init_web_driver()
   driver.implicitly_wait(3)
-  
-  player_name = player_name.lower().split(' ')
-  output_file_name = player_name[0] + '_' + player_name[1] + '.csv'
-  output_file_path = './player_game_logs/' + output_file_name
+
   url = 'https://www.basketball-reference.com/players/' + player_url_id + '/gamelog/'
 
-  for year in range(int(rookie_year), 2025):
+  were_games_scraped = False
+  for year in range(int(rookie_year), int(final_year) + 1):
+    # +/- is only present in gamelogs starting in 1997
+    GAMELOG_HEADER_TITLES = GAMELOG_HEADER_TITLES_NEW if year >= 1997 else GAMELOG_HEADER_TITLES_OLD
+
     # check if this year and player have already been read (always read current season for newest games)
     gamelog_filenames = os.listdir('./player_game_logs')
     if output_file_name in gamelog_filenames:
@@ -25,7 +30,7 @@ def scrape_game_log(player_name, rookie_year, player_url_id):
         while file.read(1) != b'\n':  # Keep stepping back until you find the newline
           file.seek(-2, os.SEEK_CUR)
         most_recent_year_in_file = int(file.readline().decode().split(',')[2].split('-')[0])
-        if most_recent_year_in_file >= year: # TODO add (and year != 2024) once df stuff is fixed below
+        if most_recent_year_in_file >= year and year != 2024:
           continue
 
     print('Building ' + output_file_name + ' (' + str(year) + ' gamelog)...')
@@ -49,35 +54,89 @@ def scrape_game_log(player_name, rookie_year, player_url_id):
       print('WARN: ' + output_file_name + ' ' + str(year) + ' logs not found')
       continue     
 
-    # if a file doesn't exist with this player's name, create one and populate with col headers and this season
+    # write or append to the player's gamelog file
+    were_games_scraped = True
     if output_file_name not in gamelog_filenames:
       with open(output_file_path, 'w') as file:
-        file.write(GAMELOG_HEADER_TITLES)
+        # always include new titles to get +/- as a column
+        file.write(GAMELOG_HEADER_TITLES_NEW)
         file.write(stats)
     else:
       with open(output_file_path, 'a') as file:
         file.write(stats)
+  return were_games_scraped
 
-    # # drop duplicate games for current season
-    # # TODO need to also name cols (home/away) and drop stuff (e.g. game/rk #) here
-    # if year == 2024:
-    #   df = pd.read_csv(output_file_path)
-    #   df.drop_duplicates(inplace=True)
-    #   df.to_csv(output_file_path, index=False)
+def scrape_wrapper(players):
+  for _, row in players.iterrows():
+    name = row['Name']
+    br_url_id = row['Basketball-Reference URL ID']
+    rookie_year = row['Rookie Year']
+    final_year = row['Final Year']
 
-active_players = pd.read_csv('active_players.csv')
-for index, row in active_players.iterrows():
-  name = row['Name']
-  rookie_year = row['Rookie Year']
-  br_url_id = row['Basketball-Reference URL ID']
-
-  # continually scrape until entire file has been built
-  while True:
-    try:
-      scrape_game_log(name, rookie_year, br_url_id)
-      break
-    except KeyboardInterrupt:
-      raise
-    except Exception as e:
-      print(e)
+    # pass over players who have played in two or fewer seasons, or who played before 1980 (when 3PT began)
+    if (int(final_year) - int(rookie_year) < 2) or (int(rookie_year) < 1980):
       continue
+
+    player_name = name.lower().replace('.', '').split(' ')
+    output_file_name = '_'.join(player_name) + '.csv'
+    output_file_path = './player_game_logs/' + output_file_name
+    were_games_scraped = False
+
+    # continually scrape until entire file has been built
+    while True:
+      try:
+        were_games_scraped = scrape_game_log(br_url_id, rookie_year, final_year, output_file_name, output_file_path)
+        break
+      except KeyboardInterrupt:
+        raise
+      except Exception as e:
+        print(e)
+        continue
+    
+    # after reading, clean the data if any games were scraped
+    if were_games_scraped:
+      player_df = pd.read_csv(output_file_path)
+
+      # drop duplicate games for current season
+      if final_year == 2024:
+        player_df.drop_duplicates(inplace=True)
+
+      # rename some cols for clarity
+      player_df.rename(columns={
+        'Unnamed: 5': 'Home/Away',
+        'Unnamed: 7': 'Win/Loss',
+        'Rk': 'Game of season',
+        'G': 'Game for player',
+        'Tm': 'Team',
+        'Age': 'Age (days)'
+      }, inplace=True)
+
+      # cleanup some of the columns
+      player_df['Home/Away'].fillna('H', inplace=True)
+      player_df['Home/Away'].replace('@','A', inplace=True)
+      player_df['Date'] = pd.to_datetime(player_df['Date'])
+
+      # convert age to days
+      years, days = player_df['Age (days)'].str.split('-', expand=True).astype(int).values.T
+      player_df['Age (days)'] = player_df['Age (days)'] = years * 365 + days
+
+      # drop rows in which player didn't play
+      player_df = player_df.dropna(subset=['Game for player'])
+      player_df = player_df.astype({'Game for player': 'int32'})
+
+      # output back to CSV
+      player_df.to_csv(output_file_path, index=False)
+
+######## SCRIPT: run scrape function on all NBA players
+players = pd.read_csv('nba_players.csv')
+players_split = np.array_split(players, NUM_THREADS)
+
+threads = []
+for i in range(NUM_THREADS):
+  thread = threading.Thread(target=scrape_wrapper, args=(players_split[i],))
+  threads.append(thread)
+
+for thread in threads:
+  thread.start()
+for thread in threads:
+  thread.join()
