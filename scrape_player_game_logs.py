@@ -10,7 +10,7 @@ import os
 
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
-NUM_THREADS = 7
+NUM_THREADS = 8
 
 def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path):
   driver = init_web_driver()
@@ -27,7 +27,7 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
       file.seek(-2, os.SEEK_END)  # go to the second last byte in the file
       while file.read(1) != b'\n':  # keep stepping back until you find the newline
         file.seek(-2, os.SEEK_CUR)
-      most_recent_year_in_file = file.readline().decode().split(',')[2].split('-')[0].astype(int)
+      most_recent_year_in_file = int(file.readline().decode().split(',')[2].split('-')[0])
     # start from most recent season
     # (some overlap may occur with most recent season in previous file version, so dupes dropped later)
     start_year = most_recent_year_in_file + 1
@@ -56,7 +56,7 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
       continue     
 
     # write or append to the player's gamelog file
-    if output_file_name not in gamelog_filenames:
+    if output_file_name not in gamelog_filenames and not were_games_scraped:
       with open(output_file_path, 'w') as file:
         # always include new titles to get +/- as a column
         file.write(GAMELOG_HEADER_TITLES_NEW)
