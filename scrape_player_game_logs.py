@@ -12,7 +12,7 @@ GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
 NUM_THREADS = 4
 
-def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path):
+def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path, only_scrape_actives):
   driver = init_web_driver()
   driver.implicitly_wait(5)
 
@@ -27,13 +27,13 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
       file.seek(-2, os.SEEK_END)  # go to the second last byte in the file
       while file.read(1) != b'\n':  # keep stepping back until you find the newline
         file.seek(-2, os.SEEK_CUR)
-      most_recent_year_in_file = int(file.readline().decode().split(',')[2].split('-')[0])
-      most_recent_month_in_file = int(file.readline().decode().split(',')[2].split('-')[0])
-    # start from most recent season
-    # (some overlap may occur with most recent season in previous file version, so dupes dropped later)
-    start_year = most_recent_year_in_file + 1 if most_recent_year_in_file < 2024 else 2024
-    # skip players whos last season isn't in the final year (no new games to scrape)
-    if start_year == final_year and most_recent_month_in_file > 9:
+      most_recent_year_in_file, most_recent_month_in_file = file.readline().decode().split(',')[2].split('-')[0:2]
+    # start from most recent season, or 2024 to get most recent games for active players
+    start_year = int(most_recent_year_in_file) + 1
+    if only_scrape_actives and start_year > 2024:
+      start_year = 2024
+    # skip players whose last season isn't in the final year (no new games to scrape)
+    if start_year == final_year and int(most_recent_month_in_file) > 9:
       return were_games_scraped
 
   for year in range(start_year, int(final_year) + 1):
@@ -95,7 +95,7 @@ def scrape_wrapper(players, only_scrape_actives=False):
     # continually scrape until entire file has been built
     while True:
       try:
-        were_games_scraped = scrape_game_log(br_url_id, rookie_year, final_year, output_file_name, output_file_path)
+        were_games_scraped = scrape_game_log(br_url_id, rookie_year, final_year, output_file_name, output_file_path, only_scrape_actives)
         break
       except KeyboardInterrupt:
         raise
