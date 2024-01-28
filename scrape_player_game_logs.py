@@ -55,7 +55,7 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
     patient_click(driver.find_element(By.XPATH, '//*[contains(text(), "Get table as CSV")]'))
     try:
       stats = driver.find_element(By.TAG_NAME, 'pre').text.split(GAMELOG_HEADER_TITLES)[1]
-    except Exception:
+    except:
       print('WARN: ' + output_file_name + ' ' + str(year) + ' logs not found DUE TO GAMELOG COLS')
       continue     
 
@@ -102,6 +102,7 @@ def scrape_wrapper(players, only_scrape_actives=False):
       except ElementNotInteractableException:
         continue
       except Exception as e:
+        print(player_name)
         print(e)
         continue
     
