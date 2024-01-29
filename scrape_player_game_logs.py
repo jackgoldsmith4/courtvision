@@ -3,18 +3,14 @@ from selenium.webdriver.common.action_chains import ActionChains
 from utils import init_web_driver, patient_click, thread_func
 from selenium.webdriver.common.by import By
 import pandas as pd
-import numpy as np
 import time
 import os
 
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
-NUM_THREADS = 6
+NUM_THREADS = 30
 
 def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path, only_scrape_actives):
-  driver = init_web_driver()
-  driver.implicitly_wait(5)
-
   url = 'https://www.basketball-reference.com/players/' + player_url_id + '/gamelog/'
   were_games_scraped = False
 
@@ -27,18 +23,18 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
       while file.read(1) != b'\n':  # keep stepping back until you find the newline
         file.seek(-2, os.SEEK_CUR)
       most_recent_year_in_file, most_recent_month_in_file = file.readline().decode().split(',')[2].split('-')[0:2]
-    # start from most recent season, or 2024 to get most recent games for active players
-    start_year = int(most_recent_year_in_file) + 1
+    # start from most recent season
+    start_year = int(most_recent_year_in_file) + 1 if int(most_recent_month_in_file) < 10 else int(most_recent_year_in_file) + 2
+    # catch most recent season for active players no matter what
     if only_scrape_actives and start_year > 2024:
       start_year = 2024
-    # skip players whose last season isn't in the final year (no new games to scrape)
-    if start_year == final_year and int(most_recent_month_in_file) > 9:
-      return were_games_scraped
 
   for year in range(start_year, int(final_year) + 1):
     # +/- is only present in gamelogs starting in 1997
     GAMELOG_HEADER_TITLES = GAMELOG_HEADER_TITLES_NEW if year >= 1997 else GAMELOG_HEADER_TITLES_OLD
 
+    driver = init_web_driver()
+    driver.implicitly_wait(5)
     driver.get(url + str(year) + '#all_pgl_basic')
     time.sleep(3)
 
@@ -47,6 +43,7 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
     try:
       season_header = driver.find_element(By.XPATH, '//h2[contains(text(), "{}")]/..'.format(season_header_text))
     except:
+      driver.quit()
       continue
     share_export_menu = season_header.find_element(By.CLASS_NAME, 'section_heading_text')
     actions = ActionChains(driver)
@@ -56,7 +53,8 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
       stats = driver.find_element(By.TAG_NAME, 'pre').text.split(GAMELOG_HEADER_TITLES)[1]
     except:
       print('WARN: ' + output_file_name + ' ' + str(year) + ' logs not found DUE TO GAMELOG COLS')
-      continue     
+      driver.quit()
+      continue
 
     # write or append to the player's gamelog file
     if output_file_name not in gamelog_filenames and not were_games_scraped:
@@ -69,6 +67,7 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
         file.write(stats)
     were_games_scraped = True
     print(f"Scraped {output_file_name} {year} gamelog")
+    driver.quit()
   return were_games_scraped
 
 def scrape_wrapper(players, only_scrape_actives=False):
@@ -118,6 +117,7 @@ def scrape_wrapper(players, only_scrape_actives=False):
 
       # output back to CSV
       player_df.to_csv(output_file_path, index=False)
+  print(f"---------PROCESS COMPLETE-----------")
 
 ######## SCRIPT: run scrape function on all NBA players
 thread_func(NUM_THREADS, scrape_wrapper, pd.read_csv('nba_players.csv'))
