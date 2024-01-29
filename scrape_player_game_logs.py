@@ -1,16 +1,15 @@
 from selenium.common.exceptions import ElementNotInteractableException
 from selenium.webdriver.common.action_chains import ActionChains
-from utils import init_web_driver, patient_click
+from utils import init_web_driver, patient_click, thread_func
 from selenium.webdriver.common.by import By
 import pandas as pd
 import numpy as np
-import threading
 import time
 import os
 
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
-NUM_THREADS = 4
+NUM_THREADS = 6
 
 def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path, only_scrape_actives):
   driver = init_web_driver()
@@ -83,8 +82,8 @@ def scrape_wrapper(players, only_scrape_actives=False):
     if only_scrape_actives and final_year != 2024:
       continue
 
-    # pass over players who have played in two or fewer seasons, or who played before 1980 (when 3PT began)
-    if (int(final_year) - int(rookie_year) < 2) or (int(rookie_year) < 1980):
+    # pass over players who have played in three or fewer seasons, or who played before 1980 (when 3PT began)
+    if (int(final_year) - int(rookie_year) < 3) or (int(rookie_year) < 1980):
       continue
 
     player_name = name.lower().replace('.', '').split(' ')
@@ -121,15 +120,4 @@ def scrape_wrapper(players, only_scrape_actives=False):
       player_df.to_csv(output_file_path, index=False)
 
 ######## SCRIPT: run scrape function on all NBA players
-players = pd.read_csv('nba_players.csv')
-players_split = np.array_split(players, NUM_THREADS)
-
-threads = []
-for i in range(NUM_THREADS):
-  thread = threading.Thread(target=scrape_wrapper, args=(players_split[i],))
-  threads.append(thread)
-
-for thread in threads:
-  thread.start()
-for thread in threads:
-  thread.join()
+thread_func(NUM_THREADS, scrape_wrapper, pd.read_csv('nba_players.csv'))

@@ -1,0 +1,477 @@
+Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-
+1,1,2008-10-29,19-309,LAC,,LAL,L (-38),0,13:50,0,4,.000,0,1,.000,2,2,1.000,0,1,1,2,0,0,1,1,2,-0.5,-19
+2,2,2008-10-31,19-311,LAC,,DEN,L (-10),0,2:09,1,1,1.000,0,0,,0,0,,0,0,0,0,0,0,0,1,2,1.3,-2
+3,3,2008-11-01,19-312,LAC,@,UTA,L (-22),0,3:41,1,1,1.000,1,1,1.000,1,2,.500,0,0,0,0,0,0,1,0,4,2.3,+4
+4,4,2008-11-03,19-314,LAC,,UTA,L (-16),0,3:00,0,1,.000,0,1,.000,2,2,1.000,0,0,0,0,0,0,0,0,2,1.3,+1
+5,5,2008-11-05,19-316,LAC,@,LAL,L (-18),0,4:11,0,1,.000,0,0,,0,0,,0,0,0,0,0,0,2,0,0,-2.7,-3
+6,6,2008-11-07,19-318,LAC,,HOU,L (-9),0,17:01,2,5,.400,1,2,.500,2,2,1.000,0,1,1,1,1,0,3,1,7,2.9,-2
+7,7,2008-11-09,19-320,LAC,,DAL,W (+11),0,29:35,4,8,.500,3,4,.750,0,0,,0,1,1,2,2,0,1,0,11,9.7,+5
+8,8,2008-11-12,19-323,LAC,,SAC,L (-5),0,13:28,0,1,.000,0,1,.000,0,0,,0,1,1,4,1,0,0,0,0,3.4,+4
+9,9,2008-11-15,19-326,LAC,,GSW,L (-18),0,19:29,2,7,.286,1,3,.333,2,2,1.000,3,2,5,2,2,1,0,1,7,9.3,-15
+10,10,2008-11-17,19-328,LAC,,SAS,L (-3),0,13:34,1,3,.333,0,1,.000,2,2,1.000,0,0,0,1,0,1,1,0,4,2.7,+1
+11,11,2008-11-19,19-330,LAC,@,OKC,W (+20),0,5:30,1,4,.250,0,2,.000,1,1,1.000,0,2,2,1,0,0,1,2,3,0.1,-4
+12,12,2008-11-21,19-332,LAC,@,PHI,L (-1),0,29:29,1,5,.200,1,3,.333,5,6,.833,1,1,2,2,2,0,2,3,8,5.7,+9
+13,13,2008-11-22,19-333,LAC,@,NJN,L (-17),0,21:37,2,5,.400,1,3,.333,4,6,.667,0,0,0,2,1,0,3,3,9,3.7,-2
+14,14,2008-11-24,19-335,LAC,,NOH,L (-12),1,36:12,9,18,.500,4,8,.500,3,4,.750,0,1,1,3,4,1,2,2,25,19.9,-8
+15,15,2008-11-26,19-337,LAC,,DEN,L (-1),1,41:44,8,14,.571,4,9,.444,4,4,1.000,2,3,5,4,4,2,3,3,24,23.7,-14
+16,16,2008-11-29,19-340,LAC,,MIA,W (+1),1,29:34,2,7,.286,1,2,.500,0,1,.000,0,1,1,2,1,0,2,4,5,-0.4,-1
+17,17,2008-12-02,19-343,LAC,@,DAL,L (-2),1,36:06,5,13,.385,2,5,.400,1,2,.500,1,1,2,3,2,3,0,3,13,11.5,-1
+18,18,2008-12-03,19-344,LAC,@,HOU,L (-7),1,30:33,4,7,.571,2,4,.500,0,0,,0,3,3,3,1,0,1,2,10,8.9,+3
+19,19,2008-12-05,19-346,LAC,@,MEM,L (-12),1,38:58,2,6,.333,0,3,.000,3,4,.750,0,1,1,1,1,1,2,1,7,3.5,-8
+20,20,2008-12-06,19-347,LAC,@,MIN,W (+23),1,30:14,2,7,.286,0,3,.000,4,4,1.000,1,3,4,1,0,2,2,0,8,5.6,+14
+21,21,2008-12-08,19-349,LAC,,ORL,L (-7),1,37:33,4,12,.333,1,5,.200,0,0,,0,4,4,2,0,1,0,0,9,5.5,-3
+22,22,2008-12-12,19-353,LAC,@,POR,W (+8),1,45:48,6,9,.667,3,6,.500,2,3,.667,1,4,5,5,1,0,0,3,17,17.9,+2
+23,23,2008-12-13,19-354,LAC,,HOU,W (+13),1,36:42,5,7,.714,0,2,.000,0,0,,1,6,7,1,1,1,1,3,10,9.8,+9
+24,24,2008-12-16,19-357,LAC,@,OKC,W (+10),1,41:02,7,11,.636,3,6,.500,5,7,.714,0,1,1,2,2,0,1,4,22,17.4,+18
+25,25,2008-12-17,19-358,LAC,@,CHI,L (-6),1,47:07,5,9,.556,2,6,.333,5,6,.833,0,4,4,0,1,0,3,6,17,9.1,+2
+26,26,2008-12-19,19-360,LAC,@,IND,W (+8),1,50:23,5,13,.385,1,6,.167,4,5,.800,1,4,5,2,1,0,3,3,15,7.6,+8
+27,27,2008-12-20,19-361,LAC,@,MIL,L (-34),1,25:54,1,6,.167,0,1,.000,2,2,1.000,0,2,2,2,0,0,4,4,4,-3.4,-18
+28,28,2008-12-22,19-363,LAC,,TOR,L (-22),1,45:05,6,14,.429,3,4,.750,4,4,1.000,0,4,4,1,0,0,2,0,19,11.5,-25
+29,29,2008-12-28,20-003,LAC,,DAL,L (-22),1,40:58,5,12,.417,0,3,.000,2,4,.500,1,3,4,3,1,0,2,2,12,6.7,-20
+30,30,2008-12-30,20-005,LAC,@,SAC,L (-2),1,38:20,9,14,.643,4,6,.667,2,3,.667,1,1,2,0,2,0,1,4,24,17.8,+10
+31,31,2008-12-31,20-006,LAC,,PHI,L (-8),1,42:50,7,16,.438,1,4,.250,6,6,1.000,2,2,4,1,1,0,2,4,21,12.7,-7
+32,32,2009-01-02,20-008,LAC,@,PHO,L (-8),1,40:51,7,14,.500,2,5,.400,5,5,1.000,0,2,2,1,3,1,3,4,21,14.4,-10
+33,33,2009-01-04,20-010,LAC,,DET,L (-1),1,44:07,9,21,.429,1,3,.333,12,12,1.000,0,2,2,3,1,0,0,2,31,22.8,+3
+34,34,2009-01-06,20-012,LAC,@,DAL,L (-5),1,45:50,9,18,.500,1,4,.250,13,15,.867,1,2,3,6,0,0,5,6,32,20.3,-5
+35,35,2009-01-08,20-014,LAC,@,SAS,L (-22),1,39:41,7,17,.412,2,5,.400,5,6,.833,0,0,0,3,1,1,1,2,21,13.5,-24
+36,36,2009-01-09,20-015,LAC,@,NOH,L (-27),1,35:40,6,13,.462,1,3,.333,2,3,.667,0,1,1,4,0,0,3,3,15,6.8,-21
+37,37,2009-01-11,20-017,LAC,,PHO,L (-6),1,39:51,2,14,.143,0,7,.000,10,10,1.000,0,2,2,6,0,2,6,4,14,3.6,-14
+38,38,2009-01-14,20-020,LAC,,ATL,L (-17),1,41:24,6,15,.400,1,4,.250,5,6,.833,0,2,2,3,0,1,3,3,18,8.7,-17
+39,39,2009-01-17,20-023,LAC,,MIL,W (+9),1,41:03,4,13,.308,2,5,.400,4,4,1.000,2,6,8,2,4,1,1,1,14,14.4,+6
+40,40,2009-01-19,20-025,LAC,,MIN,L (-8),1,42:19,10,19,.526,3,8,.375,2,2,1.000,2,2,4,3,0,1,2,2,25,17.7,-11
+41,41,2009-01-21,20-027,LAC,,LAL,L (-11),1,40:51,5,15,.333,2,8,.250,4,4,1.000,0,1,1,6,2,0,3,2,16,10.2,-9
+42,42,2009-01-23,20-029,LAC,,OKC,W (+3),1,43:37,12,19,.632,5,7,.714,12,14,.857,0,2,2,4,1,0,2,4,41,32.5,0
+43,43,2009-01-25,20-031,LAC,@,GSW,L (-15),1,39:05,6,17,.353,2,4,.500,7,8,.875,1,1,2,5,1,0,3,1,21,13.2,-5
+44,44,2009-01-26,20-032,LAC,,POR,L (-25),1,41:01,4,11,.364,0,4,.000,3,3,1.000,0,0,0,7,0,0,3,5,11,4.8,-20
+45,45,2009-01-28,20-034,LAC,,CHI,L (-20),1,40:48,6,16,.375,3,5,.600,4,5,.800,2,2,4,7,1,0,6,2,19,10.9,-17
+46,46,2009-01-30,20-036,LAC,@,CLE,L (-17),1,42:49,9,19,.474,5,8,.625,4,5,.800,1,6,7,2,2,1,1,1,27,22.1,-15
+47,47,2009-01-31,20-037,LAC,@,WAS,L (-12),1,38:20,8,15,.533,3,7,.429,6,6,1.000,1,3,4,4,0,0,3,5,25,17.1,0
+48,48,2009-02-02,20-039,LAC,@,MIA,L (-24),1,30:57,3,10,.300,2,5,.400,4,4,1.000,0,3,3,2,1,0,3,5,12,4.5,-13
+49,49,2009-02-04,20-041,LAC,@,ORL,L (-29),1,34:49,4,10,.400,0,5,.000,6,6,1.000,0,1,1,2,1,0,0,1,14,10.9,-27
+50,50,2009-02-06,20-043,LAC,@,MEM,W (+21),1,38:11,6,10,.600,3,5,.600,8,8,1.000,1,0,1,4,2,0,2,2,23,21.1,+30
+51,51,2009-02-07,20-044,LAC,@,ATL,W (+24),1,32:55,5,10,.500,1,3,.333,0,0,,0,2,2,3,0,0,0,3,11,7.5,+5
+52,52,2009-02-09,20-046,LAC,@,CHA,L (-21),1,40:22,7,13,.538,0,2,.000,3,5,.600,0,2,2,2,1,1,3,2,17,9.8,-20
+53,53,2009-02-11,20-048,LAC,,NYK,W (+4),1,43:15,10,16,.625,4,8,.500,6,8,.750,0,3,3,5,0,2,3,2,30,24.0,+9
+54,54,2009-02-17,20-054,LAC,@,PHO,L (-40),1,35:52,8,16,.500,3,5,.600,5,6,.833,0,0,0,2,1,1,3,2,24,14.9,-45
+55,55,2009-02-18,20-055,LAC,,PHO,L (-23),1,31:27,5,12,.417,2,3,.667,11,13,.846,1,4,5,6,1,0,1,4,23,20.3,-20
+56,56,2009-02-22,20-059,LAC,@,POR,L (-29),1,37:59,6,15,.400,1,5,.200,8,8,1.000,1,3,4,2,1,0,2,2,21,14.1,-22
+57,57,2009-02-23,20-060,LAC,,GSW,W (+13),1,40:18,9,17,.529,6,7,.857,3,4,.750,3,4,7,5,2,1,5,3,27,21.6,+15
+58,58,2009-02-25,20-062,LAC,,BOS,W (+2),1,21:02,1,7,.143,0,5,.000,2,3,.667,1,0,1,2,0,0,0,1,4,0.8,+4
+59,,2009-02-27,20-064,LAC,@,SAC,L (-12),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+60,,2009-02-28,20-065,LAC,,CHA,L (-5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+61,,2009-03-02,20-067,LAC,,SAS,L (-28),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+62,,2009-03-04,20-069,LAC,,MEM,L (-23),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+63,59,2009-03-07,20-072,LAC,,IND,L (-1),1,45:21,12,18,.667,5,6,.833,6,8,.750,0,2,2,6,2,1,2,0,35,31.9,+3
+64,60,2009-03-10,20-075,LAC,,CLE,L (-4),1,39:21,4,10,.400,0,4,.000,6,6,1.000,0,5,5,3,2,1,3,2,14,11.1,-5
+65,61,2009-03-14,20-079,LAC,@,DEN,L (-13),1,35:45,6,12,.500,2,4,.500,3,6,.500,0,2,2,3,2,1,2,5,17,11.2,-6
+66,62,2009-03-15,20-080,LAC,,NJN,W (+2),1,35:55,6,11,.545,0,2,.000,5,6,.833,1,1,2,3,0,0,1,1,17,13.0,+4
+67,63,2009-03-17,20-082,LAC,@,GSW,L (-7),1,31:49,1,8,.125,0,2,.000,8,8,1.000,1,1,2,3,0,0,3,6,10,2.5,-7
+68,64,2009-03-18,20-083,LAC,,WAS,W (+15),1,40:41,9,17,.529,4,8,.500,4,5,.800,0,1,1,6,3,1,1,1,26,24.1,+15
+69,65,2009-03-20,20-085,LAC,@,DET,L (-18),1,34:05,7,9,.778,2,4,.500,6,6,1.000,0,2,2,1,0,1,3,0,22,17.5,-21
+70,66,2009-03-22,20-087,LAC,@,TOR,L (-24),1,38:40,3,10,.300,0,3,.000,5,7,.714,0,2,2,2,1,2,3,0,11,5.8,-18
+71,67,2009-03-23,20-088,LAC,@,BOS,L (-13),1,28:54,3,12,.250,0,4,.000,2,3,.667,0,1,1,0,2,2,5,2,8,-1.7,-19
+72,68,2009-03-25,20-090,LAC,@,NYK,W (+5),1,44:26,6,16,.375,3,5,.600,4,5,.800,3,3,6,4,2,0,3,2,19,13.8,+6
+73,69,2009-03-27,20-092,LAC,@,SAS,L (-13),1,32:12,5,12,.417,4,6,.667,4,4,1.000,0,1,1,4,0,0,2,3,18,11.5,-22
+74,70,2009-03-28,20-093,LAC,@,HOU,L (-17),1,35:51,7,16,.438,1,4,.250,2,2,1.000,0,1,1,2,1,0,3,1,17,7.9,-13
+75,71,2009-04-01,20-097,LAC,,NOH,L (-6),1,41:14,10,18,.556,4,9,.444,1,2,.500,1,2,3,4,0,0,4,4,25,14.5,-9
+76,72,2009-04-04,20-100,LAC,@,DEN,L (-16),1,35:23,1,10,.100,0,3,.000,5,6,.833,1,0,1,2,0,0,3,2,7,-1.7,-16
+77,73,2009-04-05,20-101,LAC,@,LAL,L (-3),1,40:36,9,22,.409,2,8,.250,4,4,1.000,3,5,8,4,0,0,3,3,24,14.4,+8
+78,74,2009-04-07,20-103,LAC,,MIN,L (-10),1,38:06,10,17,.588,5,8,.625,3,4,.750,1,3,4,3,1,0,0,0,28,24.4,-8
+79,75,2009-04-10,20-106,LAC,,SAC,W (+31),1,34:20,8,11,.727,2,3,.667,2,2,1.000,0,4,4,4,2,0,2,0,20,19.5,+33
+80,76,2009-04-11,20-107,LAC,,POR,L (-15),1,46:06,8,14,.571,0,2,.000,2,2,1.000,1,4,5,3,0,0,1,4,18,12.8,-18
+81,77,2009-04-13,20-109,LAC,@,UTA,L (-21),1,37:52,5,10,.500,1,3,.333,5,7,.714,0,0,0,3,1,0,3,1,16,9.9,-17
+82,78,2009-04-15,20-111,LAC,,OKC,L (-41),1,44:02,10,15,.667,2,4,.500,0,0,,1,3,4,1,1,0,4,1,22,14.4,-42
+1,1,2009-10-27,20-306,LAC,@,LAL,L (-7),1,32:39,7,14,.500,2,5,.400,5,6,.833,0,2,2,4,2,1,3,4,21,15.1,+5
+2,2,2009-10-28,20-307,LAC,,PHO,L (-2),1,40:55,6,13,.462,1,3,.333,3,7,.429,2,3,5,6,1,0,2,1,16,12.8,+5
+3,3,2009-10-30,20-309,LAC,@,UTA,L (-13),1,40:00,8,15,.533,4,7,.571,2,3,.667,0,4,4,3,2,0,1,2,22,17.8,-9
+4,4,2009-10-31,20-310,LAC,,DAL,L (-9),1,40:24,5,11,.455,3,6,.500,3,3,1.000,0,4,4,3,0,0,1,4,16,11.0,+1
+5,5,2009-11-02,20-312,LAC,,MIN,W (+3),1,37:36,6,12,.500,2,5,.400,3,3,1.000,1,2,3,3,3,1,1,0,17,17.1,+2
+6,6,2009-11-06,20-316,LAC,@,GSW,W (+28),1,35:58,8,12,.667,3,5,.600,6,10,.600,0,3,3,3,1,0,2,3,25,19.0,+29
+7,7,2009-11-07,20-317,LAC,,MEM,W (+3),1,41:27,5,12,.417,3,8,.375,2,2,1.000,0,2,2,6,3,0,4,1,15,12.0,+5
+8,,2009-11-09,20-319,LAC,,NOH,L (-28),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+9,,2009-11-11,20-321,LAC,,OKC,L (-4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+10,,2009-11-13,20-323,LAC,,TOR,L (-15),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+11,,2009-11-15,20-325,LAC,@,OKC,W (+8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+12,,2009-11-17,20-327,LAC,@,NOH,L (-8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+13,,2009-11-18,20-328,LAC,@,MEM,L (-15),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+14,,2009-11-20,20-330,LAC,,DEN,W (+7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+15,,2009-11-23,20-333,LAC,,MIN,W (+4),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+16,8,2009-11-25,20-335,LAC,@,IND,L (-13),0,27:25,2,7,.286,0,2,.000,2,3,.667,0,2,2,0,0,0,3,1,6,-1.3,-22
+17,9,2009-11-27,20-337,LAC,@,DET,W (+8),0,27:51,4,11,.364,0,5,.000,6,9,.667,1,3,4,4,1,0,0,0,14,12.1,+3
+18,10,2009-11-29,20-339,LAC,,MEM,W (+10),1,42:08,10,18,.556,1,4,.250,8,8,1.000,1,4,5,5,1,0,4,2,29,22.0,+9
+19,,2009-12-02,20-342,LAC,,HOU,L (-17),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+20,11,2009-12-05,20-345,LAC,,IND,W (+16),1,31:49,3,10,.300,1,4,.250,3,3,1.000,0,3,3,0,3,0,5,0,10,3.1,+15
+21,12,2009-12-08,20-348,LAC,,ORL,L (-11),1,35:28,7,12,.583,3,7,.429,4,5,.800,0,3,3,3,2,0,3,1,21,16.6,-11
+22,13,2009-12-13,20-353,LAC,,SAS,L (-25),1,33:14,4,12,.333,2,4,.500,0,0,,0,1,1,4,1,0,1,3,10,5.1,-11
+23,14,2009-12-14,20-354,LAC,,WAS,W (+2),1,35:20,10,15,.667,3,6,.500,6,9,.667,0,1,1,1,5,0,3,1,29,23.9,-6
+24,15,2009-12-16,20-356,LAC,@,MIN,W (+25),1,34:55,8,14,.571,2,6,.333,7,13,.538,0,4,4,3,1,0,0,0,25,20.3,+12
+25,16,2009-12-18,20-358,LAC,@,NYK,L (-4),1,39:09,2,8,.250,1,5,.200,9,10,.900,0,2,2,0,1,0,3,1,14,7.0,-9
+26,17,2009-12-19,20-359,LAC,@,PHI,W (+5),1,41:29,6,12,.500,3,8,.375,2,2,1.000,0,3,3,2,2,0,4,1,17,10.9,-1
+27,18,2009-12-21,20-361,LAC,@,SAS,L (-16),1,33:40,3,9,.333,3,6,.500,1,2,.500,1,1,2,2,0,2,1,0,10,7.3,-25
+28,19,2009-12-22,20-362,LAC,@,HOU,L (-9),1,36:39,6,17,.353,1,5,.200,2,3,.667,0,1,1,3,1,0,0,2,15,7.7,-2
+29,20,2009-12-25,21-000,LAC,@,PHO,L (-31),1,31:35,4,15,.267,1,4,.250,2,2,1.000,0,1,1,0,1,0,1,1,11,2.0,-21
+30,21,2009-12-27,21-002,LAC,,BOS,W (+2),1,36:31,4,13,.308,1,4,.250,6,7,.857,0,2,2,3,0,0,2,0,15,7.8,+5
+31,22,2009-12-30,21-005,LAC,@,POR,L (-4),1,42:45,8,11,.727,3,6,.500,5,7,.714,0,1,1,6,5,0,4,5,24,22.2,+2
+32,23,2009-12-31,21-006,LAC,,PHI,W (+16),1,32:48,4,8,.500,1,1,1.000,4,6,.667,2,3,5,5,2,0,4,1,13,11.6,+23
+33,24,2010-01-04,21-010,LAC,,POR,W (+10),1,27:24,6,10,.600,4,6,.667,3,4,.750,0,2,2,2,0,0,4,4,19,10.4,+4
+34,25,2010-01-06,21-012,LAC,,LAL,W (+11),1,39:30,7,12,.583,1,4,.250,3,4,.750,1,0,1,1,0,0,2,4,18,9.8,+4
+35,26,2010-01-10,21-016,LAC,,MIA,W (+10),1,27:47,6,9,.667,1,3,.333,4,6,.667,0,1,1,0,1,0,3,3,17,9.4,+16
+36,27,2010-01-12,21-018,LAC,@,MEM,L (-2),1,45:50,7,17,.412,1,7,.143,3,5,.600,0,2,2,6,0,1,1,1,18,12.2,+3
+37,28,2010-01-13,21-019,LAC,@,NOH,L (-14),1,32:21,4,14,.286,0,7,.000,3,4,.750,1,0,1,1,0,0,3,0,11,0.8,-23
+38,29,2010-01-15,21-021,LAC,@,LAL,L (-40),1,32:38,5,16,.313,3,6,.500,4,4,1.000,0,4,4,2,0,0,1,2,17,8.6,-22
+39,30,2010-01-16,21-022,LAC,,CLE,L (-1),1,40:01,11,16,.688,4,5,.800,2,3,.667,0,3,3,4,1,0,2,0,28,23.5,+4
+40,31,2010-01-18,21-024,LAC,,NJN,W (+11),1,37:21,6,9,.667,1,4,.250,3,4,.750,0,4,4,7,0,0,0,0,16,17.8,+17
+41,32,2010-01-20,21-026,LAC,,CHI,W (+7),1,20:58,2,6,.333,0,0,,2,2,1.000,0,0,0,1,1,0,1,2,6,2.5,-5
+42,,2010-01-21,21-027,LAC,@,DEN,L (-20),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+43,,2010-01-24,21-030,LAC,@,WAS,W (+14),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+44,,2010-01-25,21-031,LAC,@,BOS,L (-6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+45,33,2010-01-27,21-033,LAC,@,NJN,L (-16),1,33:01,4,11,.364,1,4,.250,3,3,1.000,1,6,7,3,0,1,4,0,12,7.2,-5
+46,34,2010-01-29,21-035,LAC,@,MIN,L (-14),1,39:32,6,17,.353,2,9,.222,3,9,.333,1,1,2,3,1,0,2,3,17,6.0,-9
+47,35,2010-01-31,21-037,LAC,@,CLE,L (-25),1,32:34,5,16,.313,0,3,.000,2,3,.667,1,2,3,4,1,1,0,1,12,7.8,-11
+48,36,2010-02-02,21-039,LAC,@,CHI,W (+8),1,36:24,7,15,.467,3,7,.429,7,10,.700,1,5,6,4,1,0,3,0,24,18.1,+13
+49,37,2010-02-03,21-040,LAC,@,ATL,L (-6),1,36:47,6,17,.353,3,8,.375,2,4,.500,0,3,3,0,1,0,3,3,17,4.4,+1
+50,38,2010-02-06,21-043,LAC,,SAS,L (-17),1,32:12,7,14,.500,0,3,.000,6,7,.857,0,2,2,1,0,0,4,3,20,8.7,-25
+51,39,2010-02-09,21-046,LAC,,UTA,L (-10),1,33:50,5,10,.500,0,3,.000,6,8,.750,0,0,0,1,1,0,0,3,16,10.7,-2
+52,40,2010-02-10,21-047,LAC,@,GSW,L (-30),1,30:30,6,12,.500,1,4,.250,3,3,1.000,0,2,2,1,3,0,3,2,16,10.5,-28
+53,41,2010-02-16,21-053,LAC,@,POR,L (-22),1,35:35,7,12,.583,3,5,.600,3,3,1.000,0,3,3,1,0,0,2,4,20,12.4,-24
+54,42,2010-02-17,21-054,LAC,,ATL,L (-18),1,37:37,7,13,.538,3,6,.500,1,2,.500,1,3,4,5,0,0,4,1,18,12.0,-1
+55,43,2010-02-20,21-057,LAC,,SAC,W (+10),1,40:05,10,17,.588,4,7,.571,6,7,.857,0,2,2,6,0,0,7,1,30,19.1,+11
+56,44,2010-02-22,21-059,LAC,,CHA,W (+4),1,38:59,4,11,.364,3,8,.375,0,0,,0,2,2,5,1,1,2,2,11,7.9,+5
+57,45,2010-02-24,21-061,LAC,,DET,W (+6),1,37:37,4,13,.308,1,4,.250,4,4,1.000,1,4,5,2,0,0,1,2,13,7.0,-3
+58,46,2010-02-26,21-063,LAC,@,PHO,L (-13),1,35:38,8,14,.571,4,8,.500,5,6,.833,1,0,1,2,1,0,3,0,25,18.1,-11
+59,47,2010-02-28,21-065,LAC,@,SAC,L (-5),1,36:40,4,13,.308,1,5,.200,4,4,1.000,0,3,3,1,0,0,1,1,13,5.7,+1
+60,48,2010-03-01,21-066,LAC,,UTA,W (+4),1,42:41,8,16,.500,4,6,.667,4,4,1.000,0,0,0,2,1,1,1,2,24,17.3,+6
+61,49,2010-03-03,21-068,LAC,,PHO,L (-26),1,35:11,8,13,.615,4,7,.571,1,1,1.000,0,1,1,4,1,0,2,1,21,16.8,-18
+62,50,2010-03-05,21-070,LAC,,OKC,L (-17),1,30:55,3,11,.273,1,3,.333,0,2,.000,0,0,0,3,2,0,2,1,7,1.4,-15
+63,,2010-03-06,21-071,LAC,@,UTA,L (-22),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+64,,2010-03-09,21-074,LAC,@,ORL,L (-26),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+65,,2010-03-10,21-075,LAC,@,MIA,L (-11),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+66,,2010-03-12,21-077,LAC,@,CHA,L (-8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+67,,2010-03-13,21-078,LAC,@,SAS,L (-30),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+68,51,2010-03-15,21-080,LAC,,NOH,L (-8),1,34:59,3,12,.250,0,7,.000,4,7,.571,0,0,0,3,2,0,2,1,10,3.3,-10
+69,52,2010-03-17,21-082,LAC,,MIL,W (+8),1,32:23,3,9,.333,2,4,.500,6,7,.857,0,2,2,4,1,0,0,1,14,12.5,-9
+70,53,2010-03-21,21-086,LAC,,SAC,L (-13),1,40:13,9,14,.643,0,3,.000,5,7,.714,1,3,4,4,2,1,4,0,23,19.1,-13
+71,54,2010-03-23,21-088,LAC,@,DAL,L (-10),1,38:50,4,12,.333,2,6,.333,6,10,.600,1,4,5,0,1,0,3,1,16,7.1,+7
+72,55,2010-03-25,21-090,LAC,@,HOU,W (+6),1,40:13,5,15,.333,3,9,.333,1,1,1.000,0,3,3,4,1,1,3,1,14,7.5,+3
+73,56,2010-03-28,21-093,LAC,,GSW,L (-18),1,38:33,4,12,.333,2,6,.333,10,11,.909,1,2,3,4,2,1,4,2,20,14.8,-8
+74,57,2010-03-30,21-095,LAC,@,MIL,L (-18),1,36:31,2,13,.154,1,3,.333,3,3,1.000,3,0,3,6,0,0,3,3,8,1.8,-21
+75,58,2010-03-31,21-096,LAC,@,TOR,L (-22),1,37:06,3,13,.231,1,6,.167,2,4,.500,1,1,2,5,2,0,2,0,9,4.8,-18
+76,59,2010-04-03,21-099,LAC,@,DEN,L (-8),1,40:45,9,15,.600,3,5,.600,2,4,.500,0,4,4,4,1,1,2,1,23,18.6,-8
+77,60,2010-04-04,21-100,LAC,,NYK,L (-6),1,35:17,6,11,.545,3,6,.500,2,2,1.000,1,0,1,4,1,0,3,4,17,11.6,-9
+78,61,2010-04-07,21-103,LAC,,POR,L (-8),1,34:00,4,9,.444,1,1,1.000,0,0,,0,3,3,2,1,1,3,1,9,4.9,-14
+79,62,2010-04-08,21-104,LAC,@,SAC,L (-22),1,38:48,7,14,.500,4,7,.571,3,4,.750,0,3,3,5,0,0,2,1,21,15.6,-13
+80,,2010-04-10,21-106,LAC,,GSW,W (+3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+81,,2010-04-12,21-108,LAC,,DAL,L (-23),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+82,,2010-04-14,21-110,LAC,,LAL,W (+16),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+1,1,2010-10-27,21-306,LAC,,POR,L (-10),1,35:57,10,17,.588,0,3,.000,2,4,.500,0,1,1,2,2,2,5,4,22,11.8,-1
+2,2,2010-10-29,21-308,LAC,@,GSW,L (-18),1,31:53,6,17,.353,2,9,.222,5,7,.714,0,4,4,2,2,0,4,0,19,9.3,-16
+3,3,2010-10-31,21-310,LAC,,DAL,L (-16),1,27:57,2,9,.222,1,6,.167,4,4,1.000,0,2,2,4,0,0,2,1,9,4.5,-23
+4,4,2010-11-01,21-311,LAC,,SAS,L (-9),1,32:42,10,17,.588,0,3,.000,3,5,.600,1,3,4,11,2,0,2,3,23,22.4,+6
+5,5,2010-11-03,21-313,LAC,,OKC,W (+15),1,36:14,10,17,.588,3,7,.429,4,4,1.000,0,5,5,4,0,0,2,2,27,20.6,-1
+6,6,2010-11-05,21-315,LAC,@,DEN,L (-7),1,39:44,6,12,.500,0,4,.000,9,14,.643,2,3,5,5,2,0,2,1,21,18.4,-15
+7,7,2010-11-06,21-316,LAC,@,UTA,L (-2),1,53:12,9,22,.409,0,6,.000,9,9,1.000,1,4,5,5,1,3,7,3,27,15.5,-1
+8,,2010-11-09,21-319,LAC,@,NOH,L (-19),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+9,,2010-11-10,21-320,LAC,@,SAS,L (-12),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+10,8,2010-11-12,21-322,LAC,,DET,L (-6),1,41:56,9,20,.450,0,2,.000,10,11,.909,1,2,3,5,0,0,6,6,28,13.6,-7
+11,9,2010-11-15,21-325,LAC,,NJN,L (-14),1,35:55,6,20,.300,2,7,.286,16,20,.800,3,1,4,4,1,0,2,1,30,20.6,-4
+12,10,2010-11-17,21-327,LAC,@,MIN,L (-2),1,37:11,9,19,.474,2,6,.333,10,13,.769,0,3,3,7,1,1,5,3,30,20.4,-2
+13,11,2010-11-18,21-328,LAC,@,IND,L (-27),1,30:24,5,17,.294,1,3,.333,8,12,.667,2,0,2,1,1,1,0,1,19,10.9,-12
+14,12,2010-11-20,21-330,LAC,,NYK,L (-9),1,38:43,11,20,.550,0,2,.000,3,3,1.000,0,0,0,4,1,1,2,5,25,15.9,+4
+15,13,2010-11-22,21-332,LAC,,NOH,W (+4),1,36:56,9,18,.500,2,6,.333,7,10,.700,2,1,3,4,0,0,0,1,27,20.9,+7
+16,14,2010-11-25,21-335,LAC,,SAC,W (+18),1,37:26,8,17,.471,1,3,.333,11,12,.917,0,4,4,6,0,0,2,0,28,22.3,+21
+17,15,2010-11-26,21-336,LAC,@,PHO,L (-8),1,38:52,11,23,.478,2,8,.250,8,10,.800,2,1,3,6,2,0,4,5,32,21.4,-14
+18,16,2010-11-28,21-338,LAC,,UTA,L (-12),1,39:57,5,12,.417,3,7,.429,8,11,.727,0,1,1,9,2,0,2,0,21,20.0,-7
+19,17,2010-12-01,21-341,LAC,,SAS,W (+5),1,40:38,8,17,.471,2,5,.400,3,3,1.000,2,4,6,2,1,1,4,3,21,12.8,+10
+20,18,2010-12-03,21-343,LAC,@,DEN,L (-5),1,37:31,7,21,.333,1,4,.250,9,10,.900,2,3,5,3,1,0,1,2,24,15.3,-11
+21,19,2010-12-05,21-345,LAC,@,POR,L (-9),1,41:44,5,12,.417,1,4,.250,13,16,.813,0,1,1,4,0,2,3,3,24,16.7,-21
+22,20,2010-12-06,21-346,LAC,,SAC,W (+7),1,36:20,10,17,.588,2,3,.667,7,7,1.000,1,4,5,2,2,0,1,1,29,25.0,+7
+23,21,2010-12-08,21-348,LAC,,LAL,L (-1),1,34:27,8,14,.571,3,5,.600,5,7,.714,0,5,5,4,4,0,5,3,24,18.7,+6
+24,22,2010-12-11,21-351,LAC,,MEM,L (-1),1,40:43,7,15,.467,2,5,.400,9,10,.900,1,1,2,4,0,0,4,4,25,15.1,-4
+25,23,2010-12-12,21-352,LAC,,ORL,L (-9),1,41:10,9,23,.391,1,7,.143,9,9,1.000,0,1,1,8,0,0,3,2,28,17.6,+3
+26,24,2010-12-15,21-355,LAC,@,PHI,L (-14),1,37:08,6,18,.333,1,5,.200,3,6,.500,5,0,5,4,0,0,5,1,16,5.5,-23
+27,25,2010-12-17,21-357,LAC,@,DET,W (+21),1,38:35,5,11,.455,1,2,.500,4,5,.800,0,2,2,6,1,0,1,0,15,13.7,+26
+28,26,2010-12-18,21-358,LAC,@,CHI,W (+1),1,36:19,5,13,.385,2,4,.500,3,4,.750,1,5,6,2,2,0,7,1,15,5.7,-13
+29,27,2010-12-20,21-360,LAC,,MIN,W (+23),1,36:54,14,23,.609,5,7,.714,3,5,.600,0,1,1,6,5,0,1,1,36,32.8,+31
+30,28,2010-12-22,21-362,LAC,,HOU,L (-5),1,29:20,7,14,.500,1,2,.500,3,3,1.000,0,1,1,6,1,1,1,3,18,15.0,+1
+31,29,2010-12-26,22-001,LAC,,PHO,W (+5),1,40:33,10,21,.476,4,10,.400,0,0,,0,2,2,3,1,0,2,1,24,14.6,+2
+32,30,2010-12-27,22-002,LAC,@,SAC,W (+1),1,40:42,12,19,.632,6,7,.857,1,1,1.000,3,3,6,4,1,0,3,2,31,25.5,+1
+33,31,2010-12-29,22-004,LAC,,UTA,L (-8),1,42:38,7,20,.350,1,7,.143,4,4,1.000,1,3,4,5,1,1,2,1,19,12.2,-4
+34,32,2011-01-02,22-008,LAC,,ATL,L (-9),1,34:30,3,14,.214,0,5,.000,4,6,.667,0,2,2,6,0,0,2,5,10,1.4,-22
+35,33,2011-01-05,22-011,LAC,,DEN,W (+13),1,38:46,9,20,.450,4,8,.500,6,6,1.000,0,4,4,2,1,0,1,2,28,19.4,+22
+36,34,2011-01-09,22-015,LAC,,GSW,W (+14),1,38:57,8,18,.444,3,8,.375,6,6,1.000,0,3,3,0,3,1,0,1,25,19.8,+15
+37,35,2011-01-12,22-018,LAC,,MIA,W (+6),1,41:41,8,15,.533,1,5,.200,9,11,.818,0,5,5,6,0,0,1,3,26,21.4,+8
+38,36,2011-01-14,22-020,LAC,@,GSW,L (-10),1,40:26,11,18,.611,2,5,.400,4,5,.800,0,4,4,7,2,0,4,3,28,22.3,+1
+39,37,2011-01-16,22-022,LAC,,LAL,W (+7),1,42:37,13,20,.650,4,7,.571,0,2,.000,0,2,2,6,4,0,1,4,30,26.6,+19
+40,38,2011-01-17,22-023,LAC,,IND,W (+7),1,40:23,8,15,.533,3,6,.500,4,4,1.000,1,0,1,7,1,0,3,2,23,18.5,+7
+41,39,2011-01-19,22-025,LAC,,MIN,W (+15),1,30:13,7,14,.500,3,3,1.000,6,6,1.000,1,0,1,2,1,0,3,3,23,14.9,+18
+42,40,2011-01-20,22-026,LAC,@,POR,L (-15),1,44:04,13,26,.500,7,11,.636,2,3,.667,3,2,5,4,1,0,3,2,35,24.3,-15
+43,41,2011-01-22,22-028,LAC,,GSW,W (+4),1,28:51,7,17,.412,1,6,.167,8,8,1.000,0,0,0,4,0,0,0,2,23,15.9,+7
+44,,2011-01-25,22-031,LAC,@,DAL,L (-7),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+45,,2011-01-26,22-032,LAC,@,HOU,L (-13),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+46,,2011-01-29,22-035,LAC,,CHA,W (+15),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+47,,2011-01-31,22-037,LAC,,MIL,W (+7),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+48,,2011-02-02,22-039,LAC,,CHI,L (-18),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+49,,2011-02-04,22-041,LAC,@,ATL,L (-1),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+50,,2011-02-06,22-043,LAC,@,MIA,L (-18),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+51,,2011-02-08,22-045,LAC,@,ORL,L (-16),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+52,,2011-02-09,22-046,LAC,@,NYK,W (+8),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+53,,2011-02-11,22-048,LAC,@,CLE,L (-7),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+54,,2011-02-13,22-050,LAC,@,TOR,L (-5),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+55,,2011-02-14,22-051,LAC,@,MIL,L (-24),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+56,,2011-02-16,22-053,LAC,@,MIN,W (+8),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+57,,2011-02-22,22-059,LAC,@,OKC,L (-23),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+58,,2011-02-23,22-060,LAC,@,NOH,L (-11),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+59,,2011-02-25,22-062,LAC,@,LAL,L (-13),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+60,,2011-02-26,22-063,LAC,,BOS,L (-7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+61,,2011-02-28,22-065,LAC,@,SAC,L (-6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+62,42,2011-03-02,22-067,LAC,,HOU,W (+3),1,34:48,8,18,.444,1,2,.500,7,8,.875,1,0,1,1,1,1,0,0,24,17.3,+7
+63,43,2011-03-05,22-070,LAC,,DEN,W (+6),1,13:30,1,5,.200,0,0,,3,3,1.000,0,1,1,2,0,0,0,1,5,3.2,+8
+64,,2011-03-07,22-072,LAC,@,CHA,W (+5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+65,,2011-03-09,22-074,LAC,@,BOS,W (+5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+66,,2011-03-11,22-076,LAC,@,NJN,L (-4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+67,,2011-03-12,22-077,LAC,@,WAS,W (+21),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+68,,2011-03-14,22-079,LAC,@,MEM,L (-23),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+69,,2011-03-16,22-081,LAC,,PHI,L (-10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+70,44,2011-03-19,22-084,LAC,,CLE,W (+8),1,40:54,9,20,.450,6,10,.600,5,5,1.000,0,1,1,5,0,0,5,1,29,17.0,-1
+71,45,2011-03-20,22-085,LAC,,PHO,L (-9),1,39:37,4,11,.364,2,6,.333,0,0,,0,5,5,4,1,0,3,3,10,5.0,-7
+72,46,2011-03-23,22-088,LAC,,WAS,W (+8),1,47:38,11,21,.524,4,9,.444,6,7,.857,2,2,4,3,1,0,5,4,32,19.8,+14
+73,47,2011-03-25,22-090,LAC,@,LAL,L (-8),1,34:49,3,14,.214,0,3,.000,1,1,1.000,0,1,1,3,1,0,2,2,7,-1.0,-9
+74,48,2011-03-26,22-091,LAC,,TOR,W (+4),1,37:16,7,14,.500,1,2,.500,2,2,1.000,1,1,2,5,3,2,5,3,17,12.7,+17
+75,49,2011-03-30,22-095,LAC,,DAL,L (-6),1,45:09,4,18,.222,0,6,.000,7,8,.875,2,0,2,5,0,0,1,0,15,7.5,-1
+76,50,2011-04-01,22-097,LAC,@,PHO,L (-13),1,31:45,8,16,.500,4,9,.444,1,3,.333,0,2,2,2,2,0,3,2,21,12.4,-23
+77,51,2011-04-02,22-098,LAC,,OKC,W (+6),1,43:52,6,16,.375,2,3,.667,4,5,.800,1,2,3,5,0,0,3,1,18,10.2,+10
+78,52,2011-04-05,22-101,LAC,@,MEM,W (+1),1,28:03,5,13,.385,0,1,.000,1,2,.500,0,6,6,0,0,1,2,2,11,3.2,-6
+79,53,2011-04-06,22-102,LAC,@,OKC,L (-4),1,43:13,7,18,.389,2,4,.500,0,0,,0,2,2,5,2,0,3,2,16,8.5,+3
+80,54,2011-04-08,22-104,LAC,@,DAL,L (-11),1,42:02,4,12,.333,0,3,.000,3,3,1.000,0,2,2,6,4,0,5,1,11,7.6,-10
+81,55,2011-04-09,22-105,LAC,@,HOU,L (-21),1,41:34,7,20,.350,2,5,.400,3,3,1.000,1,0,1,6,4,0,3,0,19,13.7,-13
+82,56,2011-04-13,22-109,LAC,,MEM,W (+7),1,37:45,10,21,.476,2,5,.400,2,2,1.000,2,1,3,6,2,0,3,2,24,17.4,+9
+1,1,2011-12-26,23-001,NOH,@,PHO,W (+1),1,39:08,9,18,.500,0,6,.000,2,3,.667,0,4,4,3,1,1,1,4,20,13.0,+7
+2,,2011-12-28,23-003,NOH,,BOS,W (+19),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+3,,2011-12-30,23-005,NOH,,PHO,L (-15),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+4,,2012-01-01,23-007,NOH,@,SAC,L (-16),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+5,,2012-01-02,23-008,NOH,@,UTA,L (-4),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+6,2,2012-01-04,23-010,NOH,,PHI,L (-8),1,39:13,8,22,.364,1,6,.167,5,6,.833,1,5,6,1,3,2,3,1,22,13.3,+2
+7,,2012-01-06,23-012,NOH,,DEN,L (-8),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+8,,2012-01-07,23-013,NOH,@,DAL,L (-15),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+9,,2012-01-09,23-015,NOH,@,DEN,W (+13),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+10,,2012-01-11,23-017,NOH,,OKC,L (-10),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+11,,2012-01-13,23-019,NOH,,MIN,L (-7),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+12,,2012-01-14,23-020,NOH,@,MEM,L (-9),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+13,,2012-01-16,23-022,NOH,,POR,L (-7),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+14,,2012-01-18,23-024,NOH,,MEM,L (-6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+15,,2012-01-19,23-025,NOH,@,HOU,L (-2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+16,,2012-01-21,23-027,NOH,,DAL,L (-2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+17,,2012-01-23,23-029,NOH,,SAS,L (-2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+18,,2012-01-25,23-031,NOH,@,OKC,L (-10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+19,,2012-01-27,23-033,NOH,,ORL,W (+26),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+20,,2012-01-29,23-035,NOH,,ATL,L (-22),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+21,,2012-01-30,23-036,NOH,@,MIA,L (-14),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+22,,2012-02-01,23-038,NOH,,PHO,L (-17),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+23,,2012-02-02,23-039,NOH,@,SAS,L (-12),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+24,,2012-02-04,23-041,NOH,@,DET,L (-2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+25,,2012-02-06,23-043,NOH,,SAC,L (-8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+26,,2012-02-08,23-045,NOH,,CHI,L (-23),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+27,,2012-02-10,23-047,NOH,,POR,L (-8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+28,,2012-02-13,23-050,NOH,,UTA,W (+6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+29,,2012-02-15,23-052,NOH,@,MIL,W (+3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+30,,2012-02-17,23-054,NOH,@,NYK,W (+4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+31,,2012-02-20,23-057,NOH,@,OKC,L (-8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+32,,2012-02-21,23-058,NOH,@,IND,L (-9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+33,,2012-02-22,23-059,NOH,@,CLE,W (+5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+34,,2012-02-28,23-065,NOH,@,CHI,L (-4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+35,,2012-02-29,23-066,NOH,,TOR,L (-11),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+36,,2012-03-02,23-068,NOH,,DAL,W (+5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+37,,2012-03-03,23-069,NOH,,IND,L (-18),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+38,,2012-03-05,23-071,NOH,@,POR,L (-12),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+39,,2012-03-07,23-073,NOH,@,SAC,L (-1),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+40,,2012-03-09,23-075,NOH,@,DEN,L (-13),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+41,,2012-03-10,23-076,NOH,@,MIN,W (+6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+42,,2012-03-12,23-078,NOH,,CHA,L (-2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+43,,2012-03-14,23-080,NOH,,LAL,L (-6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+44,,2012-03-15,23-081,NOH,,WAS,L (-10),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+45,,2012-03-17,23-083,NOH,@,NJN,W (+8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+46,,2012-03-21,23-087,NOH,,GSW,L (-9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+47,,2012-03-22,23-088,NOH,,LAC,W (+7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+48,,2012-03-24,23-090,NOH,,SAS,L (-3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+49,,2012-03-26,23-092,NOH,@,LAC,L (-12),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+50,,2012-03-28,23-094,NOH,@,GSW,W (+15),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+51,,2012-03-29,23-095,NOH,@,POR,L (-6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+52,,2012-03-31,23-097,NOH,@,LAL,L (-3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+53,,2012-04-01,23-098,NOH,@,PHO,L (-17),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+54,3,2012-04-04,23-101,NOH,,DEN,W (+2),1,33:43,3,11,.273,2,3,.667,7,9,.778,0,4,4,4,1,0,4,3,15,7.5,+6
+55,4,2012-04-06,23-103,NOH,@,SAS,L (-25),1,31:45,11,19,.579,2,7,.286,7,8,.875,0,2,2,4,3,0,3,0,31,25.1,-15
+56,5,2012-04-07,23-104,NOH,,MIN,W (+9),1,24:59,3,12,.250,1,3,.333,3,5,.600,1,2,3,1,1,0,2,3,10,1.8,0
+57,,2012-04-09,23-106,NOH,,LAL,L (-2),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+58,,2012-04-11,23-108,NOH,,SAC,W (+9),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+59,6,2012-04-13,23-110,NOH,,UTA,W (+11),1,37:21,11,18,.611,2,5,.400,1,4,.250,0,0,0,6,1,0,2,1,25,18.4,+12
+60,7,2012-04-15,23-112,NOH,,MEM,W (+13),1,28:17,5,9,.556,0,0,,8,8,1.000,0,0,0,2,0,0,1,2,18,13.3,+17
+61,,2012-04-16,23-113,NOH,@,CHA,W (+8),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+62,,2012-04-18,23-115,NOH,@,MEM,L (-12),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+63,8,2012-04-19,23-116,NOH,,HOU,W (+6),1,38:00,9,18,.500,1,5,.200,8,10,.800,0,4,4,5,3,1,2,1,27,23.2,+11
+64,9,2012-04-22,23-119,NOH,@,LAC,L (-9),1,37:58,4,13,.308,1,5,.200,8,12,.667,0,2,2,5,0,0,6,5,17,4.0,-6
+65,,2012-04-24,23-121,NOH,@,GSW,W (+2),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+66,,2012-04-26,23-123,NOH,@,HOU,L (-7),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+1,,2012-10-31,23-311,NOH,,SAS,L (-4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+2,,2012-11-02,23-313,NOH,,UTA,W (+2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+3,,2012-11-03,23-314,NOH,@,CHI,W (+7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+4,,2012-11-07,23-318,NOH,,PHI,L (-15),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+5,,2012-11-09,23-320,NOH,,CHA,W (+8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+6,,2012-11-14,23-325,NOH,@,HOU,L (-4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+7,,2012-11-16,23-327,NOH,,OKC,L (-15),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+8,,2012-11-17,23-328,NOH,@,MIL,L (-4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+9,,2012-11-20,23-331,NOH,,NYK,L (-22),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+10,,2012-11-21,23-332,NOH,@,IND,L (-8),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+11,,2012-11-23,23-334,NOH,@,PHO,L (-3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+12,,2012-11-25,23-336,NOH,@,DEN,L (-18),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+13,,2012-11-26,23-337,NOH,@,LAC,W (+7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+14,,2012-11-28,23-339,NOH,,UTA,L (-12),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+15,,2012-12-01,23-342,NOH,,OKC,L (-21),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+16,,2012-12-03,23-344,NOH,,MIL,W (+21),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+17,,2012-12-05,23-346,NOH,,LAL,L (-16),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+18,,2012-12-07,23-348,NOH,,MEM,L (-7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+19,,2012-12-08,23-349,NOH,@,MIA,L (-16),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+20,,2012-12-11,23-352,NOH,,WAS,L (-7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+21,,2012-12-12,23-353,NOH,@,OKC,L (-4),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+22,,2012-12-14,23-355,NOH,,MIN,L (-11),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+23,,2012-12-16,23-357,NOH,@,POR,L (-1),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+24,,2012-12-18,23-359,NOH,@,GSW,L (-7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+25,,2012-12-19,23-360,NOH,@,LAC,L (-16),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+26,,2012-12-21,23-362,NOH,@,SAS,L (-5),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+27,,2012-12-22,23-363,NOH,,IND,L (-6),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+28,,2012-12-26,24-001,NOH,@,ORL,W (+3),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+29,,2012-12-28,24-003,NOH,,TOR,L (-7),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+30,1,2012-12-29,24-004,NOH,@,CHA,W (+3),0,24:52,5,13,.385,2,6,.333,12,14,.857,0,0,0,7,2,0,2,1,24,20.6,+9
+31,2,2013-01-01,24-007,NOH,,ATL,L (-9),0,23:46,5,17,.294,0,3,.000,1,4,.250,0,2,2,3,1,0,4,3,11,-1.6,-5
+32,,2013-01-02,24-008,NOH,@,HOU,L (-12),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+33,3,2013-01-05,24-011,NOH,@,DAL,W (+3),1,34:51,4,13,.308,1,4,.250,5,5,1.000,0,2,2,4,1,2,3,2,14,8.5,-5
+34,4,2013-01-07,24-013,NOH,,SAS,W (+7),1,32:33,9,22,.409,0,3,.000,6,6,1.000,3,1,4,2,1,1,2,1,24,15.3,+18
+35,5,2013-01-09,24-015,NOH,,HOU,W (+9),1,27:36,2,12,.167,0,4,.000,1,2,.500,0,1,1,6,0,0,5,1,5,-3.9,+2
+36,6,2013-01-11,24-017,NOH,,MIN,W (+12),1,28:31,6,16,.375,1,6,.167,3,3,1.000,0,1,1,3,0,0,1,1,16,8.2,+5
+37,7,2013-01-13,24-019,NOH,@,NYK,L (-13),1,29:22,7,14,.500,1,6,.167,7,9,.778,1,2,3,2,2,0,1,3,22,16.7,-3
+38,8,2013-01-15,24-021,NOH,@,PHI,W (+12),1,32:06,7,13,.538,2,3,.667,3,4,.750,1,1,2,4,1,0,3,2,19,13.3,+6
+39,,2013-01-16,24-022,NOH,@,BOS,W (+12),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+40,9,2013-01-19,24-025,NOH,,GSW,L (-4),1,30:46,7,16,.438,3,7,.429,6,7,.857,1,0,1,3,3,0,3,3,23,15.8,-7
+41,10,2013-01-21,24-027,NOH,,SAC,W (+9),1,29:07,6,15,.400,2,4,.500,2,2,1.000,0,1,1,2,1,0,3,4,16,6.0,+14
+42,11,2013-01-23,24-029,NOH,@,SAS,L (-4),1,28:59,5,8,.625,3,3,1.000,4,4,1.000,0,2,2,0,1,0,5,0,17,10.0,-13
+43,12,2013-01-25,24-031,NOH,,HOU,L (-18),1,30:48,6,14,.429,2,4,.500,6,8,.750,0,0,0,2,1,0,3,3,20,10.0,-13
+44,13,2013-01-27,24-033,NOH,@,MEM,W (+8),1,29:35,2,5,.400,0,1,.000,4,4,1.000,0,3,3,2,4,2,2,2,8,10.2,0
+45,14,2013-01-29,24-035,NOH,@,LAL,L (-5),1,31:57,7,12,.583,6,8,.750,5,5,1.000,0,2,2,2,1,0,1,2,25,20.6,+15
+46,,2013-01-30,24-036,NOH,@,UTA,L (-5),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+47,15,2013-02-01,24-038,NOH,@,DEN,L (-15),1,24:51,3,8,.375,0,0,,3,4,.750,0,2,2,2,0,0,5,0,9,1.2,-13
+48,,2013-02-02,24-039,NOH,@,MIN,L (-29),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+49,16,2013-02-06,24-043,NOH,,PHO,W (+9),1,32:06,3,14,.214,0,4,.000,3,4,.750,0,0,0,2,1,0,2,0,9,0.4,+10
+50,17,2013-02-08,24-045,NOH,@,ATL,W (+11),1,30:29,10,19,.526,1,2,.500,6,6,1.000,0,0,0,1,0,0,1,0,27,17.4,+12
+51,18,2013-02-10,24-047,NOH,@,TOR,L (-13),1,28:52,2,7,.286,1,2,.500,1,2,.500,0,0,0,4,0,0,6,1,6,-2.1,-16
+52,,2013-02-11,24-048,NOH,@,DET,W (+19),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+53,,2013-02-13,24-050,NOH,,POR,W (+36),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+54,19,2013-02-19,24-056,NOH,,CHI,L (-9),1,29:33,8,17,.471,3,7,.429,1,2,.500,0,2,2,1,0,0,4,4,20,6.6,-2
+55,,2013-02-20,24-057,NOH,@,CLE,L (-5),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+56,20,2013-02-22,24-059,NOH,,DAL,L (-4),1,30:41,7,19,.368,1,6,.167,8,9,.889,0,3,3,2,1,0,4,1,23,11.0,-5
+57,21,2013-02-24,24-061,NOH,,SAC,W (+15),1,29:17,6,13,.462,0,3,.000,5,5,1.000,0,1,1,8,1,0,5,2,17,11.4,+11
+58,22,2013-02-26,24-063,NOH,,BRK,L (-4),1,29:02,4,15,.267,0,2,.000,2,2,1.000,0,1,1,6,0,0,1,1,10,4.2,+1
+59,,2013-02-27,24-064,NOH,@,OKC,L (-45),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+60,23,2013-03-01,24-066,NOH,,DET,W (+5),1,29:36,6,18,.333,2,6,.333,7,8,.875,0,4,4,3,1,0,4,1,21,10.3,-8
+61,24,2013-03-04,24-069,NOH,,ORL,L (-3),1,28:51,7,14,.500,3,6,.500,0,0,,0,0,0,5,0,0,0,2,17,12.7,+3
+62,25,2013-03-06,24-071,NOH,,LAL,L (-6),1,31:26,7,23,.304,4,10,.400,0,0,,1,4,5,5,1,0,3,3,18,6.9,-7
+63,26,2013-03-09,24-074,NOH,@,MEM,L (-11),1,27:38,4,7,.571,1,1,1.000,2,2,1.000,0,0,0,3,0,0,0,1,11,9.4,-24
+64,,2013-03-10,24-075,NOH,,POR,W (+2),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+65,27,2013-03-12,24-077,NOH,@,BRK,L (-10),1,32:34,8,17,.471,3,8,.375,5,5,1.000,0,0,0,3,1,0,1,1,24,17.0,-8
+66,28,2013-03-15,24-080,NOH,@,WAS,L (-9),1,30:38,8,17,.471,2,4,.500,2,3,.667,0,2,2,0,1,0,3,1,20,9.1,-6
+67,29,2013-03-17,24-082,NOH,@,MIN,L (-2),1,26:01,3,6,.500,0,1,.000,1,1,1.000,0,2,2,3,2,0,0,3,7,7.5,+4
+68,,2013-03-18,24-083,NOH,,GSW,L (-21),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+69,30,2013-03-20,24-085,NOH,,BOS,W (+1),1,31:14,6,15,.400,0,3,.000,6,8,.750,0,2,2,3,0,0,3,1,18,8.4,-1
+70,31,2013-03-22,24-087,NOH,,MEM,W (+7),1,31:49,4,13,.308,1,4,.250,2,2,1.000,0,0,0,2,0,0,4,1,11,0.5,-1
+71,,2013-03-25,24-090,NOH,,DEN,W (+24),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+72,32,2013-03-27,24-092,NOH,,LAC,L (-14),1,34:29,9,18,.500,0,4,.000,6,7,.857,0,1,1,3,3,0,2,4,24,16.4,-3
+73,33,2013-03-29,24-094,NOH,,MIA,L (-19),1,29:52,3,11,.273,1,6,.167,10,10,1.000,0,2,2,2,2,0,5,3,17,8.3,-10
+74,34,2013-03-31,24-096,NOH,,CLE,W (+20),1,28:00,5,11,.455,0,3,.000,4,5,.800,0,4,4,6,0,1,3,1,14,10.6,+5
+75,35,2013-04-03,24-099,NOH,@,GSW,L (-10),1,33:06,5,17,.294,1,3,.333,10,11,.909,0,5,5,3,2,0,0,2,21,15.5,-6
+76,36,2013-04-05,24-101,NOH,@,UTA,L (-12),1,17:44,2,3,.667,1,2,.500,2,2,1.000,0,1,1,2,0,0,3,1,7,4.0,+5
+77,37,2013-04-07,24-103,NOH,@,PHO,W (+3),1,31:08,4,11,.364,2,2,1.000,7,8,.875,0,1,1,6,2,0,2,2,17,14.2,-1
+78,38,2013-04-09,24-105,NOH,@,LAL,L (-8),1,32:53,6,13,.462,0,3,.000,10,11,.909,1,2,3,3,1,0,5,6,22,11.9,+3
+79,39,2013-04-10,24-106,NOH,@,SAC,L (-11),1,33:33,8,16,.500,3,6,.500,4,7,.571,1,2,3,7,2,1,3,0,23,19.7,+7
+80,40,2013-04-12,24-108,NOH,,LAC,L (-3),1,36:13,8,18,.444,2,6,.333,7,12,.583,0,4,4,3,1,0,3,2,25,14.1,+4
+81,41,2013-04-14,24-110,NOH,,DAL,L (-18),1,33:12,7,17,.412,1,5,.200,0,0,,1,1,2,4,0,0,3,0,15,6.7,-2
+82,42,2013-04-17,24-113,NOH,@,DAL,L (-12),1,34:13,4,17,.235,0,2,.000,8,9,.889,0,3,3,3,4,1,4,3,16,7.8,-11
+1,1,2013-10-30,24-309,NOP,,IND,L (-5),1,33:29,8,19,.421,3,5,.600,6,9,.667,1,2,3,1,2,0,1,0,25,16.7,-2
+2,2,2013-11-01,24-311,NOP,@,ORL,L (-20),1,28:19,4,11,.364,1,2,.500,3,6,.500,1,1,2,2,1,0,0,2,12,7.3,-12
+3,3,2013-11-02,24-312,NOP,,CHA,W (+21),1,21:06,3,7,.429,1,3,.333,0,0,,0,2,2,2,1,2,3,3,7,3.5,+7
+4,4,2013-11-05,24-315,NOP,,PHO,L (-6),1,34:13,7,17,.412,3,5,.600,3,3,1.000,1,2,3,5,3,0,2,3,20,15.5,-4
+5,5,2013-11-06,24-316,NOP,@,MEM,W (+15),1,33:58,6,14,.429,1,4,.250,6,6,1.000,2,2,4,2,2,1,1,0,19,16.7,+19
+6,6,2013-11-08,24-318,NOP,,LAL,W (+11),1,31:09,5,11,.455,1,2,.500,5,6,.833,0,6,6,2,2,0,0,1,16,14.7,+7
+7,7,2013-11-10,24-320,NOP,@,PHO,L (-7),1,32:20,5,14,.357,2,4,.500,2,2,1.000,2,3,5,5,2,0,3,1,14,10.6,+3
+8,8,2013-11-12,24-322,NOP,@,LAL,L (-21),1,32:03,5,13,.385,0,3,.000,7,7,1.000,0,1,1,3,3,0,2,1,17,12.9,-15
+9,9,2013-11-13,24-323,NOP,@,UTA,L (-6),1,33:21,5,13,.385,3,6,.500,3,4,.750,0,1,1,4,5,0,2,4,16,13.0,-10
+10,10,2013-11-16,24-326,NOP,,PHI,W (+37),1,25:50,7,12,.583,3,7,.429,2,3,.667,0,4,4,3,2,0,3,2,19,14.5,+22
+11,11,2013-11-20,24-330,NOP,,UTA,W (+7),1,28:03,3,13,.231,0,4,.000,3,4,.750,0,1,1,0,0,0,1,1,9,-0.4,-10
+12,12,2013-11-22,24-332,NOP,,CLE,W (+4),1,35:34,7,16,.438,1,5,.200,4,4,1.000,1,3,4,2,0,0,4,1,19,9.2,+16
+13,13,2013-11-25,24-335,NOP,@,SAS,L (-19),1,19:16,2,9,.222,0,2,.000,0,0,,0,0,0,2,0,0,4,1,4,-4.5,-22
+14,14,2013-11-26,24-336,NOP,,GSW,L (-1),1,35:57,6,12,.500,2,5,.400,2,4,.500,0,0,0,7,2,1,3,2,16,13.0,+11
+15,15,2013-11-29,24-339,NOP,@,PHI,W (+16),1,39:45,11,16,.688,2,5,.400,2,2,1.000,0,2,2,7,2,0,1,2,26,24.9,+20
+16,16,2013-12-01,24-341,NOP,@,NYK,W (+4),1,33:37,4,10,.400,1,3,.333,1,2,.500,0,3,3,2,3,0,2,1,10,7.1,-3
+17,17,2013-12-02,24-342,NOP,@,CHI,W (+3),1,45:01,7,23,.304,2,6,.333,7,8,.875,2,5,7,3,3,0,2,0,23,15.3,+15
+18,18,2013-12-04,24-344,NOP,,DAL,L (-3),1,35:40,6,14,.429,2,5,.400,1,2,.500,1,3,4,2,0,0,3,3,15,6.0,+2
+19,19,2013-12-06,24-346,NOP,,OKC,L (-14),1,33:48,7,14,.500,1,1,1.000,1,3,.333,0,1,1,3,1,1,3,4,16,7.7,-22
+20,20,2013-12-11,24-351,NOP,,DET,W (+5),1,36:15,5,9,.556,2,5,.400,2,2,1.000,0,1,1,6,0,0,3,0,14,11.2,-4
+21,21,2013-12-13,24-353,NOP,,MEM,W (+6),1,36:01,10,12,.833,3,3,1.000,2,2,1.000,0,4,4,4,1,1,2,0,25,24.3,+6
+22,22,2013-12-15,24-355,NOP,@,DEN,L (-9),1,29:25,4,11,.364,1,4,.250,1,1,1.000,0,2,2,6,0,0,0,2,10,7.9,-17
+23,23,2013-12-17,24-357,NOP,@,GSW,L (-11),1,24:12,1,9,.111,1,3,.333,2,2,1.000,0,2,2,1,1,0,2,1,5,-1.0,-17
+24,24,2013-12-18,24-358,NOP,@,LAC,L (-13),1,30:26,4,11,.364,0,1,.000,1,2,.500,1,2,3,2,1,0,0,3,9,5.0,-8
+25,25,2013-12-21,24-361,NOP,@,POR,L (-3),1,31:46,7,14,.500,1,2,.500,3,4,.750,0,1,1,4,0,0,1,3,18,11.5,-12
+26,26,2013-12-23,24-363,NOP,@,SAC,W (+13),1,20:39,6,13,.462,2,4,.500,3,4,.750,2,0,2,0,0,0,3,1,17,7.9,+4
+27,,2013-12-27,25-002,NOP,,DEN,W (+16),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+28,,2013-12-28,25-003,NOP,@,HOU,L (-9),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+29,,2013-12-30,25-005,NOP,,POR,W (+2),Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive,Inactive
+30,27,2014-01-01,25-007,NOP,@,MIN,L (-12),1,29:11,5,12,.417,0,4,.000,2,2,1.000,1,4,5,3,2,0,4,2,12,6.8,-24
+31,28,2014-01-03,25-009,NOP,@,BOS,W (+3),1,33:00,3,7,.429,0,0,,6,6,1.000,1,4,5,3,0,0,2,2,12,9.5,-3
+32,29,2014-01-04,25-010,NOP,@,IND,L (-17),1,38:43,9,16,.563,3,5,.600,0,0,,2,4,6,2,0,0,4,0,21,13.4,-6
+33,30,2014-01-07,25-013,NOP,@,MIA,L (-19),1,29:34,6,13,.462,2,4,.500,1,1,1.000,0,1,1,3,1,0,0,0,15,11.7,-15
+34,31,2014-01-08,25-014,NOP,,WAS,L (-6),1,37:48,9,18,.500,1,5,.200,4,5,.800,0,3,3,4,1,1,0,2,23,18.2,-3
+35,32,2014-01-10,25-016,NOP,,DAL,L (-17),1,35:02,9,13,.692,2,3,.667,7,7,1.000,0,2,2,3,1,0,2,3,27,22.0,-3
+36,33,2014-01-11,25-017,NOP,@,DAL,L (-3),1,37:47,7,14,.500,3,6,.500,3,4,.750,2,1,3,3,2,0,8,6,20,8.0,-9
+37,34,2014-01-13,25-019,NOP,,SAS,L (-6),1,32:10,4,14,.286,1,1,1.000,3,5,.600,0,0,0,3,2,0,1,3,12,4.9,-6
+38,35,2014-01-15,25-021,NOP,,HOU,L (-3),1,41:48,11,17,.647,6,9,.667,7,8,.875,0,3,3,6,1,0,2,2,35,30.4,-1
+39,36,2014-01-18,25-024,NOP,,GSW,L (-10),1,32:38,3,17,.176,0,6,.000,2,2,1.000,2,3,5,6,2,0,3,3,8,1.6,-15
+40,37,2014-01-20,25-026,NOP,@,MEM,W (+3),1,35:07,4,10,.400,1,2,.500,3,4,.750,1,2,3,3,1,0,1,4,12,8.0,-8
+41,38,2014-01-21,25-027,NOP,,SAC,L (-17),1,27:05,2,6,.333,1,2,.500,2,4,.500,0,1,1,1,1,0,3,2,7,1.0,-16
+42,39,2014-01-24,25-030,NOP,@,DET,W (+2),1,32:34,5,10,.500,2,4,.500,3,4,.750,0,3,3,3,2,0,7,2,15,6.8,-11
+43,40,2014-01-26,25-032,NOP,,ORL,W (+8),1,36:36,6,17,.353,1,5,.200,1,2,.500,0,3,3,5,3,0,2,1,14,9.1,-2
+44,41,2014-01-28,25-034,NOP,@,CLE,W (+11),1,35:35,8,17,.471,1,5,.200,3,5,.600,0,7,7,9,1,0,0,0,20,19.9,+16
+45,42,2014-01-29,25-035,NOP,@,MIN,L (-11),1,35:15,5,17,.294,1,5,.200,3,5,.600,1,3,4,1,1,1,0,3,14,6.1,-3
+46,43,2014-02-01,25-038,NOP,,CHI,W (+9),1,31:28,4,15,.267,1,3,.333,0,0,,0,2,2,4,1,0,1,1,9,3.1,-1
+47,44,2014-02-03,25-040,NOP,,SAS,L (-7),1,32:26,6,13,.462,3,5,.600,4,4,1.000,0,3,3,4,1,1,2,2,19,14.9,-22
+48,45,2014-02-05,25-042,NOP,,ATL,W (+5),1,33:35,7,17,.412,1,5,.200,3,3,1.000,1,2,3,1,0,0,1,2,18,9.1,-2
+49,46,2014-02-07,25-044,NOP,,MIN,W (+7),1,37:12,8,15,.533,2,4,.500,2,3,.667,0,1,1,4,3,1,2,0,20,17.1,+8
+50,47,2014-02-09,25-046,NOP,@,BRK,L (-12),1,27:41,3,12,.250,0,3,.000,1,4,.250,0,1,1,2,0,0,3,2,7,-3.5,-3
+51,48,2014-02-10,25-047,NOP,@,TOR,L (-7),1,26:24,5,12,.417,0,1,.000,0,0,,0,0,0,2,0,1,1,1,10,4.3,-14
+52,49,2014-02-12,25-049,NOP,@,MIL,W (+4),1,34:09,7,13,.538,2,5,.400,5,6,.833,1,0,1,6,2,0,1,1,21,19.8,+13
+53,50,2014-02-19,25-056,NOP,,NYK,L (-7),1,34:52,9,17,.529,3,9,.333,7,8,.875,0,4,4,1,0,0,0,3,28,20.0,-12
+54,51,2014-02-21,25-058,NOP,@,CHA,L (-3),1,31:01,5,11,.455,2,4,.500,2,4,.500,0,0,0,2,0,0,1,1,14,7.5,+6
+55,52,2014-02-22,25-059,NOP,@,WAS,L (-1),1,29:16,3,10,.300,1,3,.333,3,3,1.000,0,1,1,2,0,0,4,1,10,1.5,-14
+56,53,2014-02-24,25-061,NOP,,LAC,L (-13),1,23:01,4,6,.667,2,4,.500,0,0,,0,0,0,1,0,0,1,3,10,5.9,-21
+57,54,2014-02-26,25-063,NOP,@,DAL,L (-19),1,34:01,7,11,.636,3,5,.600,2,4,.500,0,2,2,2,1,0,5,0,19,11.3,-7
+58,55,2014-02-28,25-065,NOP,@,PHO,L (-12),1,38:07,7,10,.700,3,4,.750,4,4,1.000,0,2,2,5,2,0,2,2,21,20.1,-15
+59,56,2014-03-01,25-066,NOP,@,LAC,L (-32),1,32:12,1,13,.077,0,3,.000,0,0,,2,2,4,4,1,0,3,1,2,-4.3,-45
+60,57,2014-03-03,25-068,NOP,@,SAC,L (-7),1,24:40,4,9,.444,2,4,.500,0,0,,0,1,1,2,2,0,1,6,10,5.6,+1
+61,58,2014-03-04,25-069,NOP,@,LAL,W (+7),1,37:45,9,13,.692,4,5,.800,6,6,1.000,0,2,2,6,2,0,2,0,28,27.3,+9
+62,59,2014-03-07,25-072,NOP,,MIL,W (+8),1,29:16,5,10,.500,2,7,.286,0,0,,0,0,0,5,0,0,1,3,12,8.3,-6
+63,60,2014-03-09,25-074,NOP,,DEN,W (+4),1,35:46,4,12,.333,1,2,.500,1,2,.500,0,3,3,1,0,0,4,2,10,-0.4,+3
+64,,2014-03-12,25-077,NOP,,MEM,L (-2),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+65,61,2014-03-14,25-079,NOP,,POR,L (-8),1,35:59,6,15,.400,2,5,.400,2,4,.500,1,5,6,6,0,0,3,1,16,10.1,-7
+66,62,2014-03-16,25-081,NOP,,BOS,W (+1),1,40:28,6,16,.375,1,6,.167,6,6,1.000,1,2,3,8,1,1,2,1,19,16.4,-5
+67,63,2014-03-19,25-084,NOP,,TOR,L (-7),1,29:11,4,10,.400,2,6,.333,5,6,.833,0,2,2,2,0,0,4,4,15,5.6,-2
+68,64,2014-03-21,25-086,NOP,@,ATL,W (+6),1,7:41,1,2,.500,0,0,,0,0,,0,2,2,0,0,0,0,0,2,1.6,+1
+69,,2014-03-22,25-087,NOP,,MIA,W (+10),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+70,,2014-03-24,25-089,NOP,,BRK,W (+5),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+71,,2014-03-26,25-091,NOP,,LAC,W (+2),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+72,,2014-03-28,25-093,NOP,,UTA,W (+7),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+73,,2014-03-29,25-094,NOP,@,SAS,L (-16),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+74,,2014-03-31,25-096,NOP,,SAC,L (-5),Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play,Did Not Play
+75,,2014-04-02,25-098,NOP,@,DEN,L (-30),Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress,Did Not Dress
+76,,2014-04-04,25-100,NOP,@,UTA,L (-4),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+77,,2014-04-06,25-102,NOP,@,POR,L (-6),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+78,,2014-04-09,25-105,NOP,,PHO,L (-6),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+79,,2014-04-11,25-107,NOP,@,OKC,L (-22),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+80,,2014-04-12,25-108,NOP,@,HOU,L (-7),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+81,,2014-04-14,25-110,NOP,,OKC,W (+12),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team
+82,,2014-04-16,25-112,NOP,,HOU,W (+5),Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team,Not With Team

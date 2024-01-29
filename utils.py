@@ -1,4 +1,6 @@
 from selenium import webdriver
+import numpy as np
+import threading
 import time
 
 def init_web_driver(width=1400, height=950):
@@ -15,3 +17,15 @@ def init_web_driver(width=1400, height=950):
 def patient_click(element, delay=1):
   element.click()
   time.sleep(delay)
+
+def thread_func(num_threads, func, input_args):
+  chunks = np.array_split(input_args, num_threads)
+  threads = []
+  for i in range(num_threads):
+    thread = threading.Thread(target=func, args=(chunks[i],))
+    threads.append(thread)
+
+  for thread in threads:
+    thread.start()
+  for thread in threads:
+    thread.join()
