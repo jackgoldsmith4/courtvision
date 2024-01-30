@@ -8,7 +8,7 @@ import os
 
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
-NUM_THREADS = 50
+NUM_THREADS = 40
 
 def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path, only_scrape_actives):
   url = 'https://www.basketball-reference.com/players/' + player_url_id + '/gamelog/'
@@ -117,7 +117,7 @@ def scrape_wrapper(players, only_scrape_actives=False):
 
       # output back to CSV
       player_df.to_csv(output_file_path, index=False)
-  print(f"---------PROCESS COMPLETE-----------")
+  print(f"---------PROCESS COMPLETE---------")
 
 ######## SCRIPT: run scrape function on all NBA players
 thread_func(NUM_THREADS, scrape_wrapper, pd.read_csv('nba_players.csv'))

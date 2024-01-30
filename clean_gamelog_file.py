@@ -43,7 +43,10 @@ def convert_time_to_float(time_series):
 ######## SCRIPT: run clean function on all NBA players
 #thread_func(NUM_THREADS, clean_wrapper, os.listdir('./player_game_logs'))
 filenames = os.listdir('./player_game_logs')
+count = 0
 for name in filenames:
   df = pd.read_csv('./player_game_logs/' + name)
   if df.shape[0] < 100:
-    pass # delete file
+    os.remove('./player_game_logs/' + name)
+    count+=1
+print(f"{count} files deleted")
