@@ -29,7 +29,6 @@ def clean_player_gamelog(filename):
   years, days = player_df['Age (days)'].str.split('-', expand=True).astype(int).values.T
   player_df['Age (days)'] = player_df['Age (days)'] = years * 365 + days
 
-
 def clean_wrapper(filenames):
   for filename in filenames:
     print(f"Cleaning gamelog file: {filename}")
@@ -42,4 +41,9 @@ def convert_time_to_float(time_series):
   return round(minutes + seconds / 60, 2)
 
 ######## SCRIPT: run clean function on all NBA players
-thread_func(NUM_THREADS, clean_wrapper, os.listdir('./player_game_logs'))
+#thread_func(NUM_THREADS, clean_wrapper, os.listdir('./player_game_logs'))
+filenames = os.listdir('./player_game_logs')
+for name in filenames:
+  df = pd.read_csv('./player_game_logs/' + name)
+  if df.shape[0] < 100:
+    pass # delete file
