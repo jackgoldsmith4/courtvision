@@ -49,36 +49,4 @@ def convert_time_to_float(time_series, file_path):
   return round(minutes + seconds / 60, 2)
 
 ######## SCRIPT: run clean function on all NBA players
-#thread_func(NUM_THREADS, clean_wrapper, os.listdir('./player_game_logs'))
-
-# #### Make files into subdirectories
-# parent_dir = './player_game_logs'
-# sub_dir = 'subdir'
-# filenames = os.listdir('./player_game_logs')
-
-# for file_name in filenames:
-#   subdir_path = parent_dir + '/' + file_name.replace('.csv', '')
-#   # Create the subdirectory
-#   if not os.path.exists(subdir_path):
-#     os.makedirs(subdir_path)
-#     print(f"Subdirectory '{sub_dir}' created in '{parent_dir}'")
-
-#   # Move the file
-#   src_file = os.path.join(parent_dir, file_name)
-#   dest_file = os.path.join(subdir_path, file_name)
-#   shutil.move(src_file, dest_file)
-#   print(f"File '{file_name}' moved to '{subdir_path}'")
-
-### Delete all gamelog files under 100 games
-filenames = os.listdir('./player_game_logs')
-count = 0
-for name in filenames:
-  path = './player_game_logs/' + name
-  df = pd.read_csv(path)
-  df = df.dropna(subset=['G']) # drop any inactive games (if missed by scrape)
-  if df.shape[0] < 100:
-    os.remove(path)
-    count+=1
-    continue
-  df.to_csv(path)
-print(f"{count} files deleted")
+thread_func(NUM_THREADS, clean_wrapper, os.listdir('./player_game_logs'))

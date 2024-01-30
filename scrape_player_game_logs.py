@@ -121,3 +121,34 @@ def scrape_wrapper(players, only_scrape_actives=False):
 
 ######## SCRIPT: run scrape function on all NBA players
 thread_func(NUM_THREADS, scrape_wrapper, pd.read_csv('nba_players.csv'))
+
+# #### Make files into subdirectories
+# parent_dir = './player_game_logs'
+# filenames = os.listdir('./player_game_logs')
+
+# for file_name in filenames:
+#   subdir_path = parent_dir + '/' + file_name.replace('.csv', '')
+#   # Create the subdirectory
+#   if not os.path.exists(subdir_path):
+#     os.makedirs(subdir_path)
+#     print(f"Subdirectory '{file_name}' created in '{parent_dir}'")
+
+#   # Move the file
+#   src_file = os.path.join(parent_dir, file_name)
+#   dest_file = os.path.join(subdir_path, file_name.replace('.csv', '_RAW.csv'))
+#   shutil.move(src_file, dest_file)
+#   print(f"File '{file_name}' moved to '{subdir_path}'")
+
+# ## Delete all gamelog files under 100 games
+# filenames = os.listdir('./player_game_logs')
+# count = 0
+# for name in filenames:
+#   path = './player_game_logs/' + name + '/' + name + '_RAW.csv'
+#   df = pd.read_csv(path)
+#   df = df.dropna(subset=['G']) # drop any inactive games (if missed by scrape)
+#   if df.shape[0] < 100:
+#     os.remove(path)
+#     count+=1
+#     continue
+#   df.to_csv(path, index=False)
+# print(f"{count} files deleted")
