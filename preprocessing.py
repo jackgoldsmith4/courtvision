@@ -11,6 +11,12 @@ def clean_player_gamelog(file_path):
   # drop any inactive games (if missed by scrape)
   player_df = player_df.dropna(subset=['G'])
 
+  # delete the directory if this player has played fewer than 100 games
+  if player_df.shape[0] < 100:
+    parent_dir = os.path.dirname(file_path)
+    shutil.rmtree(parent_dir)
+    return
+
   # rename some cols for clarity
   player_df.rename(columns={
     'Unnamed: 5': 'Home?',
@@ -39,7 +45,7 @@ def clean_player_gamelog(file_path):
 def clean_wrapper(player_names):
   for name in player_names:
     print(f"Cleaning gamelog file: {name}")
-    file_path = './player_game_logs/' + name + '/' + name + '.csv'
+    file_path = './player_game_logs/' + name + '/' + name + '_RAW.csv'
     clean_player_gamelog(file_path)
 
 def convert_time_to_float(time_series, file_path):

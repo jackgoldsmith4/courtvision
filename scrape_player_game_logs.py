@@ -10,14 +10,14 @@ GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
 NUM_THREADS = 40
 
-def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, output_file_path, only_scrape_actives):
+def scrape_game_log(player_url_id, rookie_year, final_year, player_name, output_file_path, only_scrape_actives):
   url = 'https://www.basketball-reference.com/players/' + player_url_id + '/gamelog/'
   were_games_scraped = False
 
   # find year to start
   start_year = int(rookie_year)
   gamelog_filenames = os.listdir('./player_game_logs')
-  if output_file_name in gamelog_filenames:
+  if player_name in gamelog_filenames:
     with open(output_file_path, 'rb') as file:
       file.seek(-2, os.SEEK_END)  # go to the second last byte in the file
       while file.read(1) != b'\n':  # keep stepping back until you find the newline
@@ -52,12 +52,12 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
     try:
       stats = driver.find_element(By.TAG_NAME, 'pre').text.split(GAMELOG_HEADER_TITLES)[1]
     except:
-      print('WARN: ' + output_file_name + ' ' + str(year) + ' logs not found DUE TO GAMELOG COLS')
+      print('WARN: ' + player_name + ' ' + str(year) + ' logs not found DUE TO GAMELOG COLS')
       driver.quit()
       continue
 
     # write or append to the player's gamelog file
-    if output_file_name not in gamelog_filenames and not were_games_scraped:
+    if player_name not in gamelog_filenames and not were_games_scraped:
       with open(output_file_path, 'w') as file:
         # always include new titles to get +/- as a column
         file.write(GAMELOG_HEADER_TITLES_NEW)
@@ -66,7 +66,7 @@ def scrape_game_log(player_url_id, rookie_year, final_year, output_file_name, ou
       with open(output_file_path, 'a') as file:
         file.write(stats)
     were_games_scraped = True
-    print(f"Scraped {output_file_name} {year} gamelog")
+    print(f"Scraped {player_name} {year} gamelog")
     driver.quit()
   return were_games_scraped
 
@@ -85,15 +85,18 @@ def scrape_wrapper(players, only_scrape_actives=False):
     if (int(final_year) - int(rookie_year) < 3) or (int(rookie_year) < 1980):
       continue
 
-    player_name = name.lower().replace('.', '').split(' ')
-    output_file_name = '_'.join(player_name) + '.csv'
-    output_file_path = './player_game_logs/' + output_file_name
+    player_name = '_'.join(name.lower().replace('.', '').split(' '))
+    subdir_path = './player_game_logs/' + player_name
+    # Create the subdirectory
+    if not os.path.exists(subdir_path):
+      os.makedirs(subdir_path)
+    output_file_path = subdir_path + player_name + '_RAW.csv'
     were_games_scraped = False
 
     # continually scrape until entire file has been built
     while True:
       try:
-        were_games_scraped = scrape_game_log(br_url_id, rookie_year, final_year, output_file_name, output_file_path, only_scrape_actives)
+        were_games_scraped = scrape_game_log(br_url_id, rookie_year, final_year, player_name, output_file_path, only_scrape_actives)
         break
       except KeyboardInterrupt:
         raise
@@ -115,40 +118,8 @@ def scrape_wrapper(players, only_scrape_actives=False):
       player_df = player_df.dropna(subset=['G'])
       player_df = player_df.astype({'G': 'int32'})
 
-      # output back to CSV
       player_df.to_csv(output_file_path, index=False)
   print(f"---------PROCESS COMPLETE---------")
 
 ######## SCRIPT: run scrape function on all NBA players
 thread_func(NUM_THREADS, scrape_wrapper, pd.read_csv('nba_players.csv'))
-
-# #### Make files into subdirectories
-# parent_dir = './player_game_logs'
-# filenames = os.listdir('./player_game_logs')
-
-# for file_name in filenames:
-#   subdir_path = parent_dir + '/' + file_name.replace('.csv', '')
-#   # Create the subdirectory
-#   if not os.path.exists(subdir_path):
-#     os.makedirs(subdir_path)
-#     print(f"Subdirectory '{file_name}' created in '{parent_dir}'")
-
-#   # Move the file
-#   src_file = os.path.join(parent_dir, file_name)
-#   dest_file = os.path.join(subdir_path, file_name.replace('.csv', '_RAW.csv'))
-#   shutil.move(src_file, dest_file)
-#   print(f"File '{file_name}' moved to '{subdir_path}'")
-
-# ## Delete all gamelog files under 100 games
-# filenames = os.listdir('./player_game_logs')
-# count = 0
-# for name in filenames:
-#   path = './player_game_logs/' + name + '/' + name + '_RAW.csv'
-#   df = pd.read_csv(path)
-#   df = df.dropna(subset=['G']) # drop any inactive games (if missed by scrape)
-#   if df.shape[0] < 100:
-#     os.remove(path)
-#     count+=1
-#     continue
-#   df.to_csv(path, index=False)
-# print(f"{count} files deleted")
