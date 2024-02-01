@@ -1,5 +1,5 @@
 from sklearn.model_selection import train_test_split
-from constants import team_codes
+from constants.team_codes import TEAM_CODES
 from utils import thread_func
 import pandas as pd
 import shutil
@@ -7,7 +7,7 @@ import os
 
 NUM_THREADS = 1
 
-def clean_player_gamelog(file_path):
+def preprocess_player_gamelog(file_path):
   player_df = pd.read_csv(file_path)
 
   # drop any inactive games (if missed by scrape)
@@ -53,7 +53,7 @@ def clean_player_gamelog(file_path):
   player_df['Victory Margin'] = player_df['Win/Loss'].str.extract(r'\(([+-]?\d+)\)').astype(int)
 
   # one-hot encode Team and Opponent columns
-  for team in team_codes:
+  for team in TEAM_CODES:
     player_df['Team_' + team] = 0
     player_df['Opponent_' + team] = 0
   player_df.apply(encode_team_row, axis=1)
@@ -70,11 +70,11 @@ def clean_player_gamelog(file_path):
   train_df.to_csv(file_path.replace('RAW', 'TRAIN'), index=False)
   test_df.to_csv(file_path.replace('RAW', 'TEST'), index=False)
 
-def clean_wrapper(player_names):
+def preprocess_wrapper(player_names):
   for name in player_names:
-    print(f"Cleaning gamelog file: {name}")
+    print(f"Processing gamelog file: {name}")
     file_path = './player_game_logs/' + name + '/' + name + '_RAW.csv'
-    clean_player_gamelog(file_path)
+    preprocess_player_gamelog(file_path)
 
 # Helper: convert time in mm:ss format to a float
 def convert_time_to_float(time_series):
@@ -99,4 +99,4 @@ def encode_team_row(row):
   return row
 
 ######## SCRIPT: run clean function on all NBA players
-thread_func(NUM_THREADS, clean_wrapper, os.listdir('./player_game_logs'))
+thread_func(NUM_THREADS, preprocess_wrapper, os.listdir('./player_game_logs'))
