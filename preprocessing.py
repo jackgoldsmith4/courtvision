@@ -1,3 +1,4 @@
+from sklearn.model_selection import train_test_split
 from constants import team_codes
 from utils import thread_func
 import pandas as pd
@@ -28,14 +29,15 @@ def clean_player_gamelog(file_path):
     'Opp': 'Opponent',
     'Age': 'Age (days)',
     'GS': 'Game Started?',
+    'MP': 'Minutes Played',
   }, inplace=True)
 
   # cleanup some of the columns
   player_df['Home?'].fillna(1, inplace=True)
   player_df['Home?'].replace('@',0, inplace=True)
   player_df['Date'] = pd.to_datetime(player_df['Date'])
-  player_df = player_df.dropna(subset=['MP'])
-  player_df['MP'] = convert_time_to_float(player_df['MP'])
+  player_df = player_df.dropna(subset=['Minutes Played'])
+  player_df['Minutes Played'] = convert_time_to_float(player_df['Minutes Played'])
 
   # convert age to days
   years, days = player_df['Age (days)'].str.split('-', expand=True).astype(int).values.T
@@ -49,7 +51,6 @@ def clean_player_gamelog(file_path):
   # extract 'Win?' and 'Victory Margin' from 'Win/Loss'
   player_df['Win?'] = player_df['Win/Loss'].str.extract(r'([WL])')
   player_df['Victory Margin'] = player_df['Win/Loss'].str.extract(r'\(([+-]?\d+)\)').astype(int)
-  player_df.drop(columns=['Win/Loss'], inplace=True)
 
   # one-hot encode Team and Opponent columns
   for team in team_codes:
@@ -58,13 +59,16 @@ def clean_player_gamelog(file_path):
   player_df.apply(encode_team_row, axis=1)
 
   # drop cols that won't be used in the model
+  player_df.drop(
+    columns=['Date', 'Team', 'Opponent', 'Win/Loss', 'FG', 'FGA', 'FG%', '3P', '3PA', '3P%', 'FT', 'FTA', 'FT%', 'ORB', 'DRB', 'TRB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'GmSc', '+/-']
+  )
 
-  # normalize features
+  # 80/20 random train/test split
+  train_df, test_df = train_test_split(player_df, test_size=0.2, random_state=42)
 
-  # build and save random index for train/test split
-
-  # save preprocessed file
-  player_df.to_csv(file_path.replace('RAW', 'PREPROCESSED'), index=False)
+  # save preprocessed files
+  train_df.to_csv(file_path.replace('RAW', 'TRAIN'), index=False)
+  test_df.to_csv(file_path.replace('RAW', 'TEST'), index=False)
 
 def clean_wrapper(player_names):
   for name in player_names:
