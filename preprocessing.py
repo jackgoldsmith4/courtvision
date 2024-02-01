@@ -48,19 +48,21 @@ def preprocess_player_gamelog(file_path):
   player_df['Year'] = player_df['Date'].dt.year
   player_df['Month of Season'] = player_df['Date'].dt.month.apply(get_seasonal_month)
 
-  # extract 'Win?' and 'Victory Margin' from 'Win/Loss'
-  player_df['Win?'] = player_df['Win/Loss'].str.extract(r'([WL])')
-  player_df['Victory Margin'] = player_df['Win/Loss'].str.extract(r'\(([+-]?\d+)\)').astype(int)
+  # # extract 'Win?' and 'Victory Margin' from 'Win/Loss'
+  # player_df['Win?'] = 0
+  # player_df = player_df.apply(modify_win_loss_row, axis=1)
+  # player_df['Victory Margin'] = player_df['Win/Loss'].str.extract(r'\(([+-]?\d+)\)').astype(int)
 
   # one-hot encode Team and Opponent columns
   for team in TEAM_CODES:
     player_df['Team_' + team] = 0
     player_df['Opponent_' + team] = 0
-  player_df.apply(encode_team_row, axis=1)
+  player_df = player_df.apply(encode_team_row, axis=1)
 
   # drop cols that won't be used in the model
   player_df.drop(
-    columns=['Date', 'Team', 'Opponent', 'Win/Loss', 'FG', 'FGA', 'FG%', '3P', '3PA', '3P%', 'FT', 'FTA', 'FT%', 'ORB', 'DRB', 'TRB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'GmSc', '+/-']
+    columns=['Date', 'Team', 'Opponent', 'Win/Loss', 'FG', 'FGA', 'FG%', '3P', '3PA', '3P%', 'FT', 'FTA', 'FT%', 'ORB', 'DRB', 'TRB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'GmSc', '+/-'],
+    inplace=True
   )
 
   # 80/20 random train/test split
@@ -89,6 +91,13 @@ def get_seasonal_month(month):
     return month - 9
   else:
     return month + 3
+
+# Helper: change row's Win? column to 1 if that game was a win
+def modify_win_loss_row(row):
+  win_loss = row['Win/Loss'].str.extract(r'([WL])')
+  if win_loss == 'W':
+    row['Win?'] = 1
+  return row
 
 # Helper: one-hot encode one row of the DF for Team and Opponent
 def encode_team_row(row):
