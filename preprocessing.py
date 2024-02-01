@@ -1,3 +1,4 @@
+from constants import team_codes
 from utils import thread_func
 import pandas as pd
 import shutil
@@ -34,13 +35,36 @@ def clean_player_gamelog(file_path):
   player_df['Home?'].replace('@',0, inplace=True)
   player_df['Date'] = pd.to_datetime(player_df['Date'])
   player_df = player_df.dropna(subset=['MP'])
-  player_df['MP'] = convert_time_to_float(player_df['MP'], file_path)
+  player_df['MP'] = convert_time_to_float(player_df['MP'])
 
   # convert age to days
   years, days = player_df['Age (days)'].str.split('-', expand=True).astype(int).values.T
   player_df['Age (days)'] = player_df['Age (days)'] = years * 365 + days
 
-  player_df.to_csv(file_path, index=False)
+  # add date features
+  player_df['Date'] = pd.to_datetime(player_df['Date'])
+  player_df['Year'] = player_df['Date'].dt.year
+  player_df['Month of Season'] = player_df['Date'].dt.month.apply(get_seasonal_month)
+
+  # extract 'Win?' and 'Victory Margin' from 'Win/Loss'
+  player_df['Win?'] = player_df['Win/Loss'].str.extract(r'([WL])')
+  player_df['Victory Margin'] = player_df['Win/Loss'].str.extract(r'\(([+-]?\d+)\)').astype(int)
+  player_df.drop(columns=['Win/Loss'], inplace=True)
+
+  # one-hot encode Team and Opponent columns
+  for team in team_codes:
+    player_df['Team_' + team] = 0
+    player_df['Opponent_' + team] = 0
+  player_df.apply(encode_team_row, axis=1)
+
+  # drop cols that won't be used in the model
+
+  # normalize features
+
+  # build and save random index for train/test split
+
+  # save preprocessed file
+  player_df.to_csv(file_path.replace('RAW', 'PREPROCESSED'), index=False)
 
 def clean_wrapper(player_names):
   for name in player_names:
@@ -48,11 +72,27 @@ def clean_wrapper(player_names):
     file_path = './player_game_logs/' + name + '/' + name + '_RAW.csv'
     clean_player_gamelog(file_path)
 
-def convert_time_to_float(time_series, file_path):
+# Helper: convert time in mm:ss format to a float
+def convert_time_to_float(time_series):
   split_series = time_series.str.split(':', expand=True)
   minutes = split_series[0].astype(int)
   seconds = split_series[1].astype(int)
   return round(minutes + seconds / 60, 2)
+
+# Helper: get month of the season (starting in October)
+def get_seasonal_month(month):
+  if month >= 10:
+    return month - 9
+  else:
+    return month + 3
+
+# Helper: one-hot encode one row of the DF for Team and Opponent
+def encode_team_row(row):
+  team = row['Team']
+  opponent = row['Opponent']
+  row['Team_' + team] = 1
+  row['Opponent_' + opponent] = 1
+  return row
 
 ######## SCRIPT: run clean function on all NBA players
 thread_func(NUM_THREADS, clean_wrapper, os.listdir('./player_game_logs'))

@@ -1,0 +1,1 @@
+TEAM_CODES = ["GSW", "DET", "WSB", "LAC", "DAL", "BOS", "MEM", "UTA", "MIN", "NJN", "TOR", "BRK", "DEN", "WAS", "PHI", "POR", "IND", "MIL", "SAC", "ATL", "ORL", "VAN", "OKC", "LAL", "SDC", "NOH", "NYK", "CHH", "SEA", "NOP", "NOK", "PHO", "CHA", "MIA", "CLE", "CHO", "CHI", "SAS", "KCK", "HOU"]
