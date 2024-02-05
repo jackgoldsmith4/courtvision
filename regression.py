@@ -2,6 +2,7 @@ from sklearn.linear_model import LinearRegression, Lasso
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.preprocessing import MinMaxScaler
+from utils import thread_func
 import pandas as pd
 import numpy as np
 import os
@@ -48,7 +49,7 @@ def run_regressions(player_name):
   weights = {f"{col}_weight": coef for col, coef in zip(X_train.columns, model.coef_)}
   bias = model.intercept_
   
-  summary_df = pd.DataFrame({
+  summary_df_linreg = pd.DataFrame({
     'model_type': 'LinReg',
     'n_train': n_train,
     'n_test': n_test,
@@ -58,13 +59,11 @@ def run_regressions(player_name):
     'mse_test': mse_test,
     'rmse_test': rmse_test,
     'r2_test': r2_test,
-  }, index=[0])
-  weights_df = pd.DataFrame({
     'y_test_mean': test_mean,
     'bias': bias,
   }, index=[0])
   for key, value in weights.items():
-    weights_df[key] = value
+    summary_df_linreg[key] = value
 
   # model 2: Lasso Regression
   model = Lasso()
@@ -93,17 +92,21 @@ def run_regressions(player_name):
     'mse_test': mse_test,
     'rmse_test': rmse_test,
     'r2_test': r2_test,
-  }, index=[0])
-  weights_df_lasso = pd.DataFrame({
     'y_test_mean': test_mean,
     'bias': bias,
   }, index=[0])
   for key, value in weights.items():
-    weights_df_lasso[key] = value
+    summary_df_lasso[key] = value
 
-  summary_df = pd.concat([summary_df, summary_df_lasso])
-  weights_df = pd.concat([weights_df, weights_df_lasso])
+  summary_df = pd.concat([summary_df_linreg, summary_df_lasso])
   summary_df.to_csv(f"./player_game_logs/{player_name}/{player_name}_SUMMARY.csv", index=False)
-  weights_df.to_csv(f"./player_game_logs/{player_name}/{player_name}_WEIGHTS.csv", index=False)
 
-run_regressions('aaron_brooks')
+def regression_wrapper(player_names):
+  for name in player_names:
+    os.remove(f"./player_game_logs/{name}/{name}_WEIGHTS.csv")
+    print(f"Running regressions: {name}")
+    run_regressions(name)
+
+######## SCRIPT: run clean function on all NBA players
+NUM_THREADS = 5
+thread_func(NUM_THREADS, regression_wrapper, os.listdir('./player_game_logs'))
