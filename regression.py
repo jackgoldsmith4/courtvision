@@ -1,6 +1,7 @@
 from sklearn.linear_model import LinearRegression, Lasso
 from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import MinMaxScaler
 from utils import thread_func
 import pandas as pd
@@ -98,12 +99,71 @@ def run_regressions(player_name):
   for key, value in weights.items():
     summary_df_lasso[key] = value
 
-  summary_df = pd.concat([summary_df_linreg, summary_df_lasso])
+  # model 3: Random Forest Regression (100 estimators, 20 depth)
+  model = RandomForestRegressor(
+    n_estimators=100,
+    max_depth=20,
+  )
+  model.fit(X_train, y_train)
+
+  y_train_pred = model.predict(X_train)
+  mse_train = mean_squared_error(y_train, y_train_pred)
+  rmse_train = np.sqrt(mse_train)
+  r2_train = r2_score(y_train, y_train_pred)
+
+  y_pred_test = model.predict(X_test)
+  mse_test = mean_squared_error(y_test, y_pred_test)
+  rmse_test = np.sqrt(mse_test)
+  r2_test = r2_score(y_test, y_pred_test)
+  
+  summary_df_rf = pd.DataFrame({
+    'model_type': 'Random Forest (100 estimators, 20 depth)',
+    'n_train': n_train,
+    'n_test': n_test,
+    'mse_train': mse_train,
+    'rmse_train': rmse_train,
+    'r2_train': r2_train,
+    'mse_test': mse_test,
+    'rmse_test': rmse_test,
+    'r2_test': r2_test,
+    'y_test_mean': test_mean,
+  }, index=[0])
+
+  # model 4: Random Forest Regression (50 estimators, 10 depth)
+  model = RandomForestRegressor(
+    n_estimators=50,
+    max_depth=10,
+  )
+  model.fit(X_train, y_train)
+
+  y_train_pred = model.predict(X_train)
+  mse_train = mean_squared_error(y_train, y_train_pred)
+  rmse_train = np.sqrt(mse_train)
+  r2_train = r2_score(y_train, y_train_pred)
+
+  y_pred_test = model.predict(X_test)
+  mse_test = mean_squared_error(y_test, y_pred_test)
+  rmse_test = np.sqrt(mse_test)
+  r2_test = r2_score(y_test, y_pred_test)
+  
+  summary_df_rf_2 = pd.DataFrame({
+    'model_type': 'Random Forest (50 estimators, 10 depth)',
+    'n_train': n_train,
+    'n_test': n_test,
+    'mse_train': mse_train,
+    'rmse_train': rmse_train,
+    'r2_train': r2_train,
+    'mse_test': mse_test,
+    'rmse_test': rmse_test,
+    'r2_test': r2_test,
+    'y_test_mean': test_mean,
+  }, index=[0])
+
+  summary_df = pd.concat([summary_df_linreg, summary_df_lasso, summary_df_rf, summary_df_rf_2])
   summary_df.to_csv(f"./player_game_logs/{player_name}/{player_name}_SUMMARY.csv", index=False)
 
 def regression_wrapper(player_names):
   for name in player_names:
-    os.remove(f"./player_game_logs/{name}/{name}_WEIGHTS.csv")
     print(f"Running regressions: {name}")
     run_regressions(name)
 
