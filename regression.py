@@ -22,7 +22,7 @@ def lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_
   model = Lasso(alpha=l)
   model.fit(X_train_scaled, y_train)
   return run_model(
-    model, 'Lasso',
+    model, f"Lasso (lambda={l})",
     X_train_scaled, y_train, X_test_scaled, y_test,
     X_train.columns, n_train, n_test, test_mean
   )
@@ -32,7 +32,7 @@ def ridge_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_
   model = Ridge(alpha=l)
   model.fit(X_train_scaled, y_train)
   return run_model(
-    model, 'Ridge',
+    model, f"Ridge (lambda={l})",
     X_train_scaled, y_train, X_test_scaled, y_test,
     X_train.columns, n_train, n_test, test_mean
   )
@@ -50,6 +50,7 @@ def random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, 
     X_train.columns, n_train, n_test, test_mean
   )
 
+# main func to run models
 def run_regressions(player_name):
   train = pd.read_csv(f"./player_game_logs/{player_name}/{player_name}_TRAIN.csv")
   test = pd.read_csv(f"./player_game_logs/{player_name}/{player_name}_TEST.csv")
@@ -71,6 +72,7 @@ def run_regressions(player_name):
   X_test = test.drop(columns=['PTS'])
   y_train = train['PTS']
   y_test = test['PTS']
+
   n_train = y_train.count()
   n_test = y_test.count()
   test_mean = np.mean(y_test)
@@ -82,11 +84,16 @@ def run_regressions(player_name):
 
   # run models
   models = []
-  models.append(linear_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean))
-  models.append(lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.1))
-  models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=50, max_depth=10))
+  #models.append(linear_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean))
+  models.append(lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.05))
+  models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=500, max_depth=5))
+  #models.append(ridge_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.1))
 
-  summary_df = pd.concat([summary, models])
+  summary_df = pd.concat([summary] + models)
+
+  # discard old outputs
+  #summary_df = summary_df[summary_df['model_type'] != 'Lasso']
+
   summary_df.to_csv(f"./player_game_logs/{player_name}/{player_name}_SUMMARY.csv", index=False)
 
 def run_model(model, model_type, X_train, y_train, X_test, y_test, col_names, n_train, n_test, test_mean):
