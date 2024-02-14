@@ -1,7 +1,6 @@
-from sklearn.linear_model import LinearRegression, Lasso
+from sklearn.linear_model import LinearRegression, Lasso, Ridge
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import MinMaxScaler
 from utils import thread_func
 import pandas as pd
@@ -19,11 +18,21 @@ def linear_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n
   )
 
 # model 2: Lasso Regression
-def lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean):
-  model = Lasso()
+def lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l):
+  model = Lasso(alpha=l)
   model.fit(X_train_scaled, y_train)
   return run_model(
     model, 'Lasso',
+    X_train_scaled, y_train, X_test_scaled, y_test,
+    X_train.columns, n_train, n_test, test_mean
+  )
+
+# model 3: Ridge Regression
+def ridge_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l):
+  model = Ridge(alpha=l)
+  model.fit(X_train_scaled, y_train)
+  return run_model(
+    model, 'Ridge',
     X_train_scaled, y_train, X_test_scaled, y_test,
     X_train.columns, n_train, n_test, test_mean
   )
@@ -44,6 +53,11 @@ def random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, 
 def run_regressions(player_name):
   train = pd.read_csv(f"./player_game_logs/{player_name}/{player_name}_TRAIN.csv")
   test = pd.read_csv(f"./player_game_logs/{player_name}/{player_name}_TEST.csv")
+
+  try:
+    summary = pd.read_csv(f"./player_game_logs/{player_name}/{player_name}_SUMMARY.csv")
+  except:
+    summary = pd.DataFrame()
 
   # # drop columns that are zero to reduce dimensionality
   # train_columns_to_drop = [col for col in train.columns if train[col].sum() == 0]
@@ -67,11 +81,12 @@ def run_regressions(player_name):
   X_test_scaled = scaler.transform(X_test)
 
   # run models
-  summary_df_linreg = linear_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean)
-  summary_df_lasso = lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean)
-  summary_df_rf = random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=50, max_depth=10)
+  models = []
+  models.append(linear_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean))
+  models.append(lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.1))
+  models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=50, max_depth=10))
 
-  summary_df = pd.concat([summary_df_linreg, summary_df_lasso, summary_df_rf])
+  summary_df = pd.concat([summary, models])
   summary_df.to_csv(f"./player_game_logs/{player_name}/{player_name}_SUMMARY.csv", index=False)
 
 def run_model(model, model_type, X_train, y_train, X_test, y_test, col_names, n_train, n_test, test_mean):
