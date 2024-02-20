@@ -1,8 +1,11 @@
 from sklearn.linear_model import LinearRegression, Lasso, Ridge
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import MinMaxScaler
 from utils import thread_func
+from sklearn.svm import SVR
 import pandas as pd
 import numpy as np
 import os
@@ -50,6 +53,51 @@ def random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, 
     X_train.columns, n_train, n_test, test_mean
   )
 
+# model 4: Support Vector Machine (SVR)
+def svm(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, kernel):
+  # scale both X and y
+  scaler_X = MinMaxScaler()
+  X_train_scaled = scaler_X.fit_transform(X_train)
+  X_test_scaled = scaler_X.transform(X_test)
+  scaler_y = MinMaxScaler()
+  y_train_scaled = scaler_y.fit_transform(y_train.reshape(-1, 1)).flatten()
+  y_test_scaled = scaler_y.transform(y_test.reshape(-1, 1)).flatten()
+
+  model = SVR(kernel=kernel)
+  model.fit(X_train_scaled, y_train_scaled)
+  train_predictions = model.predict(X_train_scaled)
+  test_predictions = model.predict(X_test_scaled)
+
+  # Scale back the predictions to the original value range
+  y_train_pred = scaler_y.inverse_transform(train_predictions)
+  y_test_pred = scaler_y.inverse_transform(test_predictions)
+
+  mse_train = mean_squared_error(y_train, y_train_pred)
+  rmse_train = np.sqrt(mse_train)
+  r2_train = r2_score(y_train, y_train_pred)
+
+  mse_test = mean_squared_error(y_test, y_test_pred)
+  rmse_test = np.sqrt(mse_test)
+  r2_test = r2_score(y_test, y_test_pred)
+
+  return pd.DataFrame({
+    'model_type': f"SVM ({kernel} kernel)",
+    'n_train': n_train,
+    'n_test': n_test,
+    'mse_train': mse_train,
+    'rmse_train': rmse_train,
+    'r2_train': r2_train,
+    'mse_test': mse_test,
+    'rmse_test': rmse_test,
+    'r2_test': r2_test,
+    'y_test_mean': test_mean,
+    'bias': '',
+  }, index=[0])
+
+# model 5: Feedforward NN
+def feedforward_nn(X_train, y_train, X_test, y_test, n_train, n_test, test_mean):
+  return
+
 # main func to run models
 def run_regressions(player_name):
   train = pd.read_csv(f"./player_game_logs/{player_name}/{player_name}_TRAIN.csv")
@@ -85,9 +133,11 @@ def run_regressions(player_name):
   # run models
   models = []
   #models.append(linear_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean))
-  models.append(lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.05))
-  models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=500, max_depth=5))
+  #models.append(lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.05))
+  #models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=500, max_depth=5))
   #models.append(ridge_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.1))
+  models.append(svm(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, 'rbf'))
+  models.append(svm(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, 'poly'))
 
   summary_df = pd.concat([summary] + models)
 
