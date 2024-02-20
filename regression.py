@@ -2,8 +2,12 @@ from sklearn.linear_model import LinearRegression, Lasso, Ridge
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import MinMaxScaler
+from tf_keras.callbacks import EarlyStopping
+from tf_keras.models import Sequential
+from tf_keras.layers import Dense
 from utils import thread_func
 from sklearn.svm import SVR
+import tensorflow as tf
 import pandas as pd
 import numpy as np
 import os
@@ -92,9 +96,69 @@ def svm(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, kernel):
     'bias': '',
   }, index=[0])
 
+def r_squared(y_true, y_pred):
+  ss_res = tf.reduce_sum(tf.square(y_true - y_pred))
+  ss_tot = tf.reduce_sum(tf.square(y_true - tf.reduce_mean(y_true)))
+  return 1 - ss_res / (ss_tot + tf.keras.backend.epsilon())
+
 # model 6: Feedforward NN
-def feedforward_nn(X_train, y_train, X_test, y_test, n_train, n_test, test_mean):
-  return
+def feedforward_nn(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, layers, epochs):
+  # scale both X and y
+  scaler_X = MinMaxScaler()
+  X_train_scaled = scaler_X.fit_transform(X_train)
+  X_test_scaled = scaler_X.transform(X_test)
+  scaler_y = MinMaxScaler()
+  y_train_scaled = scaler_y.fit_transform(y_train.to_numpy().reshape(-1, 1)).flatten()
+  y_test_scaled = scaler_y.transform(y_test.to_numpy().reshape(-1, 1)).flatten()
+
+  lays = [Dense(layers[0], activation='relu', input_shape=(X_train_scaled.shape[1],))]
+  for layer in layers[1:-1]:
+    lays.append(Dense(layer, activation='relu'))
+  lays.append(Dense(1))
+  model = Sequential(lays)
+
+  model.compile(optimizer='adam',
+    loss='mean_squared_error',
+    metrics=['mean_squared_error']
+  )
+
+  # train the model
+  early_stopping = EarlyStopping(monitor='loss', patience=10, restore_best_weights=True)
+  history = model.fit(X_train_scaled, y_train_scaled,
+    epochs=epochs,
+    batch_size=32,
+    #validation_split=0.2,
+    callbacks=[early_stopping]
+  )
+
+  train_predictions = model.predict(X_train_scaled)
+  test_predictions = model.predict(X_test_scaled)
+
+  # scale back the predictions to the original value range
+  y_train_pred = scaler_y.inverse_transform(train_predictions.reshape(-1, 1)).flatten()
+  y_test_pred = scaler_y.inverse_transform(test_predictions.reshape(-1, 1)).flatten()
+
+  mse_train = mean_squared_error(y_train, y_train_pred)
+  rmse_train = np.sqrt(mse_train)
+  r2_train = r2_score(y_train, y_train_pred)
+
+  mse_test = mean_squared_error(y_test, y_test_pred)
+  rmse_test = np.sqrt(mse_test)
+  r2_test = r2_score(y_test, y_test_pred)
+
+  return pd.DataFrame({
+    'model_type': f"Feedforward NN ({len(layers)} layers, [{layers}] activations)",
+    'n_train': n_train,
+    'n_test': n_test,
+    'mse_train': mse_train,
+    'rmse_train': rmse_train,
+    'r2_train': r2_train,
+    'mse_test': mse_test,
+    'rmse_test': rmse_test,
+    'r2_test': r2_test,
+    'y_test_mean': test_mean,
+    'bias': '',
+  }, index=[0])
 
 # main func to run models
 def run_regressions(player_name):
@@ -134,12 +198,13 @@ def run_regressions(player_name):
   #models.append(lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.05))
   #models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=500, max_depth=5))
   #models.append(ridge_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.1))
-  models.append(svm(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, 'linear'))
+  #models.append(svm(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, 'linear'))
+  models.append(feedforward_nn(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, layers=[32, 8, 1], epochs=20))
 
   summary_df = pd.concat([summary] + models)
 
   # discard old outputs
-  #summary_df = summary_df[summary_df['model_type'] != 'Lasso']
+  #summary_df = summary_df[summary_df['model_type'] != 'Feedforward NN (3 layers, [[32, 16, 1]] activations)']
 
   summary_df.to_csv(f"./player_game_logs/{player_name}/{player_name}_SUMMARY.csv", index=False)
 
