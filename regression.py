@@ -170,14 +170,6 @@ def run_regressions(player_name):
   except:
     summary = pd.DataFrame()
 
-  # # drop columns that are zero to reduce dimensionality
-  # train_columns_to_drop = [col for col in train.columns if train[col].sum() == 0]
-  # test_columns_to_drop = [col for col in test.columns if test[col].sum() == 0]
-  # cols_to_drop = set(train_columns_to_drop + test_columns_to_drop)
-  # print(cols_to_drop)
-  # train.drop(columns=cols_to_drop, inplace=True)
-  # test.drop(columns=cols_to_drop, inplace=True)
-
   X_train = train.drop(columns=['PTS'])
   X_test = test.drop(columns=['PTS'])
   y_train = train['PTS']
@@ -192,14 +184,16 @@ def run_regressions(player_name):
   X_train_scaled = scaler.fit_transform(X_train)
   X_test_scaled = scaler.transform(X_test)
 
+  summary = summary[summary['model_type'] != 'Random Forest (500 estimators, 5 depth)']
+
   # run models
   models = []
   #models.append(linear_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean))
   #models.append(lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.05))
-  #models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=500, max_depth=5))
+  models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=500, max_depth=5))
   #models.append(ridge_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.1))
   #models.append(svm(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, 'linear'))
-  models.append(feedforward_nn(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, layers=[32, 8, 1], epochs=20))
+  #models.append(feedforward_nn(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, layers=[16, 4, 1], epochs=20))
 
   summary_df = pd.concat([summary] + models)
 
@@ -225,7 +219,7 @@ def run_model(model, model_type, X_train, y_train, X_test, y_test, col_names, n_
     bias = model.intercept_
   except AttributeError:
     # tree-based models
-    weights = {}
+    weights = {f"{col}_weight": coef for col, coef in zip(col_names, model.feature_importances_)}
     bias = ''
   
   summary_df = pd.DataFrame({
