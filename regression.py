@@ -96,11 +96,6 @@ def svm(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, kernel):
     'bias': '',
   }, index=[0])
 
-def r_squared(y_true, y_pred):
-  ss_res = tf.reduce_sum(tf.square(y_true - y_pred))
-  ss_tot = tf.reduce_sum(tf.square(y_true - tf.reduce_mean(y_true)))
-  return 1 - ss_res / (ss_tot + tf.keras.backend.epsilon())
-
 # model 6: Feedforward NN
 def feedforward_nn(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, layers, epochs):
   # scale both X and y
@@ -165,8 +160,14 @@ def run_regressions(player_name):
   train = pd.read_csv(f"./player_game_logs/{player_name}/{player_name}_TRAIN.csv")
   test = pd.read_csv(f"./player_game_logs/{player_name}/{player_name}_TEST.csv")
 
+  # ablate Team/Opponent Features
+  cols_to_drop = train.filter(regex='(Team|Opponent)').columns
+  train = train.drop(columns=cols_to_drop)
+  cols_to_drop = test.filter(regex='(Team|Opponent)').columns
+  test = test.drop(columns=cols_to_drop)
+
   try:
-    summary = pd.read_csv(f"./player_game_logs/{player_name}/{player_name}_SUMMARY.csv")
+    summary = pd.read_csv(f"./player_game_logs/{player_name}/{player_name}_SUMMARY_ABLATED.csv")
   except:
     summary = pd.DataFrame()
 
@@ -184,14 +185,13 @@ def run_regressions(player_name):
   X_train_scaled = scaler.fit_transform(X_train)
   X_test_scaled = scaler.transform(X_test)
 
-  summary = summary[summary['model_type'] != 'Random Forest (500 estimators, 5 depth)']
-
   # run models
   models = []
-  #models.append(linear_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean))
-  #models.append(lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.05))
+  models.append(linear_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean))
+  models.append(lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.05))
   models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=500, max_depth=5))
-  #models.append(ridge_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.1))
+  models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=100, max_depth=5))
+  models.append(ridge_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=2.0))
   #models.append(svm(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, 'linear'))
   #models.append(feedforward_nn(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, layers=[16, 4, 1], epochs=20))
 
@@ -200,7 +200,7 @@ def run_regressions(player_name):
   # discard old outputs
   #summary_df = summary_df[summary_df['model_type'] != 'Feedforward NN (3 layers, [[32, 16, 1]] activations)']
 
-  summary_df.to_csv(f"./player_game_logs/{player_name}/{player_name}_SUMMARY.csv", index=False)
+  summary_df.to_csv(f"./player_game_logs/{player_name}/{player_name}_SUMMARY_ABLATED.csv", index=False)
 
 def run_model(model, model_type, X_train, y_train, X_test, y_test, col_names, n_train, n_test, test_mean):
   y_train_pred = model.predict(X_train)
