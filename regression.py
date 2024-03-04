@@ -187,13 +187,13 @@ def run_regressions(player_name):
 
   # run models
   models = []
-  models.append(linear_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean))
-  models.append(lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.05))
-  models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=500, max_depth=5))
-  models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=100, max_depth=5))
-  models.append(ridge_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=2.0))
-  #models.append(svm(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, 'linear'))
-  #models.append(feedforward_nn(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, layers=[16, 4, 1], epochs=20))
+  #models.append(linear_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean))
+  #models.append(lasso_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=0.05))
+  #models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=500, max_depth=5))
+  #models.append(random_forest_regression(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, n_estimators=100, max_depth=5))
+  #models.append(ridge_regression(X_train, X_train_scaled, y_train, X_test_scaled, y_test, n_train, n_test, test_mean, l=2.0))
+  models.append(svm(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, 'linear'))
+  models.append(feedforward_nn(X_train, y_train, X_test, y_test, n_train, n_test, test_mean, layers=[16, 4, 1], epochs=20))
 
   summary_df = pd.concat([summary] + models)
 
