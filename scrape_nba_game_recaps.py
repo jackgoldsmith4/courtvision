@@ -50,9 +50,12 @@ def get_nba_game_recaps(game_urls):
       with open('./game_recaps/' + url.split('game/')[1] + '.txt', "w") as file:
         file.write(story)
     except:
-      print('not gonna happen')
+      print(f"no recap found for {url}")
       continue
 
+print('Generating dates...')
 dates = generate_dates()
+print('Getting game URLS...')
 get_nba_game_urls(DATES)
+print('Getting game recaps...')
 get_nba_game_recaps(URLS)
