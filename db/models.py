@@ -21,7 +21,7 @@ class PlayerStats(Base):
     Index('idx_game_id', 'game_id'),
   )
 
-  stats_id = Column(Integer, primary_key=True, autoincrement=True)
+  stats_id = Column(Integer, primary_key=True)
   game_id = Column(String, nullable=False) # hash of game_date, home_team, away_team
   game_date = Column(Date, nullable=False)
   home_team = Column(String(100), nullable=False)
