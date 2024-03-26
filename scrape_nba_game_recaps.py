@@ -7,7 +7,7 @@ import time
 
 NBA_GAMES_URL = 'https://www.nba.com/games?date='
 
-def generate_dates(start_date=datetime(2000, 10, 1)):
+def generate_dates(start_date=datetime(2005, 10, 1)):
   end_date = datetime.now()
   delta = end_date - start_date
   date_list = [start_date + timedelta(days=i) for i in range(delta.days + 1)]
@@ -32,6 +32,8 @@ def get_nba_game_urls(dates):
       link = url.get_attribute('href')
       if link != 'https://www.nba.com/games':
         game_urls.append(link)
+      else:
+        print(f"no game details link found: {url}")
     
     with open('./nba_game_urls.py', "w") as file:
       file.write('URLS = ' + str(game_urls))
@@ -39,6 +41,7 @@ def get_nba_game_urls(dates):
   return game_urls
 
 def get_nba_game_recaps(game_urls):
+  print(len(game_urls))
   for url in game_urls:
     print(url)
     driver = init_web_driver()
@@ -53,9 +56,8 @@ def get_nba_game_recaps(game_urls):
       print(f"no recap found for {url}")
       continue
 
-print('Generating dates...')
-dates = generate_dates()
-print('Getting game URLS...')
-get_nba_game_urls(DATES)
-print('Getting game recaps...')
-get_nba_game_recaps(URLS)
+#dates = generate_dates()
+#print('Getting game URLS...')
+#game_urls = get_nba_game_urls(DATES)
+#print('Getting game recaps...')
+get_nba_game_recaps(URLS[::-1])

@@ -1,3 +1,4 @@
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 import numpy as np
 import threading
@@ -12,7 +13,7 @@ def init_web_driver(width=1400, height=950):
   chrome_options.add_argument('--ignore-certificate-errors')
   # disable images
   chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
-  return webdriver.Chrome(chrome_options=chrome_options)
+  return webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
 
 def patient_click(element, delay=1):
   element.click()
