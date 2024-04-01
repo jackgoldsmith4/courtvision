@@ -11,6 +11,7 @@ class GameRecaps(Base):
   home_team = Column(String(100), nullable=False)
   away_team = Column(String(100), nullable=False)
   author = Column(String(100))
+  headline = Column(Text)
   recap_text = Column(Text)
 
 class PlayerStats(Base):

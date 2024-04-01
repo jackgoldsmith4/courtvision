@@ -3,13 +3,13 @@ from models import GameRecaps
 from hashlib import sha256
 
 # add a new game recap to the DB
-def insert_game_recap(engine, game_date, home_team, away_team, author, recap_text):
+def insert_game_recap(engine, game_date, home_team, away_team, author, headline, recap_text):
   session = sessionmaker(bind=engine)
   game_id = sha256(str(game_date) + home_team + away_team)
 
   try:
     # create a new GameRecaps instance
-    new_game_recap = GameRecaps(game_id=game_id, game_date=game_date, home_team=home_team, away_team=away_team, author=author, recap_text=recap_text)
+    new_game_recap = GameRecaps(game_id=game_id, game_date=game_date, home_team=home_team, away_team=away_team, author=author, headline=headline, recap_text=recap_text)
 
     # add the new instance to the session and commit it to the database
     session.add(new_game_recap)
