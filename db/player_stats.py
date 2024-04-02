@@ -45,7 +45,7 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
     print("New player stat successfully added.")
   except Exception as e:
     session.rollback()
-    print(f"Failed to add game recap. Error: {e}")
+    print(f"Failed to add player stat. Error: {e}")
   finally:
     session.close()
 
