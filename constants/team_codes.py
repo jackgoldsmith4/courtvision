@@ -11,6 +11,7 @@ TEAM_CODES = {
   "NJN": "New Jersey Nets",
   "TOR": "Toronto Raptors",
   "BKN": "Brooklyn Nets",
+  "BRK": "Brooklyn Nets",
   "DEN": "Denver Nuggets",
   "WAS": "Washington Wizards",
   "PHI": "Philadelphia 76ers",
@@ -27,15 +28,16 @@ TEAM_CODES = {
   "NOH": "New Orleans Hornets",
   "NYK": "New York Knicks",
   "CHH": "Charlotte Hornets", # same as CHO
+  "CHO": "Charlotte Hornets", # same as CHH
   "SEA": "Seattle Supersonics",
   "NOP": "New Orleans Pelicans",
   "NOK": "",
   "PHX": "Phoenix Suns",
-  "CHA": "Charlotte Hornets",
+  "PHO": "Phoenix Suns",
+  "CHA": "Charlotte Bobcats", # TODO flip to Hornets for new recaps
+  "CHB": "Charlotte Bobcats",
   "MIA": "Miami Heat",
   "CLE": "Cleveland Cavaliers",
-  "CHO": "Charlotte Hornets", # same as CHH
-  "CHB": "Charlotte Bobcats",
   "CHI": "Chicago Bulls",
   "SAS": "San Antonio Spurs",
   "KCK": "Kansas City Kings",
