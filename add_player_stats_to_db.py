@@ -1,7 +1,7 @@
 from db.player_stats import insert_player_stat
 from constants.team_codes import TEAM_CODES
-from datetime import datetime, date
 from sqlalchemy import create_engine
+from datetime import datetime, date
 import pandas as pd
 import os
 
@@ -49,6 +49,11 @@ for file_name in os.listdir('./player_game_logs'):
       else:
         game_outcome = -margin
 
+      try:
+        plus_minus=int(row['+/-'])
+      except ValueError:
+        plus_minus=0
+
       insert_player_stat(
         engine,
         game_date=game_date,
@@ -73,7 +78,7 @@ for file_name in os.listdir('./player_game_logs'):
         steals=int(row['STL']),
         blocks=int(row['BLK']),
         turnovers=int(row['TOV']),
-        plus_minus=int(row['+/-'])
+        plus_minus=plus_minus
       )
   except:
     raise

@@ -1,3 +1,4 @@
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
 from db.models import PlayerStats
 from hashlib import sha256
@@ -43,6 +44,9 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
     session.add(new_player_stats)
     session.commit()
     print("New player stat successfully added.")
+  except IntegrityError:
+    print(f"Player stat already exists")
+    session.close()
   except Exception as e:
     session.rollback()
     print(f"Failed to add player stat. Error: {e}")
@@ -51,7 +55,13 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
 
 # get all stats for a certain game as a flattened string (for transformer input)
 def get_flattened_player_stats_by_game_id(engine, game_id):
-  pass
+  Session = sessionmaker(bind=engine)
+  session = Session()
+
+  # TODO
+
+  session.close()
+
 
 # get all stats for a certain player
 def get_player_stats_by_player_name(engine, player_name):
