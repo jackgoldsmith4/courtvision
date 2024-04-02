@@ -1,4 +1,4 @@
-from db.game_recaps import insert_game_recap
+from db.game_recaps import insert_game_recap, get_game_recaps
 from constants.team_codes import TEAM_CODES
 from datetime import datetime, timedelta
 from sqlalchemy import create_engine
