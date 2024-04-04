@@ -1,21 +1,10 @@
+from utils import init_web_driver, generate_dates
 from selenium.webdriver.common.by import By
-from datetime import datetime, timedelta
-from utils import init_web_driver
 from nba_game_urls import URLS
 from dates import DATES
 import time
 
 NBA_GAMES_URL = 'https://www.nba.com/games?date='
-
-def generate_dates(start_date=datetime(2005, 10, 1)):
-  end_date = datetime.now()
-  delta = end_date - start_date
-  date_list = [start_date + timedelta(days=i) for i in range(delta.days + 1)]
-  date_strs = [date.strftime('%Y-%m-%d') for date in date_list]
-
-  with open('./dates.py', "w") as file:
-    file.write('DATES = ' + str(date_strs))
-  return date_strs
 
 def get_nba_game_urls(dates):
   game_urls = []

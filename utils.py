@@ -1,4 +1,5 @@
 from webdriver_manager.chrome import ChromeDriverManager
+from datetime import datetime, timedelta
 from selenium import webdriver
 import numpy as np
 import threading
@@ -30,3 +31,13 @@ def thread_func(num_threads, func, input_args):
     thread.start()
   for thread in threads:
     thread.join()
+
+def generate_dates(start_date=datetime(2005, 10, 1)):
+  end_date = datetime.now()
+  delta = end_date - start_date
+  date_list = [start_date + timedelta(days=i) for i in range(delta.days + 1)]
+  date_strs = [date.strftime('%Y-%m-%d') for date in date_list]
+
+  with open('./dates.py', "w") as file:
+    file.write('DATES = ' + str(date_strs))
+  return date_strs
