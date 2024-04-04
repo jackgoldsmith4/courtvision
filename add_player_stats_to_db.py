@@ -1,16 +1,10 @@
 from db.player_stats import insert_player_stat
 from constants.team_codes import TEAM_CODES
+from utils import convert_time_to_float
 from sqlalchemy import create_engine
 from datetime import datetime, date
 import pandas as pd
 import os
-
-# Helper: convert time in mm:ss format to a float
-def convert_time_to_float(time_series):
-  split_series = time_series.split(':')
-  minutes = int(split_series[0])
-  seconds = int(split_series[1])
-  return round(minutes + seconds / 60, 2)
 
 engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
 

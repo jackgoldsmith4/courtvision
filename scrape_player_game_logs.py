@@ -1,7 +1,11 @@
+from utils import init_web_driver, patient_click, thread_func, convert_time_to_float
 from selenium.common.exceptions import ElementNotInteractableException
 from selenium.webdriver.common.action_chains import ActionChains
-from utils import init_web_driver, patient_click, thread_func
+from db.player_stats import insert_player_stat
 from selenium.webdriver.common.by import By
+from constants.team_codes import TEAM_CODES
+from sqlalchemy import create_engine
+from datetime import datetime
 import pandas as pd
 import time
 import os
@@ -56,15 +60,86 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name, output_
       driver.quit()
       continue
 
-    # write or append to the player's gamelog file
-    if player_name not in gamelog_filenames and not were_games_scraped:
-      with open(output_file_path, 'w') as file:
-        # always include new titles to get +/- as a column
-        file.write(GAMELOG_HEADER_TITLES_NEW)
-        file.write(stats)
-    else:
-      with open(output_file_path, 'a') as file:
-        file.write(stats)
+    # # write or append to the player's gamelog file
+    # if player_name not in gamelog_filenames and not were_games_scraped:
+    #   with open(output_file_path, 'w') as file:
+    #     # always include new titles to get +/- as a column
+    #     file.write(GAMELOG_HEADER_TITLES_NEW)
+    #     file.write(stats)
+    # else:
+    #   with open(output_file_path, 'a') as file:
+    #     file.write(stats)
+
+    keys = GAMELOG_HEADER_TITLES_NEW.split(",")
+    engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
+
+    for line in stats.split('\n'):
+      values = line.split(",")
+
+      # Pairing each key with its corresponding value and creating a dictionary
+      row = dict(zip(keys, values))
+
+      try:
+        game_date = datetime.strptime(row['Date'], "%Y-%m-%d").date()
+
+        is_home_game = 1
+        if row['Unnamed: 5'] == '@':
+          is_home_game = 0
+
+        home_team = ''
+        away_team = ''
+        if is_home_game == 1:
+          home_team = TEAM_CODES[row['Tm']]
+          away_team = TEAM_CODES[row['Opp']]
+        else:
+          home_team = TEAM_CODES[row['Opp']]
+          away_team = TEAM_CODES[row['Tm']]
+        
+        years, days = row['Age'].split('-')
+        player_age = 365*int(years) + int(days)
+        game_started = int(row['GS'])
+        wl, margin = row['Unnamed: 7'].split(' (')
+        margin = int(margin[1:-1])
+        game_outcome = 0
+        if wl == 'W':
+          game_outcome = margin
+        else:
+          game_outcome = -margin
+
+        try:
+          plus_minus=int(row['+/-'])
+        except ValueError:
+          plus_minus=0
+
+        insert_player_stat(
+          engine,
+          game_date=game_date,
+          home_team=home_team,
+          away_team=away_team,
+          is_home_game=is_home_game,
+          player_name=player_name,
+          player_age=player_age,
+          game_started=game_started,
+          game_outcome=game_outcome,
+          minutes_played=convert_time_to_float(row['MP']),
+          points=int(row['PTS']),
+          fg_made=int(row['FG']),
+          fg_attempted=int(row['FGA']),
+          threes_made=int(row['3P']),
+          threes_attempted=int(row['3PA']),
+          ft_made=int(row['FT']),
+          ft_attempted=int(row['FTA']),
+          orb=int(row['ORB']),
+          drb=int(row['DRB']),
+          assists=int(row['AST']),
+          steals=int(row['STL']),
+          blocks=int(row['BLK']),
+          turnovers=int(row['TOV']),
+          plus_minus=plus_minus
+        )
+      except:
+        raise
+
     were_games_scraped = True
     print(f"Scraped {player_name} {year} gamelog")
     driver.quit()
@@ -81,8 +156,8 @@ def scrape_wrapper(players, only_scrape_actives=False):
     if only_scrape_actives and final_year != 2024:
       continue
 
-    # pass over players who have played in three or fewer seasons, or who played before 1980 (when 3PT began)
-    if (int(final_year) - int(rookie_year) < 3) or (int(rookie_year) < 1980):
+    # pass over players
+    if (int(final_year) - int(rookie_year) >= 3) or (int(rookie_year) < 2001):
       continue
 
     player_name = '_'.join(name.lower().replace('.', '').split(' '))
@@ -107,18 +182,18 @@ def scrape_wrapper(players, only_scrape_actives=False):
         print(e)
         continue
     
-    # after reading, clean the data if any games were scraped
-    if were_games_scraped:
-      player_df = pd.read_csv(output_file_path)
+    # # after reading, clean the data if any games were scraped
+    # if were_games_scraped:
+    #   player_df = pd.read_csv(output_file_path)
 
-      # drop duplicate games in case games were scraped more than once
-      player_df.drop_duplicates(inplace=True)
+    #   # drop duplicate games in case games were scraped more than once
+    #   player_df.drop_duplicates(inplace=True)
 
-      # drop rows in which player didn't play
-      player_df = player_df.dropna(subset=['G'])
-      player_df = player_df.astype({'G': 'int32'})
+    #   # drop rows in which player didn't play
+    #   player_df = player_df.dropna(subset=['G'])
+    #   player_df = player_df.astype({'G': 'int32'})
 
-      player_df.to_csv(output_file_path, index=False)
+    #   player_df.to_csv(output_file_path, index=False)
   print(f"---------PROCESS COMPLETE---------")
 
 ######## SCRIPT: run scrape function on all NBA players

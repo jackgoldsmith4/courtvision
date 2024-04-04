@@ -50,3 +50,10 @@ def adjust_date(date_str):
   if "AM" in date_str and dt.hour < 12:
     dt = dt - timedelta(days=1)
   return dt.date()
+
+# Helper: convert time in mm:ss format to a float
+def convert_time_to_float(time_series):
+  split_series = time_series.split(':')
+  minutes = int(split_series[0])
+  seconds = int(split_series[1])
+  return round(minutes + seconds / 60, 2)
