@@ -21,7 +21,7 @@ def get_game_recap_urls(dates):
         game_id = url_pieces[-2]
         if game_id != 'gameId':
           urls.add(ESPN_RECAP_URL + game_id)
-      with open('./espn_game_urls.py', "w") as file:
+      with open('./espn_game_urls_2.py', "w") as file:
         file.write('URLS = ' + str(list(urls)))
     except Exception as e:
       print(e)
@@ -47,5 +47,5 @@ def get_espn_game_recaps(urls):
 
     insert_game_recap(engine, game_date, home_team, away_team, None, headline, recap)
   
-#dates = generate_dates(start_date=datetime(2002, 10, 29))
+dates = generate_dates(start_date=datetime(2012, 3, 12))
 get_game_recap_urls(DATES)
