@@ -4,6 +4,7 @@ from selenium import webdriver
 import numpy as np
 import threading
 import time
+import re
 
 def init_web_driver(width=1400, height=950):
   chrome_options = webdriver.ChromeOptions()
@@ -41,3 +42,11 @@ def generate_dates(start_date=datetime(2005, 10, 1)):
   with open('./dates.py', "w") as file:
     file.write('DATES = ' + str(date_strs))
   return date_strs
+
+# adjust date based on the date string in the game recap
+def adjust_date(date_str):
+  date_str = re.sub(r'(\d)(st|nd|rd|th)', r'\1', date_str)
+  dt = datetime.strptime(date_str, '%A, %B %d, %Y %I:%M %p')
+  if "AM" in date_str and dt.hour < 12:
+    dt = dt - timedelta(days=1)
+  return dt.date()

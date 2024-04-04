@@ -1,17 +1,8 @@
 from db.game_recaps import insert_game_recap, get_game_recaps
 from constants.team_codes import TEAM_CODES
-from datetime import datetime, timedelta
 from sqlalchemy import create_engine
+from utils import adjust_date
 import os
-import re
-
-# adjust date based on the date string in the game recap
-def adjust_date(date_str):
-  date_str = re.sub(r'(\d)(st|nd|rd|th)', r'\1', date_str)
-  dt = datetime.strptime(date_str, '%A, %B %d, %Y %I:%M %p')
-  if "AM" in date_str and dt.hour < 12:
-    dt = dt - timedelta(days=1)
-  return dt.date()
 
 engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
 
