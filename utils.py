@@ -6,13 +6,16 @@ import threading
 import time
 import re
 
-def init_web_driver(width=1400, height=950):
+def init_web_driver(width=1400, height=950, headless=True):
   chrome_options = webdriver.ChromeOptions()
   chrome_options.add_argument("--disable-dev-shm-usage")
   chrome_options.add_argument("--no-sandbox")
   chrome_options.add_argument('--window-size={},{}'.format(width, height))
-  chrome_options.add_argument("--headless")
   chrome_options.add_argument('--ignore-certificate-errors')
+
+  if headless:
+    chrome_options.add_argument("--headless")
+
   # disable images
   chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
   return webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)

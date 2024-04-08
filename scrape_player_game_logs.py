@@ -4,6 +4,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from db.player_stats import insert_player_stat
 from selenium.webdriver.common.by import By
 from constants.team_codes import TEAM_CODES
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy import create_engine
 from datetime import datetime
 import pandas as pd
@@ -12,7 +13,8 @@ import os
 
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
-NUM_THREADS = 40
+GAMELOG_HEADER_TITLES_DICT = "Rk,G,Date,Age,Tm,Unnamed: 5,Opp,Unnamed: 7,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
+NUM_THREADS = 2
 
 def scrape_game_log(player_url_id, rookie_year, final_year, player_name, output_file_path, only_scrape_actives):
   url = 'https://www.basketball-reference.com/players/' + player_url_id + '/gamelog/'
@@ -21,7 +23,7 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name, output_
   # find year to start
   start_year = int(rookie_year)
   gamelog_filenames = os.listdir('./player_game_logs')
-  if player_name in gamelog_filenames:
+  if output_file_path in gamelog_filenames:
     with open(output_file_path, 'rb') as file:
       file.seek(-2, os.SEEK_END)  # go to the second last byte in the file
       while file.read(1) != b'\n':  # keep stepping back until you find the newline
@@ -60,26 +62,29 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name, output_
       driver.quit()
       continue
 
-    # # write or append to the player's gamelog file
-    # if player_name not in gamelog_filenames and not were_games_scraped:
-    #   with open(output_file_path, 'w') as file:
-    #     # always include new titles to get +/- as a column
-    #     file.write(GAMELOG_HEADER_TITLES_NEW)
-    #     file.write(stats)
-    # else:
-    #   with open(output_file_path, 'a') as file:
-    #     file.write(stats)
+    # write or append to the player's gamelog file
+    if output_file_path not in gamelog_filenames and not were_games_scraped:
+      with open(output_file_path, 'w') as file:
+        # always include new titles to get +/- as a column
+        file.write(GAMELOG_HEADER_TITLES_NEW)
+        file.write(stats)
+    else:
+      with open(output_file_path, 'a') as file:
+        file.write(stats)
 
-    keys = GAMELOG_HEADER_TITLES_NEW.split(",")
+    keys = GAMELOG_HEADER_TITLES_DICT.split(",")
     engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
 
-    for line in stats.split('\n'):
-      values = line.split(",")
+    try:
+      for line in stats.split('\n'):
+        if line == '':
+          continue
 
-      # Pairing each key with its corresponding value and creating a dictionary
-      row = dict(zip(keys, values))
+        values = line.split(",")
+        
+        # Pairing each key with its corresponding value and creating a dictionary
+        row = dict(zip(keys, values))
 
-      try:
         game_date = datetime.strptime(row['Date'], "%Y-%m-%d").date()
 
         is_home_game = 1
@@ -137,16 +142,17 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name, output_
           turnovers=int(row['TOV']),
           plus_minus=plus_minus
         )
-      except:
-        raise
+    except ValueError:
+      continue
 
     were_games_scraped = True
     print(f"Scraped {player_name} {year} gamelog")
     driver.quit()
+    engine.dispose()
   return were_games_scraped
 
 def scrape_wrapper(players, only_scrape_actives=False):
-  for _, row in players.iterrows():
+  for index, row in players.iterrows():
     name = row['Name']
     br_url_id = row['Basketball-Reference URL ID']
     rookie_year = row['Rookie Year']
@@ -159,26 +165,26 @@ def scrape_wrapper(players, only_scrape_actives=False):
     # pass over players
     if (int(final_year) - int(rookie_year) >= 3) or (int(rookie_year) < 2001):
       continue
+    
+    player_file_name = '_'.join(name.lower().replace('.', '').split(' '))
+    output_file_path = './player_game_logs/' + player_file_name + '_RAW.csv'
 
-    player_name = '_'.join(name.lower().replace('.', '').split(' '))
-    subdir_path = './player_game_logs/' + player_name
-    # Create the subdirectory
-    if not os.path.exists(subdir_path):
-      os.makedirs(subdir_path)
-    output_file_path = subdir_path + player_name + '_RAW.csv'
+    if player_file_name + '_RAW.csv' in os.listdir('./player_game_logs'):
+      continue
+
     were_games_scraped = False
 
     # continually scrape until entire file has been built
     while True:
       try:
-        were_games_scraped = scrape_game_log(br_url_id, rookie_year, final_year, player_name, output_file_path, only_scrape_actives)
+        print(f"Scraping {name} ({index}/{len(players)})")
+        were_games_scraped = scrape_game_log(br_url_id, rookie_year, final_year, name, output_file_path, only_scrape_actives)
         break
       except KeyboardInterrupt:
         raise
       except ElementNotInteractableException:
         continue
       except Exception as e:
-        print(player_name)
         print(e)
         continue
     
