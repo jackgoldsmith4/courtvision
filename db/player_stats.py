@@ -56,14 +56,15 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
     session.close()
 
 # get all stats for a certain game as a flattened string (for transformer input)
-def get_flattened_player_stats_by_game_id(engine, game_date, home_team, away_team):
-  Session = sessionmaker(bind=engine)
-  session = Session()
-
+def get_flattened_player_stats_by_game_id(session, game_date, home_team, away_team):
   stmt = stmt = select(PlayerStats).filter_by(home_team=home_team, away_team=away_team, game_date=game_date)
   res = session.execute(stmt).all()
   output = f"{game_date} {away_team} at {home_team} "
   non_stats = ['stats_id', 'game_id', 'away_team', 'home_team', 'game_date']
+
+  if len(res) == 0:
+    raise ValueError
+
   for player_stats in res:
     inst = inspect(player_stats[0])
     for attr in inst.mapper.column_attrs:
@@ -72,7 +73,6 @@ def get_flattened_player_stats_by_game_id(engine, game_date, home_team, away_tea
         field_value = getattr(player_stats[0], field_name)
         output += f"{field_name}: {field_value} "
   
-  session.close()
   return output
 
 # get all stats for a certain player
