@@ -27,15 +27,15 @@ def insert_game_recap(engine, game_date, home_team, away_team, author, headline,
   finally:
     session.close()
 
-# get a game recap by ID
-def get_game_recap(engine, game_id):
+# get a game recap headline by ID
+def get_game_recap_headline(engine, game_date, home_team, away_team):
   Session = sessionmaker(bind=engine)
   session = Session()
-  stmt = select(GameRecaps).filter_by(game_id=game_id)
+  stmt = select(GameRecaps).filter_by(home_team=home_team, away_team=away_team, game_date=game_date)
   game_recap = session.execute(stmt).first()
 
   session.close()
-  return game_recap
+  return game_recap[0].headline
 
 def get_game_recaps(engine, n=3):
   Session = sessionmaker(bind=engine)
