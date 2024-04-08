@@ -1,3 +1,4 @@
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import select, func
 from db.models import GameRecaps
@@ -16,7 +17,9 @@ def insert_game_recap(engine, game_date, home_team, away_team, author, headline,
     # add the new instance to the session and commit it to the database
     session.add(new_game_recap)
     session.commit()
-    print("New game recap successfully added.")
+    print(f"New game recap successfully added: {away_team} @ {home_team} ({game_date})\nHeadline: {headline}")
+  except IntegrityError:
+    print("Duplicate game recap found")
   except Exception as e:
     session.rollback()
     print(f"Failed to add game recap. Error: {e}")
