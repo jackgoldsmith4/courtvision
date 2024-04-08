@@ -1,9 +1,12 @@
 from sklearn.model_selection import train_test_split
 from constants.team_codes import TEAM_CODES
+from sqlalchemy import create_engine
+from db.player_stats import get_flattened_player_stats_by_game_id
 from utils import thread_func
 import pandas as pd
 import shutil
 import os
+from datetime import date
 
 NUM_THREADS = 1
 
@@ -108,4 +111,7 @@ def encode_team_row(row):
   return row
 
 ######## SCRIPT: run clean function on all NBA players
-thread_func(NUM_THREADS, preprocess_wrapper, os.listdir('./player_game_logs'))
+#thread_func(NUM_THREADS, preprocess_wrapper, os.listdir('./player_game_logs'))
+
+engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
+get_flattened_player_stats_by_game_id(engine, date(2011, 2, 8), 'Indiana Pacers', 'Miami Heat')

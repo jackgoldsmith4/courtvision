@@ -3,16 +3,17 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import select, func
 from db.models import GameRecaps
 from hashlib import sha256
+from datetime import date
 
 # add a new game recap to the DB
 def insert_game_recap(engine, game_date, home_team, away_team, author, headline, recap_text):
   Session = sessionmaker(bind=engine)
   session = Session()
-  game_id = sha256((str(game_date) + home_team + away_team).encode('utf-8')).hexdigest()
+  game_id = sha256((str(game_date.date()) + home_team + away_team).encode('utf-8')).hexdigest()
 
   try:
     # create a new GameRecaps instance
-    new_game_recap = GameRecaps(game_id=game_id, game_date=game_date, home_team=home_team, away_team=away_team, author=author, headline=headline, recap_text=recap_text)
+    new_game_recap = GameRecaps(game_id=game_id, game_date=game_date.date(), home_team=home_team, away_team=away_team, author=author, headline=headline, recap_text=recap_text)
 
     # add the new instance to the session and commit it to the database
     session.add(new_game_recap)

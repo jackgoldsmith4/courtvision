@@ -1,13 +1,15 @@
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
 from db.models import PlayerStats
+from sqlalchemy import select, create_engine
+from datetime import date
 from hashlib import sha256
 
 # add a player stat row to the DB
 def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, player_name, player_age, game_outcome, game_started, minutes_played, points, fg_made, fg_attempted, threes_made, threes_attempted, ft_made, ft_attempted, orb, drb, assists, steals, blocks, turnovers, plus_minus):
   Session = sessionmaker(bind=engine)
   session = Session()
-  game_id = sha256((str(game_date) + home_team + away_team).encode('utf-8')).hexdigest()
+  game_id = sha256((str(game_date.date()) + home_team + away_team).encode('utf-8')).hexdigest()
   stats_id = sha256((str(game_id) + player_name).encode('utf-8')).hexdigest()
 
   try:
@@ -15,7 +17,7 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
     new_player_stats = PlayerStats(
       stats_id=stats_id,
       game_id=game_id,
-      game_date=game_date,
+      game_date=game_date.date(),
       home_team=home_team,
       away_team=away_team,
       is_home_game=is_home_game,
@@ -54,14 +56,18 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
     session.close()
 
 # get all stats for a certain game as a flattened string (for transformer input)
-def get_flattened_player_stats_by_game_id(engine, game_id):
+def get_flattened_player_stats_by_game_id(engine, game_date, home_team, away_team):
   Session = sessionmaker(bind=engine)
   session = Session()
 
-  # TODO
-
+  stmt = stmt = select(PlayerStats).filter_by(home_team=home_team, away_team=away_team)
+  res = session.execute(stmt).all()
+  output = ''
+  for r in res:
+    #if r.game_date.date() == game_date.date():
+    print(r._asdict)
+  
   session.close()
-
 
 # get all stats for a certain player
 def get_player_stats_by_player_name(engine, player_name):
