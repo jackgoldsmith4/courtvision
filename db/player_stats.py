@@ -1,7 +1,7 @@
+from sqlalchemy import select, create_engine, inspect
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
 from db.models import PlayerStats
-from sqlalchemy import select, create_engine
 from datetime import date
 from hashlib import sha256
 
@@ -60,14 +60,20 @@ def get_flattened_player_stats_by_game_id(engine, game_date, home_team, away_tea
   Session = sessionmaker(bind=engine)
   session = Session()
 
-  stmt = stmt = select(PlayerStats).filter_by(home_team=home_team, away_team=away_team)
+  stmt = stmt = select(PlayerStats).filter_by(home_team=home_team, away_team=away_team, game_date=game_date)
   res = session.execute(stmt).all()
-  output = ''
-  for r in res:
-    #if r.game_date.date() == game_date.date():
-    print(r._asdict)
+  output = f"{game_date} {away_team} at {home_team} "
+  non_stats = ['stats_id', 'game_id', 'away_team', 'home_team', 'game_date']
+  for player_stats in res:
+    inst = inspect(player_stats[0])
+    for attr in inst.mapper.column_attrs:
+      field_name = attr.key
+      if field_name not in non_stats:
+        field_value = getattr(player_stats[0], field_name)
+        output += f"{field_name}: {field_value} "
   
   session.close()
+  return output
 
 # get all stats for a certain player
 def get_player_stats_by_player_name(engine, player_name):

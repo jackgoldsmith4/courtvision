@@ -114,4 +114,5 @@ def encode_team_row(row):
 #thread_func(NUM_THREADS, preprocess_wrapper, os.listdir('./player_game_logs'))
 
 engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
-get_flattened_player_stats_by_game_id(engine, date(2011, 2, 8), 'Indiana Pacers', 'Miami Heat')
+get_flattened_player_stats_by_game_id(engine, date(2021, 12, 3), 'Indiana Pacers', 'Miami Heat')
+engine.dispose()
