@@ -57,7 +57,8 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
 
 # get all stats for a certain game as a flattened string (for transformer input)
 def get_flattened_player_stats_by_game_id(session, game_date, home_team, away_team):
-  stmt = stmt = select(PlayerStats).filter_by(home_team=home_team, away_team=away_team, game_date=game_date)
+  home_team = home_team.replace("LA Clippers", "Los Angeles Clippers")
+  stmt = select(PlayerStats).filter_by(home_team=home_team, away_team=away_team)
   res = session.execute(stmt).all()
   output = f"{game_date} {away_team} at {home_team} "
   non_stats = ['stats_id', 'game_id', 'away_team', 'home_team', 'game_date']
@@ -66,6 +67,14 @@ def get_flattened_player_stats_by_game_id(session, game_date, home_team, away_te
     raise ValueError
 
   for player_stats in res:
+    try:
+      player_game_date = date(player_stats[0].game_date.date())
+    except Exception as e:
+      player_game_date = player_stats[0].game_date
+
+    if game_date != player_game_date:
+      continue
+
     inst = inspect(player_stats[0])
     for attr in inst.mapper.column_attrs:
       field_name = attr.key

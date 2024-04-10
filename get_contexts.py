@@ -24,10 +24,12 @@ def get_contexts():
       context = get_flattened_player_stats_by_game_id(session, game_date, home_team, away_team)
       session.close()
     except ValueError:
+      print("ValueError")
       session.close()
       continue
-
-    contexts_df.loc[len(contexts_df)] = (headline.replace(',', ''), context)
+    
+    if context.count('player_name:') > 10:
+      contexts_df.loc[len(contexts_df)] = (headline, context)
 
   contexts_df.to_csv('./contexts.csv', index=False)
   engine.dispose()

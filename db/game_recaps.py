@@ -24,8 +24,11 @@ def insert_game_recap(engine, game_date, home_team, away_team, author, headline,
   except Exception as e:
     session.rollback()
     print(f"Failed to add game recap. Error: {e}")
+    session.close()
+    return 500
   finally:
     session.close()
+    return 200
 
 # get a game recap headline by ID
 def get_game_recap_headline(engine, game_date, home_team, away_team):

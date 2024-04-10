@@ -30,7 +30,8 @@ def get_game_recap_urls(dates):
 
 def get_espn_game_recaps(urls):
   engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
-  for url in urls:
+  urls_updated = urls
+  for i, url in enumerate(urls):
     driver = init_web_driver()
     driver.get(url)
 
@@ -66,7 +67,12 @@ def get_espn_game_recaps(urls):
     except:
       continue
 
-    insert_game_recap(engine, game_date, home_team, away_team, None, headline, recap)
+    status = insert_game_recap(engine, game_date, home_team, away_team, None, headline, recap)
+    if status == 200:
+      del urls_updated[i]
+  
+  with open('./espn_game_urls.py', 'w') as file:
+    file.write(f"URLS = [{str(urls_updated)}]")
   engine.dispose()
 
 def create_date_object(date_parts):
