@@ -45,9 +45,9 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
     # add the new instance to the session and commit it to the database
     session.add(new_player_stats)
     session.commit()
-    #print(f"New player stat successfully added: {player_name} on {game_date}")
+    print(f"New player stat successfully added: {player_name} on {game_date}")
   except IntegrityError:
-    #print(f"Player stat already exists ({player_name},{game_date})")
+    print(f"Player stat already exists ({player_name},{game_date})")
     session.close()
   except Exception as e:
     session.rollback()

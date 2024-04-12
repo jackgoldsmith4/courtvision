@@ -5,7 +5,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from constants.team_codes import TEAM_CODES
 from sqlalchemy import create_engine
-from datetime import datetime, date
+from datetime import datetime
 import pandas as pd
 import time
 
@@ -22,17 +22,6 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
 
   for year in range(start_year, int(final_year) + 1):
     engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
-    # # before scraping, check if this year for this player is already in the DB
-    # if year != 2024:
-    #   test_date = check_if_stats_exist(engine, player_name, year)
-    #   if test_date != None:
-    #     # ensure saved values are Date objects, not Datetime
-    #     try:
-    #       test_date.date()
-    #       print(test_date)
-    #     except:
-    #       print(test_date)
-    #       continue
 
     # +/- is only present in gamelogs starting in 1997
     GAMELOG_HEADER_TITLES = GAMELOG_HEADER_TITLES_NEW if year >= 1997 else GAMELOG_HEADER_TITLES_OLD
