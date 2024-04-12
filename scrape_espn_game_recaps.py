@@ -3,7 +3,6 @@ from db.game_recaps import insert_game_recap
 from selenium.webdriver.common.by import By
 from datetime import datetime, timedelta
 from sqlalchemy import create_engine
-from espn_game_urls import URLS
 from dates import DATES
 
 ESPN_DATE_URL = "https://www.espn.com/nba/scoreboard/_/date/"
@@ -87,5 +86,4 @@ def create_date_object(date_parts):
   
 #dates = generate_dates(start_date=datetime(2016, 1, 14))
 #get_game_recap_urls(dates)
-
-thread_func(1, get_espn_game_recaps, URLS)
+#thread_func(1, get_espn_game_recaps, URLS)
