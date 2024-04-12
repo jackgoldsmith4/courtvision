@@ -1,9 +1,9 @@
-from sqlalchemy import select, create_engine, inspect
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import select, inspect
 from db.models import PlayerStats
-from datetime import date
 from hashlib import sha256
+from datetime import date
 
 # add a player stat row to the DB
 def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, player_name, player_age, game_outcome, game_started, minutes_played, points, fg_made, fg_attempted, threes_made, threes_attempted, ft_made, ft_attempted, orb, drb, assists, steals, blocks, turnovers, plus_minus):
@@ -45,9 +45,9 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
     # add the new instance to the session and commit it to the database
     session.add(new_player_stats)
     session.commit()
-    print("New player stat successfully added.")
+    print(f"New player stat successfully added: {player_name} on {game_date}")
   except IntegrityError:
-    print(f"Player stat already exists")
+    print(f"Player stat already exists for {player_name} on {game_date}")
     session.close()
   except Exception as e:
     session.rollback()
