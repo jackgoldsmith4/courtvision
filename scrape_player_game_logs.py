@@ -156,10 +156,6 @@ def scrape_wrapper(players):
     br_url_id = row['Basketball-Reference URL ID']
     rookie_year = row['Rookie Year']
     final_year = row['Final Year']
-
-    # pass over players
-    if int(final_year) < YEAR_TO_START:
-      continue
     
     # continually scrape until entire file has been built
     while True:
@@ -177,4 +173,8 @@ def scrape_wrapper(players):
   print(f"---------PROCESS COMPLETE---------")
 
 ######## SCRIPT: run scrape function on all NBA players
-thread_func(NUM_THREADS, scrape_wrapper, pd.read_csv('nba_players.csv'))
+# first filter out players
+players = pd.read_csv('nba_players.csv')
+players = players[players['Final Year'] - players['Rookie Year'] <= 4]
+players = players[players['Final Year'] > YEAR_TO_START]
+thread_func(NUM_THREADS, scrape_wrapper, players)
