@@ -13,7 +13,7 @@ GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
 GAMELOG_HEADER_TITLES_DICT = "Rk,G,Date,Age,Tm,Unnamed: 5,Opp,Unnamed: 7,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
 YEAR_TO_START = 2002
-NUM_THREADS = 1
+NUM_THREADS = 4
 
 def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
   url = 'https://www.basketball-reference.com/players/' + player_url_id + '/gamelog/'
@@ -77,7 +77,6 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
         
         years, days = row['Age'].split('-')
         player_age = 365*int(years) + int(days)
-        game_started = int(row['GS'])
         wl, margin = row['Unnamed: 7'].split(' (')
         margin = int(margin[1:-1])
         game_outcome = 0
@@ -86,6 +85,7 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
         else:
           game_outcome = -margin
 
+        game_started = int(row['GS'])
         try:
           plus_minus=int(row['+/-'])
         except ValueError:
@@ -118,15 +118,40 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
           plus_minus=plus_minus
         )
       except ValueError as e:
-        print(f"ValueError: {e} - skipping this game")
-        continue
+        # inactive, so should show up in the box score with all zeroes
+                insert_player_stat(
+          engine,
+          game_date=game_date,
+          home_team=home_team,
+          away_team=away_team,
+          is_home_game=is_home_game,
+          player_name=player_name,
+          player_age=player_age,
+          game_started=0,
+          game_outcome=game_outcome,
+          minutes_played=0.0,
+          points=0,
+          fg_made=0,
+          fg_attempted=0,
+          threes_made=0,
+          threes_attempted=0,
+          ft_made=0,
+          ft_attempted=0,
+          orb=0,
+          drb=0,
+          assists=0,
+          steals=0,
+          blocks=0,
+          turnovers=0,
+          plus_minus=0
+        )
 
     print(f"Scraped {player_name} {year} gamelog")
     driver.quit()
     engine.dispose()
 
 def scrape_wrapper(players):
-  for index, row in players.iterrows():
+  for index, (_, row) in enumerate(players.iterrows()):
     name = row['Name']
     br_url_id = row['Basketball-Reference URL ID']
     rookie_year = row['Rookie Year']
