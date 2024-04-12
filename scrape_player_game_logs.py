@@ -12,19 +12,22 @@ import time
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
 GAMELOG_HEADER_TITLES_DICT = "Rk,G,Date,Age,Tm,Unnamed: 5,Opp,Unnamed: 7,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
-NUM_THREADS = 4
+YEAR_TO_START = 2002
+NUM_THREADS = 1
 
 def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
   url = 'https://www.basketball-reference.com/players/' + player_url_id + '/gamelog/'
 
-  for year in range(int(rookie_year), int(final_year) + 1):
+  start_year = max(int(rookie_year), YEAR_TO_START)
+
+  for year in range(start_year, int(final_year) + 1):
     # +/- is only present in gamelogs starting in 1997
     GAMELOG_HEADER_TITLES = GAMELOG_HEADER_TITLES_NEW if year >= 1997 else GAMELOG_HEADER_TITLES_OLD
 
     driver = init_web_driver()
     driver.implicitly_wait(5)
     driver.get(url + str(year) + '#all_pgl_basic')
-    time.sleep(3)
+    time.sleep(2)
 
     # turn the table into CSV format and grab stats
     season_header_text = str(year - 1) + '-' + str(year)[2:] + ' Regular Season'
@@ -47,8 +50,8 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
     keys = GAMELOG_HEADER_TITLES_DICT.split(",")
     engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
 
-    try:
-      for line in stats.split('\n'):
+    for line in stats.split('\n'):
+      try:
         if line == '':
           continue
 
@@ -114,8 +117,9 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
           turnovers=int(row['TOV']),
           plus_minus=plus_minus
         )
-    except ValueError:
-      continue
+      except ValueError as e:
+        print(f"ValueError: {e} - skipping this game")
+        continue
 
     print(f"Scraped {player_name} {year} gamelog")
     driver.quit()
@@ -129,7 +133,7 @@ def scrape_wrapper(players):
     final_year = row['Final Year']
 
     # pass over players
-    if int(rookie_year) < 2002:
+    if int(final_year) < YEAR_TO_START:
       continue
     
     # continually scrape until entire file has been built
@@ -145,19 +149,6 @@ def scrape_wrapper(players):
       except Exception as e:
         print(e)
         continue
-    
-    # # after reading, clean the data if any games were scraped
-    # if were_games_scraped:
-    #   player_df = pd.read_csv(output_file_path)
-
-    #   # drop duplicate games in case games were scraped more than once
-    #   player_df.drop_duplicates(inplace=True)
-
-    #   # drop rows in which player didn't play
-    #   player_df = player_df.dropna(subset=['G'])
-    #   player_df = player_df.astype({'G': 'int32'})
-
-    #   player_df.to_csv(output_file_path, index=False)
   print(f"---------PROCESS COMPLETE---------")
 
 ######## SCRIPT: run scrape function on all NBA players

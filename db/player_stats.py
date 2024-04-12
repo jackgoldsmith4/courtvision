@@ -9,7 +9,7 @@ from datetime import date
 def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, player_name, player_age, game_outcome, game_started, minutes_played, points, fg_made, fg_attempted, threes_made, threes_attempted, ft_made, ft_attempted, orb, drb, assists, steals, blocks, turnovers, plus_minus):
   Session = sessionmaker(bind=engine)
   session = Session()
-  game_id = sha256((str(game_date.date()) + home_team + away_team).encode('utf-8')).hexdigest()
+  game_id = sha256((str(game_date) + home_team + away_team).encode('utf-8')).hexdigest()
   stats_id = sha256((str(game_id) + player_name).encode('utf-8')).hexdigest()
 
   try:
@@ -17,7 +17,7 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
     new_player_stats = PlayerStats(
       stats_id=stats_id,
       game_id=game_id,
-      game_date=game_date.date(),
+      game_date=game_date,
       home_team=home_team,
       away_team=away_team,
       is_home_game=is_home_game,
@@ -47,7 +47,7 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
     session.commit()
     print(f"New player stat successfully added: {player_name} on {game_date}")
   except IntegrityError:
-    print(f"Player stat already exists for {player_name} on {game_date}")
+    print(f"Player stat already exists ({player_name},{game_date})")
     session.close()
   except Exception as e:
     session.rollback()
