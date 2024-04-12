@@ -1,11 +1,11 @@
 from utils import init_web_driver, patient_click, thread_func, convert_time_to_float
 from selenium.common.exceptions import ElementNotInteractableException
+from db.player_stats import insert_player_stat, check_if_stats_exist
 from selenium.webdriver.common.action_chains import ActionChains
-from db.player_stats import insert_player_stat
 from selenium.webdriver.common.by import By
 from constants.team_codes import TEAM_CODES
 from sqlalchemy import create_engine
-from datetime import datetime
+from datetime import datetime, date
 import pandas as pd
 import time
 
@@ -21,6 +21,19 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
   start_year = max(int(rookie_year), YEAR_TO_START)
 
   for year in range(start_year, int(final_year) + 1):
+    engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
+    # # before scraping, check if this year for this player is already in the DB
+    # if year != 2024:
+    #   test_date = check_if_stats_exist(engine, player_name, year)
+    #   if test_date != None:
+    #     # ensure saved values are Date objects, not Datetime
+    #     try:
+    #       test_date.date()
+    #       print(test_date)
+    #     except:
+    #       print(test_date)
+    #       continue
+
     # +/- is only present in gamelogs starting in 1997
     GAMELOG_HEADER_TITLES = GAMELOG_HEADER_TITLES_NEW if year >= 1997 else GAMELOG_HEADER_TITLES_OLD
 
@@ -48,8 +61,6 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
       continue
 
     keys = GAMELOG_HEADER_TITLES_DICT.split(",")
-    engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
-
     for line in stats.split('\n'):
       try:
         if line == '':
@@ -119,7 +130,7 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
         )
       except ValueError as e:
         # inactive, so should show up in the box score with all zeroes
-                insert_player_stat(
+        insert_player_stat(
           engine,
           game_date=game_date,
           home_team=home_team,

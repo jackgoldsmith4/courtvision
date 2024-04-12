@@ -85,7 +85,19 @@ def get_flattened_player_stats_by_game_id(session, game_date, home_team, away_te
   
   return output
 
-# get all stats for a certain player
-def get_player_stats_by_player_name(engine, player_name):
-  # TODO
-  pass
+# check if stats exist for a player in a year to reduce redundant scraping
+def check_if_stats_exist(engine, player_name, year):
+  Session = sessionmaker(bind=engine)
+  session = Session()
+  stmt = select(PlayerStats).filter_by(player_name=player_name)
+  res = session.execute(stmt).all()
+  if len(res) == 0:
+    return None
+  
+  for player_stats in res:
+    player_game_date = player_stats[0].game_date
+    if player_game_date.strftime('%Y') == str(year):
+      session.close()
+      return player_game_date
+
+  session.close()
