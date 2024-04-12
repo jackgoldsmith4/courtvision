@@ -56,6 +56,7 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
     session.close()
 
 # get all stats for a certain game as a flattened string (for transformer input)
+# TODO rank players by some method - maybe alphabetically or by points scored?
 def get_flattened_player_stats_by_game_id(session, game_date, home_team, away_team):
   home_team = home_team.replace("LA Clippers", "Los Angeles Clippers")
   stmt = select(PlayerStats).filter_by(home_team=home_team, away_team=away_team)
