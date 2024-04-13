@@ -76,10 +76,7 @@ test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=True)
 # Initialize model and optimizer
 model = BertForQuestionAnswering.from_pretrained('bert-base-uncased')
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-for name, param in model.named_parameters():
-  if 'qa_outputs' not in name:
-    param.requires_grad = False
-optimizer = AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=LEARN_RATE)
+optimizer = AdamW(model.parameters(), lr=LEARN_RATE)
 
 # Train model
 model.train()
@@ -110,5 +107,5 @@ for epoch in range(NUM_EPOCHS):
     optimizer.step()
 
 # Save model and model weights
-torch.save(model.state_dict(), 'model_weights.pth')
-torch.save(model, 'full_model.pth')
+torch.save(model.state_dict(), 'model_weights_finetuned.pth')
+torch.save(model, 'full_model_finetuned.pth')
