@@ -5,7 +5,7 @@ import pandas as pd
 import torch
 import ast
 
-BATCH_SIZE = 16
+BATCH_SIZE = 8
 NUM_EPOCHS = 3
 LEARN_RATE = 5e-5
 
@@ -75,6 +75,7 @@ test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=True)
 
 # Initialize model and optimizer
 model = BertForQuestionAnswering.from_pretrained('bert-base-uncased')
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 for name, param in model.named_parameters():
   if 'qa_outputs' not in name:
     param.requires_grad = False
@@ -86,10 +87,10 @@ for epoch in range(NUM_EPOCHS):
   for batch in train_loader:
     optimizer.zero_grad()
 
-    input_ids = batch['input_ids'].squeeze()
-    attention_mask = batch['attention_mask'].squeeze()
-    start_positions = batch['start_positions'].to(model.device)
-    end_positions = batch['end_positions'].to(model.device)
+    input_ids = batch['input_ids'].squeeze().to(device)
+    attention_mask = batch['attention_mask'].squeeze().to(device)
+    start_positions = batch['start_positions'].to(device)
+    end_positions = batch['end_positions'].to(device)
 
     outputs = model(input_ids, attention_mask=attention_mask)
     start_logits, end_logits = outputs.start_logits, outputs.end_logits
@@ -108,6 +109,6 @@ for epoch in range(NUM_EPOCHS):
     loss.backward()
     optimizer.step()
 
-# Save model weights and logs
+# Save model and model weights
 torch.save(model.state_dict(), 'model_weights.pth')
 torch.save(model, 'full_model.pth')
