@@ -56,13 +56,13 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
     session.close()
 
 # get all stats for a certain game as a flattened string (for transformer input)
-# TODO rank players by some method - maybe alphabetically or by points scored?
 def get_flattened_player_stats_by_game_id(session, game_date, home_team, away_team):
   home_team = home_team.replace("LA Clippers", "Los Angeles Clippers")
   stmt = select(PlayerStats).filter_by(home_team=home_team, away_team=away_team)
   res = session.execute(stmt).all()
   output = f"{game_date} {away_team} at {home_team} "
   non_stats = ['stats_id', 'game_id', 'away_team', 'home_team', 'game_date']
+  players = {}
 
   if len(res) == 0:
     raise ValueError
@@ -77,12 +77,22 @@ def get_flattened_player_stats_by_game_id(session, game_date, home_team, away_te
       continue
 
     inst = inspect(player_stats[0])
+    points = 0
+    player_str = ''
     for attr in inst.mapper.column_attrs:
       field_name = attr.key
       if field_name not in non_stats:
         field_value = getattr(player_stats[0], field_name)
-        output += f"{field_name}: {field_value} "
-  
+        if field_name == 'points':
+          points = field_value
+
+        player_str += f"{field_name}: {field_value} "
+    players[player_str] = points
+
+  sorted_players = sorted(players, key=lambda k: players[k], reverse=True)
+  for player in sorted_players:
+    output += player
+
   return output
 
 # check if stats exist for a player in a year to reduce redundant scraping

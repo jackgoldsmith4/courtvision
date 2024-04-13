@@ -7,7 +7,7 @@ import pandas as pd
 def get_contexts():
   engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
 
-  recaps = get_game_recaps(engine, n=15000)
+  recaps = get_game_recaps(engine, n=40000)
   contexts_df = pd.DataFrame(columns=['headline', 'context'])
 
   for index, r in enumerate(recaps):
