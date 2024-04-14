@@ -76,6 +76,7 @@ test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=True)
 # Initialize model and optimizer
 model = BertForQuestionAnswering.from_pretrained('bert-base-uncased')
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = model.to(device)
 for name, param in model.named_parameters():
   if 'qa_outputs' not in name:
     param.requires_grad = False
