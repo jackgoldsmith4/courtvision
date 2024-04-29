@@ -113,3 +113,42 @@ for epoch in range(NUM_EPOCHS):
 # Save model and model weights
 torch.save(model.state_dict(), 'model_weights.pth')
 torch.save(model, 'full_model.pth')
+
+# Evaluation
+model.eval()
+correct_answers_start = 0
+correct_answers_end = 0
+total_answers = 0
+
+for batch in test_loader:
+  input_ids = batch['input_ids'].to(device)
+  attention_mask = batch['attention_mask'].to(device)
+  start_positions = batch['start_positions'].to(device)
+  end_positions = batch['end_positions'].to(device)
+  
+  with torch.no_grad():
+    outputs = model(input_ids, attention_mask=attention_mask)
+  
+  start_logits = outputs.start_logits
+  end_logits = outputs.end_logits
+
+  _, predicted_start = torch.max(start_logits, -1)
+  _, predicted_end = torch.max(end_logits, -1)
+
+  correct_answers_start += (predicted_start == start_positions.argmax(dim=-1)).sum().item()
+  correct_answers_end += (predicted_end == end_positions.argmax(dim=-1)).sum().item()
+  total_answers += input_ids.size(0)
+
+# Calculate accuracy
+accuracy_start = correct_answers_start / total_answers
+accuracy_end = correct_answers_end / total_answers
+
+# Save results to file
+results = {
+  'Accuracy Start': accuracy_start,
+  'Accuracy End': accuracy_end
+}
+
+with open('evaluation_results.txt', 'w') as f:
+  for key, value in results.items():
+    f.write(f"{key}: {value}\n")
