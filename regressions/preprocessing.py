@@ -1,13 +1,9 @@
 from sklearn.model_selection import train_test_split
 from constants.team_codes import TEAM_CODES
-from sqlalchemy import create_engine
-from db.player_stats import get_flattened_player_stats_by_game_id
-from db.game_recaps import get_game_recap_headline
 from utils import thread_func
 import pandas as pd
 import shutil
 import os
-from datetime import date
 
 NUM_THREADS = 1
 
