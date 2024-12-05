@@ -3,7 +3,6 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import select, func
 from db.models import GameRecaps
 from hashlib import sha256
-from datetime import date
 
 # add a new game recap to the DB
 def insert_game_recap(engine, game_date, home_team, away_team, author, headline, recap_text):

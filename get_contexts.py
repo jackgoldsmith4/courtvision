@@ -17,7 +17,7 @@ def get_contexts():
     away_team = r_dict['away_team']
     headline = r_dict['headline']
     game_date = r_dict['game_date']
-    
+
     try:
       Session = sessionmaker(bind=engine)
       session = Session()
@@ -27,7 +27,7 @@ def get_contexts():
       print("ValueError")
       session.close()
       continue
-    
+
     if context.count('player_name:') > 10:
       contexts_df.loc[len(contexts_df)] = (headline, context)
 
