@@ -28,7 +28,7 @@ for letter in lowercase_letters:
     name_final_flag = False
     for elem in txt.split():
       if name_final_flag:
-        players.append((player_name[:-1].replace('*', ''), player_id, rookie_year, elem, int(elem) == 2024))
+        players.append((player_name[:-1].replace('*', ''), player_id, rookie_year, elem))
         break
 
       if not elem.isnumeric():
@@ -38,6 +38,6 @@ for letter in lowercase_letters:
         name_final_flag = True
 
 # store active_players as a CSV file
-players_df = pd.DataFrame(players, columns=['Name', 'Basketball-Reference URL ID', 'Rookie Year', 'Final Year', 'Active?'])
+players_df = pd.DataFrame(players, columns=['Name', 'Basketball-Reference URL ID', 'Rookie Year', 'Final Year'])
 players_df.drop_duplicates(inplace=True)
 players_df.to_csv('nba_players.csv', index=False)

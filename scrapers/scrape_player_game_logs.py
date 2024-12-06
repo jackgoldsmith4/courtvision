@@ -1,7 +1,7 @@
 from utils import init_web_driver, patient_click, thread_func, convert_time_to_float
 from selenium.common.exceptions import ElementNotInteractableException
-from db.player_stats import insert_player_stat, check_if_stats_exist
 from selenium.webdriver.common.action_chains import ActionChains
+from db.player_stats import insert_player_stat
 from selenium.webdriver.common.by import By
 from constants.team_codes import TEAM_CODES
 from sqlalchemy import create_engine
@@ -12,7 +12,7 @@ import time
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
 GAMELOG_HEADER_TITLES_DICT = "Rk,G,Date,Age,Tm,Unnamed: 5,Opp,Unnamed: 7,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
-YEAR_TO_START = 2002
+YEAR_TO_START = 2003
 NUM_THREADS = 4
 
 def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
@@ -173,8 +173,6 @@ def scrape_wrapper(players):
   print(f"---------PROCESS COMPLETE---------")
 
 ######## SCRIPT: run scrape function on all NBA players
-# first filter out players
 players = pd.read_csv('nba_players.csv')
-players = players[players['Final Year'] - players['Rookie Year'] <= 4]
-players = players[players['Final Year'] > YEAR_TO_START]
+players = players[players['Final Year'] >= YEAR_TO_START]
 thread_func(NUM_THREADS, scrape_wrapper, players)

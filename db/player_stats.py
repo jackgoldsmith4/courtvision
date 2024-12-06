@@ -1,7 +1,7 @@
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import select, inspect
-from db.models import PlayerStats
+from db.models import PlayerGameLogs
 from hashlib import sha256
 from datetime import date
 
@@ -10,12 +10,12 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
   Session = sessionmaker(bind=engine)
   session = Session()
   game_id = sha256((str(game_date) + home_team + away_team).encode('utf-8')).hexdigest()
-  stats_id = sha256((str(game_id) + player_name).encode('utf-8')).hexdigest()
+  player_game_log_id = sha256((str(game_id) + player_name).encode('utf-8')).hexdigest()
 
   try:
     # create a new PlayerStats instance
-    new_player_stats = PlayerStats(
-      stats_id=stats_id,
+    new_player_stats = PlayerGameLogs(
+      player_game_log_id=player_game_log_id,
       game_id=game_id,
       game_date=game_date,
       home_team=home_team,
@@ -58,10 +58,10 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
 # get all stats for a certain game as a flattened string (for transformer input)
 def get_flattened_player_stats_by_game_id(session, game_date, home_team, away_team):
   home_team = home_team.replace("LA Clippers", "Los Angeles Clippers")
-  stmt = select(PlayerStats).filter_by(home_team=home_team, away_team=away_team)
+  stmt = select(PlayerGameLogs).filter_by(home_team=home_team, away_team=away_team)
   res = session.execute(stmt).all()
   output = f"{game_date} {away_team} at {home_team} "
-  non_stats = ['stats_id', 'game_id', 'away_team', 'home_team', 'game_date']
+  non_stats = ['player_game_log_id', 'game_id', 'away_team', 'home_team', 'game_date']
   players = {}
 
   if len(res) == 0:
@@ -99,7 +99,7 @@ def get_flattened_player_stats_by_game_id(session, game_date, home_team, away_te
 def check_if_stats_exist(engine, player_name, year):
   Session = sessionmaker(bind=engine)
   session = Session()
-  stmt = select(PlayerStats).filter_by(player_name=player_name)
+  stmt = select(PlayerGameLogs).filter_by(player_name=player_name)
   res = session.execute(stmt).all()
   if len(res) == 0:
     return None

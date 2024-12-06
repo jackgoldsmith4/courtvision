@@ -1,9 +1,10 @@
-from sqlalchemy import Column, Integer, String, Date, CheckConstraint, Float, Index, Text
+from sqlalchemy import Column, Integer, String, Date, CheckConstraint, Float, Text, asc, desc
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
-class GameRecaps(Base):
+class GameRecap(Base):
   __tablename__ = 'game_recaps'
 
   game_id = Column(String, primary_key=True) # hash of game_date, home_team, away_team
@@ -14,25 +15,20 @@ class GameRecaps(Base):
   headline = Column(Text)
   recap_text = Column(Text)
 
-class PlayerStats(Base):
-  __tablename__ = 'player_stats'
+class PlayerGameLog(Base):
+  __tablename__ = 'player_game_logs'
   __table_args__ = (
     CheckConstraint('game_started IN (0, 1)'),
     CheckConstraint('is_home_game IN (0, 1)'),
-    Index('idx_game_id', 'game_id'),
   )
 
-  stats_id = Column(String, primary_key=True) # hash of player_name and game id
-  game_id = Column(String, nullable=False) # hash of game_date, home_team, away_team
-  game_date = Column(Date, nullable=False)
-  home_team = Column(String(100), nullable=False)
-  away_team = Column(String(100), nullable=False)
-  is_home_game = Column(Integer, nullable=False) # 1 for home, 0 for away
+  player_game_log_id = Column(String, primary_key=True) # hash of player_name and game id
 
-  player_name = Column(String(100), nullable=False)
   player_age = Column(Integer, nullable=False)
+  is_home_game = Column(Integer, nullable=False) # 1 for home, 0 for away
   game_outcome = Column(Integer, nullable=False)  # negative values for L, positive for W
   game_started = Column(Integer, nullable=False)  # 1 for started, 0 otherwise
+
   minutes_played = Column(Float)
   points = Column(Integer)
   field_goals_made = Column(Integer)
@@ -48,3 +44,31 @@ class PlayerStats(Base):
   blocks = Column(Integer)
   turnovers = Column(Integer)
   plus_minus = Column(Integer)
+
+  # relationship to Player
+  player = relationship("Player", back_populates="player_game_logs")
+
+  # relationship to Game
+  game = relationship("Game", back_populates="game_stats")
+
+class Player(Base):
+  __tablename__ = 'players'
+
+  id = Column(String, primary_key=True) # Basketball-Reference ID
+  name = Column(String(100), nullable=False)
+  start_year = Column(Integer, nullable=False)
+  end_year = Column(Integer, nullable=False)
+
+  # 1-to-many relationship with PlayerGameLog
+  player_game_logs = relationship("PlayerGameLog", order_by=asc(PlayerGameLog.game_date), back_populates="player")
+
+class Game(Base):
+  __tablename__ = 'games'
+
+  game_id = Column(String, primary_key=True) # hash of game_date, home_team, away_team
+  game_date = Column(Date, nullable=False)
+  home_team = Column(String(100), nullable=False)
+  away_team = Column(String(100), nullable=False)
+
+  # 1-to-many relationship with PlayerGameLog
+  game_stats = relationship("PlayerGameLog", order_by=desc(PlayerGameLog.points))
