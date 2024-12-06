@@ -3,10 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from db.models import Player
 import traceback
 
-def insert_player(engine, player_id, player_name, start_year, end_year):
-  Session = sessionmaker(bind=engine)
-  session = Session()
-
+def insert_player(session, player_id, player_name, start_year, end_year):
   try:
     new_player = Player(
       id=player_id,
