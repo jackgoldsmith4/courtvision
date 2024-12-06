@@ -1,7 +1,7 @@
 from utils import init_web_driver, patient_click, thread_func, convert_time_to_float
 from selenium.common.exceptions import ElementNotInteractableException
 from selenium.webdriver.common.action_chains import ActionChains
-from db.player_stats import insert_player_stat
+from db.player_game_logs import insert_player_game_log
 from selenium.webdriver.common.by import By
 from constants.team_codes import TEAM_CODES
 from sqlalchemy import create_engine
@@ -91,7 +91,7 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
         except ValueError:
           plus_minus=0
 
-        insert_player_stat(
+        insert_player_game_log(
           engine,
           game_date=game_date,
           home_team=home_team,
@@ -119,7 +119,7 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
         )
       except ValueError as e:
         # inactive, so should show up in the box score with all zeroes
-        insert_player_stat(
+        insert_player_game_log(
           engine,
           game_date=game_date,
           home_team=home_team,

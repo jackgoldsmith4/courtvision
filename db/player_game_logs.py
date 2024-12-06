@@ -1,27 +1,30 @@
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import select, inspect
-from db.models import PlayerGameLogs
+from db.models import PlayerGameLog
 from hashlib import sha256
 from datetime import date
 
 # add a player stat row to the DB
-def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, player_name, player_age, game_outcome, game_started, minutes_played, points, fg_made, fg_attempted, threes_made, threes_attempted, ft_made, ft_attempted, orb, drb, assists, steals, blocks, turnovers, plus_minus):
+def insert_player_game_log(engine, game_date, home_team, away_team, is_home_game, player_name, player_age, game_outcome, game_started, minutes_played, points, fg_made, fg_attempted, threes_made, threes_attempted, ft_made, ft_attempted, orb, drb, assists, steals, blocks, turnovers, plus_minus):
   Session = sessionmaker(bind=engine)
   session = Session()
+
+  # TODO get or create Player and Game objects
   game_id = sha256((str(game_date) + home_team + away_team).encode('utf-8')).hexdigest()
+
   player_game_log_id = sha256((str(game_id) + player_name).encode('utf-8')).hexdigest()
 
   try:
     # create a new PlayerStats instance
-    new_player_stats = PlayerGameLogs(
+    new_player_stats = PlayerGameLog(
       player_game_log_id=player_game_log_id,
       game_id=game_id,
+      # TODO player
       game_date=game_date,
       home_team=home_team,
       away_team=away_team,
       is_home_game=is_home_game,
-      player_name=player_name,
       player_age=player_age,
       game_outcome=game_outcome,
       game_started=game_started,
@@ -45,21 +48,24 @@ def insert_player_stat(engine, game_date, home_team, away_team, is_home_game, pl
     # add the new instance to the session and commit it to the database
     session.add(new_player_stats)
     session.commit()
-    print(f"New player stat successfully added: {player_name} on {game_date}")
+    print(f"New player gamelog successfully added: {player_name} on {game_date}")
   except IntegrityError:
-    print(f"Player stat already exists ({player_name},{game_date})")
+    print(f"Player gamelog already exists ({player_name},{game_date})")
     session.close()
   except Exception as e:
     session.rollback()
-    print(f"Failed to add player stat. Error: {e}")
+    print(f"Failed to add player gamelog. Error: {e}")
   finally:
     session.close()
 
 # get all stats for a certain game as a flattened string (for transformer input)
-def get_flattened_player_stats_by_game_id(session, game_date, home_team, away_team):
+def get_flattened_player_game_logs_by_game_id(session, game_date, home_team, away_team):
   home_team = home_team.replace("LA Clippers", "Los Angeles Clippers")
-  stmt = select(PlayerGameLogs).filter_by(home_team=home_team, away_team=away_team)
+  stmt = select(PlayerGameLog).filter_by(home_team=home_team, away_team=away_team)
   res = session.execute(stmt).all()
+
+  # TODO change above to just query the PlayerGameLog table based on a game_id
+
   output = f"{game_date} {away_team} at {home_team} "
   non_stats = ['player_game_log_id', 'game_id', 'away_team', 'home_team', 'game_date']
   players = {}
@@ -99,7 +105,7 @@ def get_flattened_player_stats_by_game_id(session, game_date, home_team, away_te
 def check_if_stats_exist(engine, player_name, year):
   Session = sessionmaker(bind=engine)
   session = Session()
-  stmt = select(PlayerGameLogs).filter_by(player_name=player_name)
+  stmt = select(PlayerGameLog).filter_by(player_name=player_name)
   res = session.execute(stmt).all()
   if len(res) == 0:
     return None

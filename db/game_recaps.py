@@ -1,7 +1,7 @@
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import select, func
-from db.models import GameRecaps
+from db.models import GameRecap
 from hashlib import sha256
 
 # add a new game recap to the DB
@@ -12,7 +12,7 @@ def insert_game_recap(engine, game_date, home_team, away_team, author, headline,
 
   try:
     # create a new GameRecaps instance
-    new_game_recap = GameRecaps(game_id=game_id, game_date=game_date.date(), home_team=home_team, away_team=away_team, author=author, headline=headline, recap_text=recap_text)
+    new_game_recap = GameRecap(game_id=game_id, game_date=game_date.date(), home_team=home_team, away_team=away_team, author=author, headline=headline, recap_text=recap_text)
 
     # add the new instance to the session and commit it to the database
     session.add(new_game_recap)
@@ -33,7 +33,7 @@ def insert_game_recap(engine, game_date, home_team, away_team, author, headline,
 def get_game_recap_headline(engine, game_date, home_team, away_team):
   Session = sessionmaker(bind=engine)
   session = Session()
-  stmt = select(GameRecaps).filter_by(home_team=home_team, away_team=away_team, game_date=game_date)
+  stmt = select(GameRecap).filter_by(home_team=home_team, away_team=away_team, game_date=game_date)
   game_recap = session.execute(stmt).first()
 
   session.close()
@@ -42,7 +42,7 @@ def get_game_recap_headline(engine, game_date, home_team, away_team):
 def get_game_recaps(engine, n=3):
   Session = sessionmaker(bind=engine)
   session = Session()
-  stmt = select(GameRecaps).order_by(func.random()).limit(n)
+  stmt = select(GameRecap).order_by(func.random()).limit(n)
   game_recaps = session.execute(stmt).scalars().all()
 
   session.close()

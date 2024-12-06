@@ -1,4 +1,4 @@
-from db.player_stats import get_flattened_player_stats_by_game_id
+from db.player_game_logs import get_flattened_player_game_logs_by_game_id
 from db.game_recaps import get_game_recaps
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
@@ -21,7 +21,7 @@ def get_contexts():
     try:
       Session = sessionmaker(bind=engine)
       session = Session()
-      context = get_flattened_player_stats_by_game_id(session, game_date, home_team, away_team)
+      context = get_flattened_player_game_logs_by_game_id(session, game_date, home_team, away_team)
       session.close()
     except ValueError:
       print("ValueError")
