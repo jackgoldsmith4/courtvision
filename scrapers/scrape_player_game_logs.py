@@ -4,10 +4,13 @@ from selenium.webdriver.common.action_chains import ActionChains
 from db.player_game_logs import insert_player_game_log
 from selenium.webdriver.common.by import By
 from constants.team_codes import TEAM_CODES
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
+from db.players import get_players
 from datetime import datetime
 import pandas as pd
 import time
+import os
 
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
@@ -15,14 +18,15 @@ GAMELOG_HEADER_TITLES_DICT = "Rk,G,Date,Age,Tm,Unnamed: 5,Opp,Unnamed: 7,GS,MP,F
 YEAR_TO_START = 2003
 NUM_THREADS = 4
 
-def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
-  url = 'https://www.basketball-reference.com/players/' + player_url_id + '/gamelog/'
+def scrape_game_log(player_id, player_name, rookie_year, final_year):
+  engine = create_engine(os.environ.get("DATABASE_URL"))
+  Session = sessionmaker(bind=engine)
+  session = Session()
 
+  url = 'https://www.basketball-reference.com/players/' + player_id + '/gamelog/'
   start_year = max(int(rookie_year), YEAR_TO_START)
 
   for year in range(start_year, int(final_year) + 1):
-    engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
-
     # +/- is only present in gamelogs starting in 1997
     GAMELOG_HEADER_TITLES = GAMELOG_HEADER_TITLES_NEW if year >= 1997 else GAMELOG_HEADER_TITLES_OLD
 
@@ -91,10 +95,10 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
         except ValueError:
           plus_minus=0
 
-        # TODO insert or get Game, Player objects
+        # TODO get or create Game object, then feed it into the insert game log function
 
         insert_player_game_log(
-          engine,
+          session,
           game_date=game_date,
           home_team=home_team,
           away_team=away_team,
@@ -120,9 +124,9 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
           plus_minus=plus_minus
         )
       except ValueError as e:
-        # inactive, so should show up in the box score with all zeroes
+        # player was inactive for this game, so should show up in the box score with all zeroes
         insert_player_game_log(
-          engine,
+          session,
           game_date=game_date,
           home_team=home_team,
           away_team=away_team,
@@ -150,20 +154,22 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
 
     print(f"Scraped {player_name} {year} gamelog")
     driver.quit()
-    engine.dispose()
+
+  session.close()
+  engine.dispose()
 
 def scrape_wrapper(players):
-  for index, (_, row) in enumerate(players.iterrows()):
-    name = row['Name']
-    br_url_id = row['Basketball-Reference URL ID']
-    rookie_year = row['Rookie Year']
-    final_year = row['Final Year']
+  for index, player in enumerate(players):
+    player_id = player['id']
+    player_name = player['name']
+    start_year = ['start_year']
+    end_year = ['end_year']
     
     # continually scrape until entire file has been built
     while True:
       try:
-        print(f"Scraping {name} ({index}/{len(players)})")
-        scrape_game_log(br_url_id, rookie_year, final_year, name)
+        print(f"Scraping {player_name} ({index}/{len(players)})")
+        scrape_game_log(player_id, player_name, start_year, end_year)
         break
       except KeyboardInterrupt:
         raise
@@ -175,6 +181,5 @@ def scrape_wrapper(players):
   print(f"---------PROCESS COMPLETE---------")
 
 ######## SCRIPT: run scrape function on all NBA players
-players = pd.read_csv('nba_players.csv')
-players = players[players['Final Year'] >= YEAR_TO_START]
+players = get_players(YEAR_TO_START)
 thread_func(NUM_THREADS, scrape_wrapper, players)

@@ -61,6 +61,14 @@ class Player(Base):
   # 1-to-many relationship with PlayerGameLog
   player_game_logs = relationship("PlayerGameLog", order_by=asc(PlayerGameLog.game_date), back_populates="player")
 
+  def to_dict(self):
+    return {
+      'id': self.id,
+      'name': self.name,
+      'start_year': self.start_year,
+      'end_year': self.end_year
+    }
+
 class Game(Base):
   __tablename__ = 'games'
 

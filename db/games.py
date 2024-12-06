@@ -27,6 +27,6 @@ def insert_game(engine, game_date: date, home_team, away_team):
     session.close()
   except Exception as e:
     session.rollback()
-    print(f"Failed to add game. Error: {traceback.format_exc()}")
+    print(f"Failed to add game {away_team} @ {home_team} ({game_date}). Error: {traceback.format_exc()}")
   finally:
     session.close()

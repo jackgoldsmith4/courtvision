@@ -6,10 +6,7 @@ from hashlib import sha256
 from datetime import date
 
 # add a player stat row to the DB
-def insert_player_game_log(engine, game_date, home_team, away_team, is_home_game, player_name, player_age, game_outcome, game_started, minutes_played, points, fg_made, fg_attempted, threes_made, threes_attempted, ft_made, ft_attempted, orb, drb, assists, steals, blocks, turnovers, plus_minus):
-  Session = sessionmaker(bind=engine)
-  session = Session()
-
+def insert_player_game_log(session, game_date, home_team, away_team, is_home_game, player_name, player_age, game_outcome, game_started, minutes_played, points, fg_made, fg_attempted, threes_made, threes_attempted, ft_made, ft_attempted, orb, drb, assists, steals, blocks, turnovers, plus_minus):
   # TODO get or create Player and Game objects
   game_id = sha256((str(game_date) + home_team + away_team))
 
