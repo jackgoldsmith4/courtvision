@@ -11,12 +11,11 @@ def insert_player_game_log(engine, game_date, home_team, away_team, is_home_game
   session = Session()
 
   # TODO get or create Player and Game objects
-  game_id = sha256((str(game_date) + home_team + away_team).encode('utf-8')).hexdigest()
+  game_id = sha256((str(game_date) + home_team + away_team))
 
-  player_game_log_id = sha256((str(game_id) + player_name).encode('utf-8')).hexdigest()
+  player_game_log_id = sha256((str(game_id) + player_name))
 
   try:
-    # create a new PlayerStats instance
     new_player_stats = PlayerGameLog(
       player_game_log_id=player_game_log_id,
       game_id=game_id,
@@ -45,7 +44,6 @@ def insert_player_game_log(engine, game_date, home_team, away_team, is_home_game
       plus_minus=plus_minus
     )
 
-    # add the new instance to the session and commit it to the database
     session.add(new_player_stats)
     session.commit()
     print(f"New player gamelog successfully added: {player_name} on {game_date}")

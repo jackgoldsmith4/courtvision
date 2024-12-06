@@ -8,7 +8,7 @@ from hashlib import sha256
 def insert_game_recap(engine, game_date, home_team, away_team, author, headline, recap_text):
   Session = sessionmaker(bind=engine)
   session = Session()
-  game_id = sha256((str(game_date.date()) + home_team + away_team).encode('utf-8')).hexdigest()
+  game_id = sha256((str(game_date.date()) + home_team + away_team))
 
   try:
     # create a new GameRecaps instance

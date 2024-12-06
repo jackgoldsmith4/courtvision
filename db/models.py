@@ -7,13 +7,12 @@ Base = declarative_base()
 class GameRecap(Base):
   __tablename__ = 'game_recaps'
 
-  game_id = Column(String, primary_key=True) # hash of game_date, home_team, away_team
-  game_date = Column(Date, nullable=False)
-  home_team = Column(String(100), nullable=False)
-  away_team = Column(String(100), nullable=False)
   author = Column(String(100))
   headline = Column(Text)
   recap_text = Column(Text)
+
+  # 1-to-1 relationship with Game table
+  # TODO implement
 
 class PlayerGameLog(Base):
   __tablename__ = 'player_game_logs'
@@ -22,7 +21,7 @@ class PlayerGameLog(Base):
     CheckConstraint('is_home_game IN (0, 1)'),
   )
 
-  player_game_log_id = Column(String, primary_key=True) # hash of player_name and game id
+  player_game_log_id = Column(String(64), primary_key=True) # SHA-256 hash of player_name and game id
 
   player_age = Column(Integer, nullable=False)
   is_home_game = Column(Integer, nullable=False) # 1 for home, 0 for away
@@ -54,7 +53,7 @@ class PlayerGameLog(Base):
 class Player(Base):
   __tablename__ = 'players'
 
-  id = Column(String, primary_key=True) # Basketball-Reference ID
+  id = Column(String(20), primary_key=True) # Basketball-Reference ID
   name = Column(String(100), nullable=False)
   start_year = Column(Integer, nullable=False)
   end_year = Column(Integer, nullable=False)
@@ -65,7 +64,7 @@ class Player(Base):
 class Game(Base):
   __tablename__ = 'games'
 
-  game_id = Column(String, primary_key=True) # hash of game_date, home_team, away_team
+  id = Column(String(64), primary_key=True) # SHA-256 hash of game_date, home_team, away_team
   game_date = Column(Date, nullable=False)
   home_team = Column(String(100), nullable=False)
   away_team = Column(String(100), nullable=False)

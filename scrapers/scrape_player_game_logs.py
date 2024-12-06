@@ -91,6 +91,8 @@ def scrape_game_log(player_url_id, rookie_year, final_year, player_name):
         except ValueError:
           plus_minus=0
 
+        # TODO insert or get Game, Player objects
+
         insert_player_game_log(
           engine,
           game_date=game_date,
