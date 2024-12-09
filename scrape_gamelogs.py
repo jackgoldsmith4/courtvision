@@ -168,12 +168,8 @@ def scrape_wrapper(players):
         break
       except KeyboardInterrupt:
         raise
-      except ElementNotInteractableException:
-        continue
       except:
-        # print(traceback.format_exc())
-        # continue
-        raise
+        continue
   print(f"---------PROCESS COMPLETE---------")
 
 ######## SCRIPT: run scrape function on all NBA players

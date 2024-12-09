@@ -1,4 +1,3 @@
-from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import select, inspect
 from db.models import PlayerGameLog
@@ -7,8 +6,13 @@ from datetime import date
 
 # add a player stat row to the DB
 def insert_player_game_log(session, game, player, is_home_game, player_age, game_outcome, game_started, minutes_played, points, fg_made, fg_attempted, threes_made, threes_attempted, ft_made, ft_attempted, orb, drb, assists, steals, blocks, turnovers, plus_minus):
-  id_input = str(game.id) + str(player.id)
+  id_input = str(game.id) + str(player.name)
   player_game_log_id = sha256(id_input.encode()).digest()
+
+  existing_gamelog = session.query(PlayerGameLog).filter_by(player_game_log_id=player_game_log_id).first()
+  if existing_gamelog:
+    print(f"Player gamelog already exists: {player.name} for game {game.game_date}")
+    return
 
   try:
     new_gamelog = PlayerGameLog(
@@ -39,8 +43,6 @@ def insert_player_game_log(session, game, player, is_home_game, player_age, game
     session.add(new_gamelog)
     session.commit()
     print(f"New player gamelog successfully added: {player.name} for game {game.game_date}")
-  except IntegrityError:
-    print(f"Player gamelog already exists ({player.name},{game.game_date})")
   except Exception as e:
     session.rollback()
     print(f"Failed to add player gamelog. Error: {e}")
