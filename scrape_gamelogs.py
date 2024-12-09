@@ -1,5 +1,4 @@
 from utils import init_web_driver, patient_click, thread_func, convert_time_to_float
-from selenium.common.exceptions import ElementNotInteractableException
 from selenium.webdriver.common.action_chains import ActionChains
 from db.player_game_logs import insert_player_game_log
 from db.players import get_players, get_player_by_id
