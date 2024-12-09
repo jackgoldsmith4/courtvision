@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, CheckConstraint, Float, Text, asc, desc, UUID, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.dialects.postgresql import BYTEA
 from sqlalchemy.orm import relationship
 import uuid
 
@@ -23,7 +24,7 @@ class PlayerGameLog(Base):
     CheckConstraint('is_home_game IN (0, 1)'),
   )
 
-  player_game_log_id = Column(String(64), primary_key=True) # SHA-256 hash of player_name and game id
+  player_game_log_id = Column(BYTEA, primary_key=True) # SHA-256 hash of player_name and game id
 
   player_age = Column(Integer, nullable=False)
   is_home_game = Column(Integer, nullable=False) # 1 for home, 0 for away
@@ -51,7 +52,7 @@ class PlayerGameLog(Base):
   player = relationship("Player", back_populates="player_game_logs")
 
   # relationship to Game
-  game_id = Column(String(64), ForeignKey('games.id'))
+  game_id = Column(BYTEA, ForeignKey('games.id'))
   game = relationship("Game", back_populates="game_stats")
 
 class Player(Base):
@@ -76,7 +77,7 @@ class Player(Base):
 class Game(Base):
   __tablename__ = 'games'
 
-  id = Column(String(64), primary_key=True) # SHA-256 hash of game_date, home_team, away_team
+  id = Column(BYTEA, primary_key=True) # SHA-256 hash of game_date, home_team, away_team
   game_date = Column(Date, nullable=False)
   home_team = Column(String(100), nullable=False)
   away_team = Column(String(100), nullable=False)

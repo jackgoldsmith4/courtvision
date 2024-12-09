@@ -33,7 +33,7 @@ def get_players(after_year = None):
   try:
     players = session.query(Player)
     if after_year:
-      players = players.filter(Player.final_year >= after_year)
+      players = players.filter(Player.end_year >= after_year)
 
     players = players.all()
     return [player.to_dict() for player in players]
@@ -42,6 +42,9 @@ def get_players(after_year = None):
   finally:
     session.close()
     engine.dispose()
+
+def get_player_by_id(session, player_id):
+  return session.query(Player).filter_by(id=player_id).first()
 
 def clean_player_names():
   load_dotenv()

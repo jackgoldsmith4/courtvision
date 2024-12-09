@@ -6,20 +6,15 @@ from hashlib import sha256
 from datetime import date
 
 # add a player stat row to the DB
-def insert_player_game_log(session, game_date, home_team, away_team, is_home_game, player_name, player_age, game_outcome, game_started, minutes_played, points, fg_made, fg_attempted, threes_made, threes_attempted, ft_made, ft_attempted, orb, drb, assists, steals, blocks, turnovers, plus_minus):
-  # TODO get or create Player and Game objects
-  game_id = sha256((str(game_date) + home_team + away_team))
-
-  player_game_log_id = sha256((str(game_id) + player_name))
+def insert_player_game_log(session, game, player, is_home_game, player_age, game_outcome, game_started, minutes_played, points, fg_made, fg_attempted, threes_made, threes_attempted, ft_made, ft_attempted, orb, drb, assists, steals, blocks, turnovers, plus_minus):
+  id_input = str(game.id) + str(player.id)
+  player_game_log_id = sha256(id_input.encode()).digest()
 
   try:
-    new_player_stats = PlayerGameLog(
+    new_gamelog = PlayerGameLog(
       player_game_log_id=player_game_log_id,
-      game_id=game_id,
-      # TODO player
-      game_date=game_date,
-      home_team=home_team,
-      away_team=away_team,
+      game_id=game.id,
+      player_id=player.id,
       is_home_game=is_home_game,
       player_age=player_age,
       game_outcome=game_outcome,
@@ -41,17 +36,14 @@ def insert_player_game_log(session, game_date, home_team, away_team, is_home_gam
       plus_minus=plus_minus
     )
 
-    session.add(new_player_stats)
+    session.add(new_gamelog)
     session.commit()
-    print(f"New player gamelog successfully added: {player_name} on {game_date}")
+    print(f"New player gamelog successfully added: {player.name} for game {game.game_date}")
   except IntegrityError:
-    print(f"Player gamelog already exists ({player_name},{game_date})")
-    session.close()
+    print(f"Player gamelog already exists ({player.name},{game.game_date})")
   except Exception as e:
     session.rollback()
     print(f"Failed to add player gamelog. Error: {e}")
-  finally:
-    session.close()
 
 # get all stats for a certain game as a flattened string (for transformer input)
 def get_flattened_player_game_logs_by_game_id(session, game_date, home_team, away_team):

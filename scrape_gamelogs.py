@@ -2,13 +2,14 @@ from utils import init_web_driver, patient_click, thread_func, convert_time_to_f
 from selenium.common.exceptions import ElementNotInteractableException
 from selenium.webdriver.common.action_chains import ActionChains
 from db.player_game_logs import insert_player_game_log
+from db.players import get_players, get_player_by_id
 from selenium.webdriver.common.by import By
 from constants.team_codes import TEAM_CODES
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from db.players import get_players
+from db.games import insert_game
 from datetime import datetime
-import pandas as pd
+import traceback
 import time
 import os
 
@@ -16,7 +17,7 @@ GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
 GAMELOG_HEADER_TITLES_DICT = "Rk,G,Date,Age,Tm,Unnamed: 5,Opp,Unnamed: 7,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
 YEAR_TO_START = 2003
-NUM_THREADS = 4
+NUM_THREADS = 2
 
 def scrape_game_log(player_id, player_name, rookie_year, final_year):
   engine = create_engine(os.environ.get("DATABASE_URL"))
@@ -30,7 +31,7 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
     # +/- is only present in gamelogs starting in 1997
     GAMELOG_HEADER_TITLES = GAMELOG_HEADER_TITLES_NEW if year >= 1997 else GAMELOG_HEADER_TITLES_OLD
 
-    driver = init_web_driver()
+    driver = init_web_driver(headless=True)
     driver.implicitly_wait(5)
     driver.get(url + str(year) + '#all_pgl_basic')
     time.sleep(2)
@@ -89,21 +90,21 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
         else:
           game_outcome = -margin
 
+        # get/create Player and Game objects
+        game = insert_game(session, game_date, home_team, away_team)
+        player = get_player_by_id(session, player_id)
+
         game_started = int(row['GS'])
         try:
           plus_minus=int(row['+/-'])
         except ValueError:
           plus_minus=0
 
-        # TODO get or create Game object, then feed it into the insert game log function
-
         insert_player_game_log(
           session,
-          game_date=game_date,
-          home_team=home_team,
-          away_team=away_team,
+          game=game,
+          player=player,
           is_home_game=is_home_game,
-          player_name=player_name,
           player_age=player_age,
           game_started=game_started,
           game_outcome=game_outcome,
@@ -127,11 +128,9 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
         # player was inactive for this game, so should show up in the box score with all zeroes
         insert_player_game_log(
           session,
-          game_date=game_date,
-          home_team=home_team,
-          away_team=away_team,
+          game=game,
+          player=player,
           is_home_game=is_home_game,
-          player_name=player_name,
           player_age=player_age,
           game_started=0,
           game_outcome=game_outcome,
@@ -152,7 +151,6 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
           plus_minus=0
         )
 
-    print(f"Scraped {player_name} {year} gamelog")
     driver.quit()
 
   session.close()
@@ -160,26 +158,24 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
 
 def scrape_wrapper(players):
   for index, player in enumerate(players):
-    player_id = player['id']
     player_name = player['name']
-    start_year = ['start_year']
-    end_year = ['end_year']
     
     # continually scrape until entire file has been built
     while True:
       try:
         print(f"Scraping {player_name} ({index}/{len(players)})")
-        scrape_game_log(player_id, player_name, start_year, end_year)
+        scrape_game_log(player['id'], player_name, player['start_year'], player['end_year'])
         break
       except KeyboardInterrupt:
         raise
       except ElementNotInteractableException:
         continue
-      except Exception as e:
-        print(e)
-        continue
+      except:
+        # print(traceback.format_exc())
+        # continue
+        raise
   print(f"---------PROCESS COMPLETE---------")
 
 ######## SCRIPT: run scrape function on all NBA players
-players = get_players(YEAR_TO_START)
+players = get_players(after_year=YEAR_TO_START)
 thread_func(NUM_THREADS, scrape_wrapper, players)
