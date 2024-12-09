@@ -3,15 +3,17 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from db.players import insert_player
 from utils import init_web_driver
+from dotenv import load_dotenv
 import string
 import time
 import os
 
+load_dotenv()
 engine = create_engine(os.environ.get("DATABASE_URL"))
 Session = sessionmaker(bind=engine)
 session = Session()
 
-driver = init_web_driver()
+driver = init_web_driver(headless=True)
 driver.implicitly_wait(2)
 
 lowercase_letters = list(string.ascii_lowercase)
@@ -35,7 +37,7 @@ for letter in lowercase_letters:
     for elem in txt.split():
       if name_final_flag:
         end_year = elem
-        insert_player(session, player_id, player_name, rookie_year, end_year)
+        insert_player(session, player_id, player_name.replace('*', ''), rookie_year, end_year)
         break
 
       if not elem.isnumeric():

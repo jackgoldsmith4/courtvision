@@ -1,12 +1,14 @@
-from sqlalchemy import Column, Integer, String, Date, CheckConstraint, Float, Text, asc, desc
+from sqlalchemy import Column, Integer, String, Date, CheckConstraint, Float, Text, asc, desc, UUID, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+import uuid
 
 Base = declarative_base()
 
 class GameRecap(Base):
   __tablename__ = 'game_recaps'
 
+  id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
   author = Column(String(100))
   headline = Column(Text)
   recap_text = Column(Text)
@@ -45,9 +47,11 @@ class PlayerGameLog(Base):
   plus_minus = Column(Integer)
 
   # relationship to Player
+  player_id = Column(String(20), ForeignKey('players.id'))
   player = relationship("Player", back_populates="player_game_logs")
 
   # relationship to Game
+  game_id = Column(String(64), ForeignKey('games.id'))
   game = relationship("Game", back_populates="game_stats")
 
 class Player(Base):
@@ -59,7 +63,7 @@ class Player(Base):
   end_year = Column(Integer, nullable=False)
 
   # 1-to-many relationship with PlayerGameLog
-  player_game_logs = relationship("PlayerGameLog", order_by=asc(PlayerGameLog.game_date), back_populates="player")
+  player_game_logs = relationship("PlayerGameLog", order_by=asc(PlayerGameLog.player_age), back_populates="player")
 
   def to_dict(self):
     return {
@@ -78,4 +82,4 @@ class Game(Base):
   away_team = Column(String(100), nullable=False)
 
   # 1-to-many relationship with PlayerGameLog
-  game_stats = relationship("PlayerGameLog", order_by=desc(PlayerGameLog.points))
+  game_stats = relationship("PlayerGameLog", order_by=desc(PlayerGameLog.points), back_populates="game")
