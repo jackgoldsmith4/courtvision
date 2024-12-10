@@ -5,20 +5,24 @@ import numpy as np
 import threading
 import time
 import re
+import os
 
-def init_web_driver(width=1400, height=950, headless=True):
+def init_web_driver(width=1300, height=950):
   chrome_options = webdriver.ChromeOptions()
   chrome_options.add_argument("--disable-dev-shm-usage")
   chrome_options.add_argument("--no-sandbox")
   chrome_options.add_argument('--window-size={},{}'.format(width, height))
 
-  if headless:
+  if os.environ.get("ENV") == "PROD":
     chrome_options.add_argument("--headless")
-
-  from webdriver_manager.chrome import ChromeDriverManager
-  chrome_options.add_argument('--ignore-certificate-errors')
-  chromedriver_path = ChromeDriverManager().install()
-  driver = webdriver.Chrome(service=webdriver.ChromeService(chromedriver_path), options=chrome_options)
+    chrome_options.add_argument("--disable-gpu")
+    driver = webdriver.Chrome(options=chrome_options)
+  else:
+    # local dev mode
+    from webdriver_manager.chrome import ChromeDriverManager
+    chrome_options.add_argument('--ignore-certificate-errors')
+    chromedriver_path = ChromeDriverManager().install()
+    driver = webdriver.Chrome(service=webdriver.ChromeService(chromedriver_path), options=chrome_options)
   return driver
 
 def patient_click(element, delay=1):

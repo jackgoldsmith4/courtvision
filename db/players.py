@@ -7,6 +7,10 @@ import traceback
 import os
 
 def insert_player(session, player_id, player_name, start_year, end_year):
+  existing_player = session.query(Player).filter_by(id=player_id).first()
+  if existing_player:
+    return existing_player
+
   try:
     new_player = Player(
       id=player_id,
@@ -18,6 +22,7 @@ def insert_player(session, player_id, player_name, start_year, end_year):
     session.add(new_player)
     session.commit()
     print(f"New player successfully added: {player_name} (ID: {player_id})")
+    return new_player
   except IntegrityError:
     print(f"Player already exists: {player_name} (ID: {player_id})")
   except:

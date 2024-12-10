@@ -4,13 +4,12 @@ from datetime import date
 import traceback
 
 def insert_game(session, game_date: date, home_team, away_team):
-  game_id_input = str(game_date) + home_team + away_team
-  game_id = sha256(game_id_input.encode()).digest()
-
   existing_game = get_game_by_id(session, game_date, home_team, away_team)
   if existing_game:
     return existing_game
 
+  game_id_input = str(game_date) + home_team + away_team
+  game_id = sha256(game_id_input.encode()).digest()
   try:
     new_game = Game(
       id=game_id,

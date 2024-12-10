@@ -1,7 +1,7 @@
 from utils import init_web_driver, patient_click, thread_func, convert_time_to_float
 from selenium.webdriver.common.action_chains import ActionChains
 from db.player_game_logs import insert_player_game_log
-from db.players import get_players, get_player_by_id
+from db.players import get_players, insert_player
 from selenium.webdriver.common.by import By
 from constants.team_codes import TEAM_CODES
 from sqlalchemy.orm import sessionmaker
@@ -91,7 +91,7 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
 
         # get/create Player and Game objects
         game = insert_game(session, game_date, home_team, away_team)
-        player = get_player_by_id(session, player_id)
+        player = insert_player(session, player_id, player_name, rookie_year, final_year)
 
         game_started = int(row['GS'])
         try:
