@@ -1,7 +1,6 @@
+from utils import init_web_driver, generate_dates, heroku_print
 from switching_experiment.nba_game_urls import URLS
-from utils import init_web_driver, generate_dates
 from selenium.webdriver.common.by import By
-from constants.dates import DATES
 import time
 
 NBA_GAMES_URL = 'https://www.nba.com/games?date='
@@ -49,7 +48,7 @@ def get_nba_game_recaps(game_urls):
 
 #dates = generate_dates()
 #heroku_print('Getting game URLS...')
-#game_urls = get_nba_game_urls(DATES)
+#game_urls = get_nba_game_urls(dates)
 #heroku_print('Getting game recaps...')
 get_nba_game_recaps(URLS[::-1])
 

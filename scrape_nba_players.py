@@ -11,7 +11,7 @@ engine = create_engine(os.environ.get("DATABASE_URL"))
 Session = sessionmaker(bind=engine)
 session = Session()
 
-driver = init_web_driver(headless=True)
+driver = init_web_driver()
 driver.implicitly_wait(2)
 
 lowercase_letters = list(string.ascii_lowercase)

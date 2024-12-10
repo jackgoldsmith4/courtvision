@@ -29,7 +29,7 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
     # +/- is only present in gamelogs starting in 1997
     GAMELOG_HEADER_TITLES = GAMELOG_HEADER_TITLES_NEW if year >= 1997 else GAMELOG_HEADER_TITLES_OLD
 
-    driver = init_web_driver(headless=True)
+    driver = init_web_driver()
     driver.implicitly_wait(5)
     driver.get(url + str(year) + '#all_pgl_basic')
     time.sleep(2)
