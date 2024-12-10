@@ -169,7 +169,6 @@ def scrape_wrapper(players):
         raise
       except:
         continue
-  print(f"---------PROCESS COMPLETE---------")
 
 ######## SCRIPT: run scrape function on all NBA players
 players = get_players(after_year=YEAR_TO_START)
