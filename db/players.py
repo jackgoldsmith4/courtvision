@@ -1,7 +1,6 @@
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from dotenv import load_dotenv
 from db.models import Player
 import traceback
 import os
@@ -30,7 +29,6 @@ def insert_player(session, player_id, player_name, start_year, end_year):
     print(f"Failed to add player {player_name} (ID: {player_id}). Error: {traceback.format_exc()}")
 
 def get_players(after_year = None):
-  load_dotenv()
   engine = create_engine(os.environ.get("DATABASE_URL"))
   Session = sessionmaker(bind=engine)
   session = Session()
@@ -52,7 +50,6 @@ def get_player_by_id(session, player_id):
   return session.query(Player).filter_by(id=player_id).first()
 
 def clean_player_names():
-  load_dotenv()
   engine = create_engine(os.environ.get("DATABASE_URL"))
   Session = sessionmaker(bind=engine)
   session = Session()

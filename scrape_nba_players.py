@@ -3,12 +3,10 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from db.players import insert_player
 from utils import init_web_driver
-from dotenv import load_dotenv
 import string
 import time
 import os
 
-load_dotenv()
 engine = create_engine(os.environ.get("DATABASE_URL"))
 Session = sessionmaker(bind=engine)
 session = Session()
