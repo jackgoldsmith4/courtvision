@@ -34,7 +34,23 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
     driver.implicitly_wait(5)
     url_with_year = f"{url}{year}#all_pgl_basic"
     heroku_print(url_with_year)
-    driver.get(url_with_year)
+
+    max_retries = 3
+    timeout_duration = 10
+    for attempt in range(max_retries):
+      try:
+        driver.set_page_load_timeout(timeout_duration)  # Set timeout for page load
+        driver.get(url_with_year)
+        break  # Exit the retry loop if successful
+      except Exception as e:
+        if attempt < max_retries - 1:
+          heroku_print(f"Retrying {player_name} {year} due to error: {e}")
+          time.sleep(2)  # Wait before retrying
+        else:
+          heroku_print(f"Failed to load {url_with_year} after {max_retries} attempts.")
+          driver.quit()
+          continue
+
     time.sleep(2)
 
     # turn the table into CSV format and grab stats
