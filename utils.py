@@ -1,4 +1,3 @@
-from webdriver_manager.chrome import ChromeDriverManager
 from datetime import datetime, timedelta
 from selenium import webdriver
 import numpy as np
