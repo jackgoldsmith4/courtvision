@@ -8,7 +8,6 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from db.games import insert_game
 from datetime import datetime
-import traceback
 import time
 import os
 
@@ -16,7 +15,7 @@ GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
 GAMELOG_HEADER_TITLES_DICT = "Rk,G,Date,Age,Tm,Unnamed: 5,Opp,Unnamed: 7,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
 YEAR_TO_START = 2003
-NUM_THREADS = 1
+NUM_THREADS = int(os.environ.get("NUM_THREADS"))
 
 def scrape_game_log(player_id, player_name, rookie_year, final_year):
   engine = create_engine(os.environ.get("DATABASE_URL"))
