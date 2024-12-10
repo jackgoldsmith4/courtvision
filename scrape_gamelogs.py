@@ -32,7 +32,9 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
 
     driver = init_web_driver()
     driver.implicitly_wait(5)
-    driver.get(url + str(year) + '#all_pgl_basic')
+    url_with_year = f"{url}{year}#all_pgl_basic"
+    heroku_print(url_with_year)
+    driver.get(url_with_year)
     time.sleep(2)
 
     # turn the table into CSV format and grab stats
