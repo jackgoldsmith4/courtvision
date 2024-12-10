@@ -3,7 +3,6 @@ from db.game_recaps import insert_game_recap
 from selenium.webdriver.common.by import By
 from datetime import datetime, timedelta
 from sqlalchemy import create_engine
-from constants.dates import DATES
 
 ESPN_DATE_URL = "https://www.espn.com/nba/scoreboard/_/date/"
 ESPN_RECAP_URL = "https://www.espn.com/nba/recap/_/gameId/"
