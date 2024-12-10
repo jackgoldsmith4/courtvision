@@ -19,10 +19,6 @@ YEAR_TO_START = 2003
 NUM_THREADS = int(os.environ.get("NUM_THREADS"))
 
 def scrape_game_log(player_id, player_name, rookie_year, final_year):
-  engine = create_engine(os.environ.get("DATABASE_URL"))
-  Session = sessionmaker(bind=engine)
-  session = Session()
-
   url = 'https://www.basketball-reference.com/players/' + player_id + '/gamelog/'
   start_year = max(int(rookie_year), YEAR_TO_START)
 
@@ -73,6 +69,11 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
 
     keys = GAMELOG_HEADER_TITLES_DICT.split(",")
     for line in stats.split('\n'):
+      # Connect to DB
+      engine = create_engine(os.environ.get("DATABASE_URL"))
+      Session = sessionmaker(bind=engine)
+      session = Session()
+
       try:
         if line == '':
           continue
@@ -168,11 +169,9 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
           plus_minus=0
         )
 
+      session.close()
+      engine.dispose()
     driver.quit()
-    heroku_print(f"Scraped {player_name}'s {year} gamelog.")
-
-  session.close()
-  engine.dispose()
 
 def scrape_wrapper(players):
   for index, player in enumerate(players):
