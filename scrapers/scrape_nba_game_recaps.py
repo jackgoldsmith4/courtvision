@@ -10,7 +10,7 @@ def get_nba_game_urls(dates):
   game_urls = []
 
   for date in dates:
-    print('Scraping ' + str(date))
+    heroku_print('Scraping ' + str(date))
     driver = init_web_driver()
     driver.implicitly_wait(1)
     driver.get(NBA_GAMES_URL + date)
@@ -22,7 +22,7 @@ def get_nba_game_urls(dates):
       if link != 'https://www.nba.com/games':
         game_urls.append(link)
       else:
-        print(f"no game details link found: {url}")
+        heroku_print(f"no game details link found: {url}")
 
     # TODO add game URL to a Game object in the Table (recap_url field not yet created)
     with open('./nba_game_urls.py', "w") as file:
@@ -31,9 +31,9 @@ def get_nba_game_urls(dates):
   return game_urls
 
 def get_nba_game_recaps(game_urls):
-  print(len(game_urls))
+  heroku_print(len(game_urls))
   for url in game_urls:
-    print(url)
+    heroku_print(url)
     driver = init_web_driver()
     driver.implicitly_wait(2)
     driver.get(url)
@@ -44,13 +44,13 @@ def get_nba_game_recaps(game_urls):
       with open('./game_recaps/' + url.split('game/')[1] + '.txt', "w") as file:
         file.write(story)
     except:
-      print(f"No recap found for {url}")
+      heroku_print(f"No recap found for {url}")
       continue
 
 #dates = generate_dates()
-#print('Getting game URLS...')
+#heroku_print('Getting game URLS...')
 #game_urls = get_nba_game_urls(DATES)
-#print('Getting game recaps...')
+#heroku_print('Getting game recaps...')
 get_nba_game_recaps(URLS[::-1])
 
 ### BELOW: logic to parse a scraped recap story

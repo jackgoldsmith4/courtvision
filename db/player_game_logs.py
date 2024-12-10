@@ -1,6 +1,7 @@
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import select, inspect
 from db.models import PlayerGameLog
+from utils import heroku_print
 from hashlib import sha256
 from datetime import date
 
@@ -11,7 +12,7 @@ def insert_player_game_log(session, game, player, is_home_game, player_age, game
 
   existing_gamelog = session.query(PlayerGameLog).filter_by(player_game_log_id=player_game_log_id).first()
   if existing_gamelog:
-    print(f"Player gamelog already exists: {player.name} for game {game.game_date}")
+    heroku_print(f"Player gamelog already exists: {player.name} for game {game.game_date}")
     return
 
   try:
@@ -42,10 +43,10 @@ def insert_player_game_log(session, game, player, is_home_game, player_age, game
 
     session.add(new_gamelog)
     session.commit()
-    print(f"New player gamelog successfully added: {player.name} for game {game.game_date}")
+    heroku_print(f"New player gamelog successfully added: {player.name} for game {game.game_date}")
   except Exception as e:
     session.rollback()
-    print(f"Failed to add player gamelog. Error: {e}")
+    heroku_print(f"Failed to add player gamelog. Error: {e}")
 
 # get all stats for a certain game as a flattened string (for transformer input)
 def get_flattened_player_game_logs_by_game_id(session, game_date, home_team, away_team):

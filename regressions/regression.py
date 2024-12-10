@@ -242,7 +242,7 @@ def run_model(model, model_type, X_train, y_train, X_test, y_test, col_names, n_
 
 def regression_wrapper(player_names):
   for name in player_names:
-    print(f"Running regressions: {name}")
+    heroku_print(f"Running regressions: {name}")
     run_regressions(name)
 
 ######## SCRIPT: run clean function on all NBA players

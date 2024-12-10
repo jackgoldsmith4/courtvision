@@ -74,7 +74,7 @@ def preprocess_player_gamelog(file_path):
 
 def preprocess_wrapper(player_names):
   for name in player_names:
-    print(f"Processing gamelog file: {name}")
+    heroku_print(f"Processing gamelog file: {name}")
     file_path = './player_game_logs/' + name + '/' + name + '_RAW.csv'
     preprocess_player_gamelog(file_path)
 

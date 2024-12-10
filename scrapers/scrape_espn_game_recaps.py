@@ -1,4 +1,4 @@
-from utils import init_web_driver, generate_dates, adjust_date, thread_func
+from utils import init_web_driver, generate_dates, adjust_date, thread_func, heroku_print
 from db.game_recaps import insert_game_recap
 from selenium.webdriver.common.by import By
 from datetime import datetime, timedelta
@@ -11,7 +11,7 @@ def get_game_recap_urls(dates):
   urls = set()
   for date in dates:
     try:
-      print(f"Scraping {date}")
+      heroku_print(f"Scraping {date}")
       driver = init_web_driver()
       driver.get(ESPN_DATE_URL + date.replace('-', ''))
       gamecasts = driver.find_elements(By.XPATH, '//a[contains(text(), "Gamecast")]')
@@ -23,13 +23,13 @@ def get_game_recap_urls(dates):
       with open('./espn_game_urls_3.py', "w") as file:
         file.write('URLS = ' + str(list(urls)))
     except Exception as e:
-      print(e)
+      heroku_print(e)
       continue
 
 def get_espn_game_recaps(urls):
   engine = create_engine("postgresql://bgzcpelsdernwi:b0ee04605f43866313250fad7a64d9f0299acf0d7d933e486b062a124a34085d@ec2-54-156-185-205.compute-1.amazonaws.com:5432/d5g89ferun7sda")
   for url in urls:
-    print(f"{url}")
+    heroku_print(f"{url}")
     driver = init_web_driver()
     driver.implicitly_wait(5)
     driver.get(url)
@@ -52,7 +52,7 @@ def get_espn_game_recaps(urls):
           away_team = text
           flag = 1
     except Exception as e:
-      print(e)
+      heroku_print(e)
       driver.quit()
       continue
     

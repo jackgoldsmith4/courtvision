@@ -3,6 +3,7 @@ from selenium import webdriver
 import numpy as np
 import threading
 import time
+import sys
 import re
 import os
 
@@ -64,3 +65,7 @@ def convert_time_to_float(time_series):
   minutes = int(split_series[0])
   seconds = int(split_series[1])
   return round(minutes + seconds / 60, 2)
+
+def heroku_print(to_print):
+  print(to_print)
+  sys.stdout.flush()

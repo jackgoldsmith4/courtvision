@@ -1,4 +1,4 @@
-from utils import init_web_driver, patient_click, thread_func, convert_time_to_float
+from utils import init_web_driver, patient_click, thread_func, convert_time_to_float, heroku_print
 from selenium.webdriver.common.action_chains import ActionChains
 from db.player_game_logs import insert_player_game_log
 from db.players import get_players, insert_player
@@ -48,7 +48,7 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
     try:
       stats = driver.find_element(By.TAG_NAME, 'pre').text.split(GAMELOG_HEADER_TITLES)[1]
     except:
-      print('WARN: ' + player_name + ' ' + str(year) + ' logs not found')
+      heroku_print('WARN: ' + player_name + ' ' + str(year) + ' logs not found')
       driver.quit()
       continue
 
@@ -150,7 +150,7 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
         )
 
     driver.quit()
-    print(f"Scraped {player_name}'s {year} gamelog.")
+    heroku_print(f"Scraped {player_name}'s {year} gamelog.")
 
   session.close()
   engine.dispose()
@@ -162,12 +162,13 @@ def scrape_wrapper(players):
     # continually scrape until entire file has been built
     while True:
       try:
-        print(f"Scraping {player_name} ({index}/{len(players)})")
+        heroku_print(f"Scraping {player_name} ({index}/{len(players)})")
         scrape_game_log(player['id'], player_name, player['start_year'], player['end_year'])
         break
       except KeyboardInterrupt:
         raise
       except:
+        
         raise
 
 ######## SCRIPT: run scrape function on all NBA players

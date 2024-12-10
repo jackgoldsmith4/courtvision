@@ -11,7 +11,7 @@ def get_contexts():
   contexts_df = pd.DataFrame(columns=['headline', 'context'])
 
   for index, r in enumerate(recaps):
-    print(f"Recap {index}/{len(recaps)}")
+    heroku_print(f"Recap {index}/{len(recaps)}")
     r_dict = dict(r)
     home_team = r_dict['home_team']
     away_team = r_dict['away_team']
@@ -24,7 +24,7 @@ def get_contexts():
       context = get_flattened_player_game_logs_by_game_id(session, game_date, home_team, away_team)
       session.close()
     except ValueError:
-      print("ValueError")
+      heroku_print("ValueError")
       session.close()
       continue
 

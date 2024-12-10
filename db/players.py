@@ -1,6 +1,7 @@
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
+from utils import heroku_print
 from db.models import Player
 import traceback
 import os
@@ -20,13 +21,13 @@ def insert_player(session, player_id, player_name, start_year, end_year):
 
     session.add(new_player)
     session.commit()
-    print(f"New player successfully added: {player_name} (ID: {player_id})")
+    heroku_print(f"New player successfully added: {player_name} (ID: {player_id})")
     return new_player
   except IntegrityError:
-    print(f"Player already exists: {player_name} (ID: {player_id})")
+    heroku_print(f"Player already exists: {player_name} (ID: {player_id})")
   except:
     session.rollback()
-    print(f"Failed to add player {player_name} (ID: {player_id}). Error: {traceback.format_exc()}")
+    heroku_print(f"Failed to add player {player_name} (ID: {player_id}). Error: {traceback.format_exc()}")
 
 def get_players(after_year = None):
   engine = create_engine(os.environ.get("DATABASE_URL"))
@@ -41,7 +42,7 @@ def get_players(after_year = None):
     players = players.all()
     return [player.to_dict() for player in players]
   except:
-    print(f"Failed retrieve players. Error: {traceback.format_exc()}")
+    heroku_print(f"Failed retrieve players. Error: {traceback.format_exc()}")
   finally:
     session.close()
     engine.dispose()
@@ -58,5 +59,5 @@ def clean_player_names():
   for player in players:
     if '*' in player.name:
       player.name = player.name.replace('*', '')
-      print(f"{player.name} name cleaned.")
+      heroku_print(f"{player.name} name cleaned.")
       session.commit()

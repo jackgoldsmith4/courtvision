@@ -1,8 +1,8 @@
+from utils import init_web_driver, heroku_print
 from selenium.webdriver.common.by import By
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from db.players import insert_player
-from utils import init_web_driver
 import string
 import time
 import os
@@ -16,7 +16,7 @@ driver.implicitly_wait(2)
 
 lowercase_letters = list(string.ascii_lowercase)
 for letter in lowercase_letters:
-  print(f"Scraping players beginning with {letter}...")
+  heroku_print(f"Scraping players beginning with {letter}...")
   driver.get("https://www.basketball-reference.com/players/" + letter)
   time.sleep(2)
   players_table = driver.find_element(By.XPATH, '//*[contains(text(), "Birth Date")]/../../..')
