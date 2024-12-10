@@ -42,4 +42,5 @@ TEAM_CODES = {
   "SAS": "San Antonio Spurs",
   "KCK": "Kansas City Kings",
   "HOU": "Houston Rockets",
+  # TODO add NOK team code (look at 2007)
 }
