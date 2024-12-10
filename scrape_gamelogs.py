@@ -168,7 +168,7 @@ def scrape_wrapper(players):
       except KeyboardInterrupt:
         raise
       except:
-        continue
+        raise
 
 ######## SCRIPT: run scrape function on all NBA players
 players = get_players(after_year=YEAR_TO_START)
