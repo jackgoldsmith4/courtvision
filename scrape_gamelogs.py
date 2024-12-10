@@ -8,6 +8,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from db.games import insert_game
 from datetime import datetime
+import traceback
 import time
 import os
 
@@ -168,8 +169,8 @@ def scrape_wrapper(players):
       except KeyboardInterrupt:
         raise
       except:
-        
-        raise
+        heroku_print(f"Error scraping {player_name}: {traceback.format_exc()}")
+        continue
 
 ######## SCRIPT: run scrape function on all NBA players
 players = get_players(after_year=YEAR_TO_START)
