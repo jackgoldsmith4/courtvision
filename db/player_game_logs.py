@@ -12,7 +12,6 @@ def insert_player_game_log(session, game, player, is_home_game, player_age, game
 
   existing_gamelog = session.query(PlayerGameLog).filter_by(player_game_log_id=player_game_log_id).first()
   if existing_gamelog:
-    heroku_print(f"Player gamelog already exists: {player.name} for game {game.game_date}")
     return
 
   try:
