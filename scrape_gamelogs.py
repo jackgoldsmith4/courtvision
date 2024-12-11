@@ -56,6 +56,8 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
         stats = driver.find_element(By.TAG_NAME, 'pre').text.split(GAMELOG_HEADER_TITLES)[1]
       except:
         heroku_print(f"WARN: {player_name} {year} logs not found")
+        # player did not play this year
+        year += 1
         driver.quit()
         continue
 
