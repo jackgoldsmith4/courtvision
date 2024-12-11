@@ -34,7 +34,7 @@ TEAM_CODES = {
   "NOK": "",
   "PHX": "Phoenix Suns",
   "PHO": "Phoenix Suns",
-  "CHA": "Charlotte Bobcats", # TODO flip to Hornets for new recaps
+  "CHA": "Charlotte Hornets", # TODO Charlotte Bobcats, not Hornets, for some older BR gamelogs
   "CHB": "Charlotte Bobcats",
   "MIA": "Miami Heat",
   "CLE": "Cleveland Cavaliers",

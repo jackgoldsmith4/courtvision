@@ -55,6 +55,30 @@ class PlayerGameLog(Base):
   game_id = Column(BYTEA, ForeignKey('games.id'))
   game = relationship("Game", back_populates="game_stats")
 
+  def to_dict(self):
+    return {
+      'player_game_log_id': self.player_game_log_id,
+      'player_age': self.player_age,
+      'is_home_game': self.is_home_game,
+      'game_outcome': self.game_outcome,
+      'game_started': self.game_started,
+      'minutes_played': self.minutes_played,
+      'points': self.points,
+      'field_goals_made': self.field_goals_made,
+      'field_goals_attempted': self.field_goals_attempted,
+      'three_pointers_made': self.three_pointers_made,
+      'three_pointers_attempted': self.three_pointers_attempted,
+      'free_throws_made': self.free_throws_made,
+      'free_throws_attempted': self.free_throws_attempted,
+      'offensive_rebounds': self.offensive_rebounds,
+      'defensive_rebounds': self.defensive_rebounds,
+      'assists': self.assists,
+      'steals': self.steals,
+      'blocks': self.blocks,
+      'turnovers': self.turnovers,
+      'plus_minus': self.plus_minus
+    }
+
 class Player(Base):
   __tablename__ = 'players'
 

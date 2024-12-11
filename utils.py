@@ -14,18 +14,27 @@ def init_web_driver(width=1300, height=950, dev_headless=True):
   chrome_options.add_argument('--window-size={},{}'.format(width, height))
   chrome_options.add_argument('--ignore-certificate-errors')
 
-  # Disable images on load
-  chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
+  chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+  chrome_options.add_argument("--disable-extensions")
+  chrome_options.add_argument("--disable-infobars")
+  # chrome_options.add_argument("--disable-javascript")  # Disable JS if it's not required for scraping
+  chrome_options.add_argument("--disable-site-isolation-trials")
+  chrome_options.add_argument("--disable-popup-blocking")
+  chrome_options.add_argument("--disable-renderer-backgrounding")  # Prioritize tab rendering
+  chrome_options.add_argument("--disable-plugins-discovery")
 
-  # Block notifications, popups, and disable autoplay
-  chrome_options.add_experimental_option("prefs", {
-      "profile.default_content_setting_values.notifications": 2,  # Block notifications
-      "profile.default_content_setting_values.popups": 2,  # Block popups
-      "media.autoplay.default": 1,  # Disable autoplay
-      "media.autoplay.allow-muted": False,  # Prevent autoplay of muted videos
-      "media.autoplay.allow_all": False,  # Prevent autoplay of all videos
-      "profile.default_content_setting_values.media_stream": 2,  # Block media stream
-  })
+  # Further refine preferences to block ads and scripts
+  prefs = {
+    "profile.managed_default_content_settings.images": 2,
+    "profile.managed_default_content_settings.stylesheets": 2,
+    "profile.managed_default_content_settings.cookies": 2,
+    # "profile.managed_default_content_settings.javascript": 2,  # Disable JS
+    "profile.managed_default_content_settings.plugins": 2,
+    "profile.managed_default_content_settings.popups": 2,
+    "profile.managed_default_content_settings.geolocation": 2,
+    "profile.managed_default_content_settings.media_stream": 2,
+  }
+  chrome_options.add_experimental_option("prefs", prefs)
 
   if os.environ.get("ENV") == "PROD":
     chrome_options.add_argument("--headless")

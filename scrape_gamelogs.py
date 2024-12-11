@@ -1,4 +1,4 @@
-from utils import init_web_driver, patient_click, thread_func, convert_time_to_float, heroku_print
+from utils import init_web_driver, patient_click, convert_time_to_float, heroku_print
 from selenium.webdriver.common.action_chains import ActionChains
 from db.player_game_logs import insert_player_game_log
 from db.players import get_players, insert_player
@@ -59,6 +59,7 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
         driver.quit()
         continue
 
+      driver.quit()
       keys = GAMELOG_HEADER_TITLES_DICT.split(",")
       for line in stats.split('\n'):
         # Connect to DB
@@ -163,7 +164,6 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
 
         session.close()
         engine.dispose()
-      driver.quit()
       heroku_print(f"Scraped {player_name}'s {year} gamelog")
       year += 1
     except Exception as e:
@@ -172,7 +172,7 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
 
 ######## SCRIPT: run scrape function on all NBA players
 players = get_players(after_year=YEAR_TO_START)
-for index, player in enumerate(players):
+for index, player in enumerate(players[50:]):
   player_name = player['name']
   heroku_print(f"Scraping {player_name} ({index}/{len(players)})")
   scrape_game_log(player['id'], player_name, player['start_year'], player['end_year'])
