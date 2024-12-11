@@ -12,6 +12,10 @@ def init_web_driver(width=1300, height=950):
   chrome_options.add_argument("--disable-dev-shm-usage")
   chrome_options.add_argument("--no-sandbox")
   chrome_options.add_argument('--window-size={},{}'.format(width, height))
+  chrome_options.add_argument('--ignore-certificate-errors')
+
+  # disable images on load
+  chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
 
   if os.environ.get("ENV") == "PROD":
     chrome_options.add_argument("--headless")
@@ -20,7 +24,6 @@ def init_web_driver(width=1300, height=950):
   else:
     # local dev mode
     from webdriver_manager.chrome import ChromeDriverManager
-    chrome_options.add_argument('--ignore-certificate-errors')
     chromedriver_path = ChromeDriverManager().install()
     driver = webdriver.Chrome(service=webdriver.ChromeService(chromedriver_path), options=chrome_options)
   return driver
