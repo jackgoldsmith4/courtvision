@@ -172,7 +172,7 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
 
 ######## SCRIPT: run scrape function on all NBA players
 players = get_players(after_year=YEAR_TO_START)
-for index, player in enumerate(players[50:]):
+for index, player in enumerate(players):
   player_name = player['name']
   heroku_print(f"Scraping {player_name} ({index}/{len(players)})")
   scrape_game_log(player['id'], player_name, player['start_year'], player['end_year'])
