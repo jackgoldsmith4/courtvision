@@ -69,8 +69,7 @@ def generate_dates(start_date=datetime(2005, 10, 1)):
   end_date = datetime.now()
   delta = end_date - start_date
   date_list = [start_date + timedelta(days=i) for i in range(delta.days + 1)]
-  date_strs = [date.strftime('%Y-%m-%d') for date in date_list]
-  return date_strs
+  return date_list
 
 # adjust date based on the date string in the game recap
 def adjust_date(date_str):

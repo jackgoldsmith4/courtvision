@@ -33,3 +33,20 @@ def get_game_by_id(session, game_date: date, home_team, away_team):
     home_team=home_team,
     away_team=away_team
   ).first()
+
+def add_game_recap_url(session, recap_url, game_date: date, home_team, away_team):
+  heroku_print(home_team)
+  heroku_print(away_team)
+
+  game = session.query(Game).filter_by(
+    game_date=game_date,
+    home_team=home_team,
+    away_team=away_team
+  ).first()
+
+  if game:
+    game.recap_url = recap_url
+    session.commit()
+    heroku_print(f"Recap URL successfully updated for {away_team} @ {home_team} ({game_date})")
+  else:
+    heroku_print(f"No game found for {away_team} @ {home_team} ({game_date})")

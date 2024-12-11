@@ -14,9 +14,6 @@ class GameRecap(Base):
   headline = Column(Text)
   recap_text = Column(Text)
 
-  # 1-to-1 relationship with Game table
-  # TODO implement
-
 class PlayerGameLog(Base):
   __tablename__ = 'player_game_logs'
   __table_args__ = (
@@ -105,6 +102,11 @@ class Game(Base):
   game_date = Column(Date, nullable=False)
   home_team = Column(String(100), nullable=False)
   away_team = Column(String(100), nullable=False)
+
+  recap_url = Column(String(100), nullable=True)
+  recap_author = Column(String(100), nullable=True)
+  recap_headline = Column(Text, nullable=True)
+  recap_text = Column(Text, nullable=True)
 
   # 1-to-many relationship with PlayerGameLog
   game_stats = relationship("PlayerGameLog", order_by=desc(PlayerGameLog.points), back_populates="game")

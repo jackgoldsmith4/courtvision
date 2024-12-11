@@ -1,27 +1,36 @@
 from utils import init_web_driver, generate_dates, heroku_print
 from selenium.webdriver.common.by import By
 from constants.team_codes import TEAM_CODES
+from sqlalchemy.orm import sessionmaker
+from db.games import add_game_recap_url
+from sqlalchemy import create_engine
 from datetime import datetime
 import time
+import os
 
 NBA_GAMES_URL = 'https://www.nba.com/games?date='
 
-def find_nba_game_urls(dates):
+def find_nba_game_recap_urls(dates):
   for date in dates:
-    heroku_print('Scraping ' + str(date))
-    driver = init_web_driver()
+    heroku_print('Scraping ' + date.strftime('%Y-%m-%d'))
+    driver = init_web_driver(dev_headless=False)
     driver.implicitly_wait(1)
-    driver.get(NBA_GAMES_URL + date)
+    driver.get(NBA_GAMES_URL + date.strftime('%Y-%m-%d'))
     time.sleep(1)
 
     game_elems = driver.find_elements(By.XPATH, '//*[contains(text(), "GAME DETAILS")]')
     for url in game_elems:
       link = url.get_attribute('href')
       if link != 'https://www.nba.com/games':
+        # Connect to DB
+        engine = create_engine(os.environ.get("DATABASE_URL"))
+        Session = sessionmaker(bind=engine)
+        session = Session()
+
         away_team_code, _, home_team_code, _ = link.split('/')[-1].split('-')
-        # TODO add_nba_game_url(date, TEAM_CODES[away_team_code], TEAM_CODES[home_team_code])
+        add_game_recap_url(session, link, date, TEAM_CODES[home_team_code.upper()], TEAM_CODES[away_team_code.upper()])
       else:
-        heroku_print(f"no game details link found: {url}")
+        heroku_print(f"No game details link found: {url}")
 
 def get_nba_game_recaps():
   game_urls = [] # TODO query all Game objects and get their URLs
@@ -41,7 +50,7 @@ def get_nba_game_recaps():
       continue
 
 dates = generate_dates(datetime(2019, 10, 1))
-game_urls = find_nba_game_urls(dates)
+game_urls = find_nba_game_recap_urls(dates)
 get_nba_game_recaps()
 
 ### BELOW: logic to parse a scraped recap story
