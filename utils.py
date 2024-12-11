@@ -7,22 +7,34 @@ import sys
 import re
 import os
 
-def init_web_driver(width=1300, height=950):
+def init_web_driver(width=1300, height=950, dev_headless=True):
   chrome_options = webdriver.ChromeOptions()
   chrome_options.add_argument("--disable-dev-shm-usage")
   chrome_options.add_argument("--no-sandbox")
   chrome_options.add_argument('--window-size={},{}'.format(width, height))
   chrome_options.add_argument('--ignore-certificate-errors')
 
-  # disable images on load
+  # Disable images on load
   chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
+
+  # Block notifications, popups, and disable autoplay
+  chrome_options.add_experimental_option("prefs", {
+      "profile.default_content_setting_values.notifications": 2,  # Block notifications
+      "profile.default_content_setting_values.popups": 2,  # Block popups
+      "media.autoplay.default": 1,  # Disable autoplay
+      "media.autoplay.allow-muted": False,  # Prevent autoplay of muted videos
+      "media.autoplay.allow_all": False,  # Prevent autoplay of all videos
+      "profile.default_content_setting_values.media_stream": 2,  # Block media stream
+  })
 
   if os.environ.get("ENV") == "PROD":
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-gpu")
     driver = webdriver.Chrome(options=chrome_options)
   else:
-    # local dev mode
+    # Local dev mode
+    if dev_headless:
+      chrome_options.add_argument("--headless")
     from webdriver_manager.chrome import ChromeDriverManager
     chromedriver_path = ChromeDriverManager().install()
     driver = webdriver.Chrome(service=webdriver.ChromeService(chromedriver_path), options=chrome_options)
@@ -49,9 +61,6 @@ def generate_dates(start_date=datetime(2005, 10, 1)):
   delta = end_date - start_date
   date_list = [start_date + timedelta(days=i) for i in range(delta.days + 1)]
   date_strs = [date.strftime('%Y-%m-%d') for date in date_list]
-
-  with open('./dates.py', "w") as file:
-    file.write('DATES = ' + str(date_strs))
   return date_strs
 
 # adjust date based on the date string in the game recap

@@ -1,6 +1,7 @@
 from utils import init_web_driver, generate_dates, heroku_print
 from switching_experiment.nba_game_urls import URLS
 from selenium.webdriver.common.by import By
+from datetime import datetime
 import time
 
 NBA_GAMES_URL = 'https://www.nba.com/games?date='
@@ -24,6 +25,8 @@ def get_nba_game_urls(dates):
         heroku_print(f"no game details link found: {url}")
 
     # TODO add game URL to a Game object in the Table (recap_url field not yet created)
+    # look up game by teams and date
+
     with open('./nba_game_urls.py', "w") as file:
       file.write('URLS = ' + str(game_urls))
   
@@ -46,10 +49,8 @@ def get_nba_game_recaps(game_urls):
       heroku_print(f"No recap found for {url}")
       continue
 
-#dates = generate_dates()
-#heroku_print('Getting game URLS...')
-#game_urls = get_nba_game_urls(dates)
-#heroku_print('Getting game recaps...')
+dates = generate_dates(datetime(2019, 10, 1))
+game_urls = get_nba_game_urls(dates)
 get_nba_game_recaps(URLS[::-1])
 
 ### BELOW: logic to parse a scraped recap story
