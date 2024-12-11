@@ -46,6 +46,8 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
         season_header = driver.find_element(By.XPATH, '//h2[contains(text(), "{}")]/..'.format(season_header_text))
       except:
         heroku_print(f"WARN: season headers not found for {player_name} in {year}")
+        # player did not play this year
+        year += 1
         driver.quit()
         continue
       share_export_menu = season_header.find_element(By.CLASS_NAME, 'section_heading_text')
