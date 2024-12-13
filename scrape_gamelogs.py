@@ -14,7 +14,8 @@ import os
 GAMELOG_HEADER_TITLES_OLD = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc"
 GAMELOG_HEADER_TITLES_NEW = "Rk,G,Date,Age,Tm,,Opp,,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
 GAMELOG_HEADER_TITLES_DICT = "Rk,G,Date,Age,Tm,Unnamed: 5,Opp,Unnamed: 7,GS,MP,FG,FGA,FG%,3P,3PA,3P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,GmSc,+/-"
-YEAR_TO_START = 2019
+YEAR_TO_START = 1997
+YEAR_TO_END = 2018
 NUM_THREADS = int(os.environ.get("NUM_THREADS"))
 
 def scrape_game_log(player_id, player_name, rookie_year, final_year):
@@ -179,4 +180,4 @@ players = get_players(after_year=YEAR_TO_START)
 for index, player in enumerate(players):
   player_name = player['name']
   heroku_print(f"Scraping {player_name} ({index}/{len(players)})")
-  scrape_game_log(player['id'], player_name, player['start_year'], player['end_year'])
+  scrape_game_log(player['id'], player_name, player['start_year'], min(YEAR_TO_END, player['end_year']))
