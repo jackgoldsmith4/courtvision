@@ -1,7 +1,9 @@
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import select, inspect
+from db.players import get_player_by_id
 from db.models import PlayerGameLog
+from db.games import get_game_by_id
 from utils import heroku_print
+from sqlalchemy import select
 from hashlib import sha256
 from datetime import date
 
@@ -47,43 +49,36 @@ def insert_player_game_log(session, game, player, is_home_game, player_age, game
     session.rollback()
     heroku_print(f"Failed to add player gamelog. Error: {e}")
 
+def get_game_log_dicts_by_game_id(session, game_id):
+  logs = session.query(PlayerGameLog).filter(PlayerGameLog.game_id == game_id).all()
+  return [log.to_dict() for log in logs]
+
 # get all stats for a certain game as a flattened string (for transformer input)
 def get_flattened_player_game_logs_by_game_id(session, game_date, home_team, away_team):
   home_team = home_team.replace("LA Clippers", "Los Angeles Clippers")
-  stmt = select(PlayerGameLog).filter_by(home_team=home_team, away_team=away_team)
-  res = session.execute(stmt).all()
-
-  # TODO change above to just query the PlayerGameLog table based on a game_id
+  game = get_game_by_id(session, game_date, home_team, away_team)
 
   output = f"{game_date} {away_team} at {home_team} "
-  non_stats = ['player_game_log_id', 'game_id', 'away_team', 'home_team', 'game_date']
+  non_stats = ['player_game_log_id', 'player_id', 'game_id', 'away_team', 'home_team', 'game_date']
   players = {}
 
-  if len(res) == 0:
+  if not game:
     raise ValueError
 
-  for player_stats in res:
-    try:
-      player_game_date = date(player_stats[0].game_date.date())
-    except Exception as e:
-      player_game_date = player_stats[0].game_date
-
-    if game_date != player_game_date:
-      continue
-
-    inst = inspect(player_stats[0])
+  game_logs = get_game_log_dicts_by_game_id(session, game.id)
+  for log in game_logs:
+    player_name = get_player_by_id(session, log['player_id']).name
+    player_str = f"player_name: {player_name}"
     points = 0
-    player_str = ''
-    for attr in inst.mapper.column_attrs:
-      field_name = attr.key
-      if field_name not in non_stats:
-        field_value = getattr(player_stats[0], field_name)
-        if field_name == 'points':
-          points = field_value
+    for key in log:
+      if key not in non_stats:
+        if key == 'points':
+          points = log[key]
 
-        player_str += f"{field_name}: {field_value} "
+        player_str += f"{key}: {log[key]} "
     players[player_str] = points
 
+  # sort players in the resulting game string from most points to least
   sorted_players = sorted(players, key=lambda k: players[k], reverse=True)
   for player in sorted_players:
     output += player

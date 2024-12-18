@@ -55,6 +55,8 @@ class PlayerGameLog(Base):
   def to_dict(self):
     return {
       'player_game_log_id': self.player_game_log_id,
+      'player_id': self.player_id,
+      'game_id': self.game_id,
       'player_age': self.player_age,
       'is_home_game': self.is_home_game,
       'game_outcome': self.game_outcome,

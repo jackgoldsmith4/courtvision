@@ -34,6 +34,9 @@ def get_game_by_id(session, game_date: date, home_team, away_team):
     away_team=away_team
   ).first()
 
+def get_all_games(session):
+  return session.query(Game).all()
+
 def add_game_recap_url(session, recap_url, game_date: date, home_team, away_team):
   heroku_print(home_team)
   heroku_print(away_team)
