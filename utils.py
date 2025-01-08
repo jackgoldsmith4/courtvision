@@ -65,7 +65,7 @@ def thread_func(num_threads, func, input_args):
   for thread in threads:
     thread.join()
 
-def generate_dates(start_date=datetime(2005, 10, 1)):
+def generate_dates(start_date):
   end_date = datetime.now()
   delta = end_date - start_date
   date_list = [start_date + timedelta(days=i) for i in range(delta.days + 1)]

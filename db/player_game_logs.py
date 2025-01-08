@@ -5,7 +5,6 @@ from db.games import get_game_by_id
 from utils import heroku_print
 from sqlalchemy import select
 from hashlib import sha256
-from datetime import date
 
 # add a player stat row to the DB
 def insert_player_game_log(session, game, player, is_home_game, player_age, game_outcome, game_started, minutes_played, points, fg_made, fg_attempted, threes_made, threes_attempted, ft_made, ft_attempted, orb, drb, assists, steals, blocks, turnovers, plus_minus):
