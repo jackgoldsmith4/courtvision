@@ -37,10 +37,7 @@ def get_game_by_id(session, game_date: date, home_team, away_team):
 def get_all_games(session):
   return session.query(Game).all()
 
-def add_game_recap_url(session, recap_url, game_date: date, home_team, away_team):
-  heroku_print(home_team)
-  heroku_print(away_team)
-
+def add_game_recap_to_game(session, recap_url, headline, author, recap_text, game_date: date, home_team, away_team):
   game = session.query(Game).filter_by(
     game_date=game_date,
     home_team=home_team,
@@ -49,6 +46,9 @@ def add_game_recap_url(session, recap_url, game_date: date, home_team, away_team
 
   if game:
     game.recap_url = recap_url
+    game.recap_headline = headline
+    game.recap_author = author
+    game.recap_text = recap_text 
     session.commit()
     heroku_print(f"Recap URL successfully updated for {away_team} @ {home_team} ({game_date})")
   else:
