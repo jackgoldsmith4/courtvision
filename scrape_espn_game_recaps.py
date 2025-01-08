@@ -52,10 +52,14 @@ def find_espn_game_recaps(dates):
             if len(text) > 3 and text.title() == text:
               away_team = text
               flag = 1
-        except:
-          heroku_print(f"An Error Occurred: {traceback.format_exc()}")
+        except Exception as e:
+          heroku_print(f"An Error Occurred: {e}")
           driver.quit()
           continue
+        
+        # LA Clippers edge case
+        away_team = away_team.replace('LA ', 'Los Angeles ')
+        home_team = home_team.replace('LA ', 'Los Angeles ')
 
         add_game_recap_to_game(session, recap_url, headline, author, recap_text, date, home_team, away_team)
 
@@ -67,5 +71,5 @@ def find_espn_game_recaps(dates):
   session.close()
   engine.dispose()
   
-dates = generate_dates(start_date=datetime(2012, 10, 30).date())
+dates = generate_dates(start_date=datetime(2012, 10, 31).date())
 find_espn_game_recaps(dates)
