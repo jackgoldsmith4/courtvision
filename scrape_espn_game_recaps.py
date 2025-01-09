@@ -63,9 +63,6 @@ def find_espn_game_recaps(dates):
           continue
         driver.quit()
 
-        heroku_print(away_team)
-        heroku_print(home_team)
-
         away_team = clean_espn_team_name(away_team)
         home_team = clean_espn_team_name(home_team)
 
