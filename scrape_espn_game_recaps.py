@@ -11,6 +11,14 @@ import os
 ESPN_DATE_URL = "https://www.espn.com/nba/scoreboard/_/date/"
 ESPN_RECAP_URL = "https://www.espn.com/nba/recap/_/gameId/"
 
+def clean_espn_team_name(team_name):
+  if team_name == 'Clippers':
+    team_name = 'Los Angeles Clippers'
+  if team_name == '76ers':
+    team_name = 'Philadelphia 76ers'
+  team_name = team_name.replace('LA Clippers', 'Los Angeles Clippers')
+  return team_name
+
 def find_espn_game_recaps(dates):
   engine = create_engine(os.environ.get("DATABASE_URL"))
   Session = sessionmaker(bind=engine)
@@ -59,8 +67,8 @@ def find_espn_game_recaps(dates):
           continue
         driver.quit()
 
-        home_team = home_team.replace('LA Clippers', 'Los Angeles Clippers')
-        away_team = away_team.replace('LA Clippers', 'Los Angeles Clippers')
+        away_team = clean_espn_team_name(away_team)
+        home_team = clean_espn_team_name(home_team)
 
         add_game_recap_to_game(session, recap_url, headline, author, recap_text, date, home_team, away_team)
     except:
