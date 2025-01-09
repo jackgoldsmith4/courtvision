@@ -59,6 +59,9 @@ def find_espn_game_recaps(dates):
           continue
         driver.quit()
 
+        home_team = home_team.replace('LA Clippers', 'Los Angeles Clippers')
+        away_team = away_team.replace('LA Clippers', 'Los Angeles Clippers')
+
         add_game_recap_to_game(session, recap_url, headline, author, recap_text, date, home_team, away_team)
     except:
       heroku_print(f"An Error Occurred: {traceback.format_exc()}")

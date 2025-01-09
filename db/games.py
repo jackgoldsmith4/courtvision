@@ -50,6 +50,6 @@ def add_game_recap_to_game(session, recap_url, headline, author, recap_text, gam
     game.recap_author = author
     game.recap_text = recap_text 
     session.commit()
-    heroku_print(f"Recap URL successfully updated for {away_team} @ {home_team} ({game_date})")
+    heroku_print(f"Recap info successfully updated for {away_team} @ {home_team} ({game_date})")
   else:
-    heroku_print(f"No game found for {away_team} @ {home_team} ({game_date})")
+    heroku_print(f"No game found: {away_team} @ {home_team} ({game_date})")
