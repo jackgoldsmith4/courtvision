@@ -35,35 +35,31 @@ def find_espn_game_recaps(dates):
         driver = init_web_driver()
         driver.get(recap_url)
         time.sleep(1)
+
         try:
           headline = driver.find_element(By.CLASS_NAME, 'Story__Headline').text
           author = driver.find_element(By.CLASS_NAME, 'Byline__Author').text
           recap_text = driver.find_element(By.CLASS_NAME, 'Story__Body').text
           teams = driver.find_elements(By.CLASS_NAME, 'ScoreCell__TeamName')
-
-          home_team = ''
-          away_team = ''
-          flag = 0
-          for t in teams:
-            if flag == 1:
-              home_team = t.text
-              break
-            text = t.text
-            if len(text) > 3 and text.title() == text:
-              away_team = text
-              flag = 1
-        except Exception as e:
-          heroku_print(f"An Error Occurred: {e}")
+        except:
           driver.quit()
           continue
-        
-        # LA Clippers edge case
-        away_team = away_team.replace('LA ', 'Los Angeles ')
-        home_team = home_team.replace('LA ', 'Los Angeles ')
+        driver.quit()
+
+        # isolate home and away team names
+        home_team = ''
+        away_team = ''
+        flag = 0
+        for t in teams:
+          if flag == 1:
+            home_team = t.text
+            break
+          text = t.text
+          if len(text) > 3 and text.title() == text:
+            away_team = text
+            flag = 1
 
         add_game_recap_to_game(session, recap_url, headline, author, recap_text, date, home_team, away_team)
-
-        driver.quit()
     except:
       heroku_print(f"An Error Occurred: {traceback.format_exc()}")
       driver.quit()
