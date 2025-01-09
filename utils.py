@@ -71,14 +71,6 @@ def generate_dates(start_date):
   date_list = [start_date + timedelta(days=i) for i in range(delta.days + 1)]
   return date_list
 
-# adjust date based on the date string in the game recap
-def adjust_date(date_str):
-  date_str = re.sub(r'(\d)(st|nd|rd|th)', r'\1', date_str)
-  dt = datetime.strptime(date_str, '%A, %B %d, %Y %I:%M %p')
-  if "AM" in date_str and dt.hour < 12:
-    dt = dt - timedelta(days=1)
-  return dt.date()
-
 # Helper: convert time in mm:ss format to a float
 def convert_time_to_float(time_series):
   split_series = time_series.split(':')

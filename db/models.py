@@ -1,18 +1,9 @@
-from sqlalchemy import Column, Integer, String, Date, CheckConstraint, Float, Text, asc, desc, UUID, ForeignKey
+from sqlalchemy import Column, Integer, String, Date, CheckConstraint, Float, Text, asc, desc, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.dialects.postgresql import BYTEA
 from sqlalchemy.orm import relationship
-import uuid
 
 Base = declarative_base()
-
-class GameRecap(Base):
-  __tablename__ = 'game_recaps'
-
-  id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-  author = Column(String(100))
-  headline = Column(Text)
-  recap_text = Column(Text)
 
 class PlayerGameLog(Base):
   __tablename__ = 'player_game_logs'
