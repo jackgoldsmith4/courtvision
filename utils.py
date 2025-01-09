@@ -1,10 +1,10 @@
 from datetime import datetime, timedelta
 from selenium import webdriver
 import numpy as np
+import unicodedata
 import threading
 import time
 import sys
-import re
 import os
 
 def init_web_driver(width=1300, height=950, dev_headless=True):
@@ -81,3 +81,10 @@ def convert_time_to_float(time_series):
 def heroku_print(to_print):
   print(to_print)
   sys.stdout.flush()
+
+def remove_special_characters(input_str: str):
+  input_str = input_str.lower()
+  normalized_str = unicodedata.normalize('NFKD', input_str)
+  ascii_str = ''.join(c for c in normalized_str if ord(c) < 128)
+
+  return ascii_str

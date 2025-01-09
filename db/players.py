@@ -29,11 +29,7 @@ def insert_player(session, player_id, player_name, start_year, end_year):
     session.rollback()
     heroku_print(f"Failed to add player {player_name} (ID: {player_id}). Error: {traceback.format_exc()}")
 
-def get_players(after_year = None):
-  engine = create_engine(os.environ.get("DATABASE_URL"))
-  Session = sessionmaker(bind=engine)
-  session = Session()
-
+def get_players(session, after_year = None):
   try:
     players = session.query(Player)
     if after_year:
@@ -43,9 +39,6 @@ def get_players(after_year = None):
     return [player.to_dict() for player in players]
   except:
     heroku_print(f"Failed retrieve players. Error: {traceback.format_exc()}")
-  finally:
-    session.close()
-    engine.dispose()
 
 def get_player_by_id(session, player_id):
   return session.query(Player).filter_by(id=player_id).first()

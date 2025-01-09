@@ -176,8 +176,15 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
       continue
 
 ######## SCRIPT: run scrape function on all NBA players
-players = get_players(after_year=YEAR_TO_START)
+engine = create_engine(os.environ.get("DATABASE_URL"))
+Session = sessionmaker(bind=engine)
+session = Session()
+
+players = get_players(session, after_year=YEAR_TO_START)
 for index, player in enumerate(players):
   player_name = player['name']
   heroku_print(f"Scraping {player_name} ({index}/{len(players)})")
   scrape_game_log(player['id'], player_name, player['start_year'], min(YEAR_TO_END, player['end_year']))
+
+session.close()
+engine.dispose()
