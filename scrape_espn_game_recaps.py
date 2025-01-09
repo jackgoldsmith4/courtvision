@@ -12,10 +12,6 @@ ESPN_DATE_URL = "https://www.espn.com/nba/scoreboard/_/date/"
 ESPN_RECAP_URL = "https://www.espn.com/nba/recap/_/gameId/"
 
 def clean_espn_team_name(team_name):
-  if team_name == 'Clippers':
-    team_name = 'Los Angeles Clippers'
-  if team_name == '76ers':
-    team_name = 'Philadelphia 76ers'
   team_name = team_name.replace('LA Clippers', 'Los Angeles Clippers')
   return team_name
 
@@ -55,17 +51,20 @@ def find_espn_game_recaps(dates):
           away_team = ''
           flag = 0
           for t in teams:
+            team_name = t.text
             if flag == 1:
-              home_team = t.text
+              home_team = team_name
               break
-            text = t.text
-            if len(text) > 3 and text.title() == text:
-              away_team = text
+            if len(team_name) > 3:
+              away_team = team_name
               flag = 1
         except:
           driver.quit()
           continue
         driver.quit()
+
+        heroku_print(away_team)
+        heroku_print(home_team)
 
         away_team = clean_espn_team_name(away_team)
         home_team = clean_espn_team_name(home_team)
@@ -79,5 +78,5 @@ def find_espn_game_recaps(dates):
   engine.dispose()
 
 # SCRIPT
-dates = generate_dates(start_date=datetime(2012, 10, 31).date())
+dates = generate_dates(start_date=datetime(2012, 11, 7).date())
 find_espn_game_recaps(dates)
