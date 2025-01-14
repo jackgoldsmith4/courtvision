@@ -9,15 +9,15 @@ import numpy as np
 import os
 
 url = "https://api.openai.com/v1/chat/completions"
-api_key = os.environ.get("OPENAI_API_KEY") # TODO get new key and put it in .env and heroku
+api_key = os.environ.get("OPENAI_API_KEY")
 headers = {
     'Authorization': f'Bearer {api_key}',
     'Content-Type': 'application/json'
 }
 
-# prompt GPT 3.5 to pick a player from the given context that will appear in the recap headline
+# prompt GPT 4o mini to pick a player from the given context that will appear in the recap headline
 # Returns: name of a player from the context
-def prompt_model(context_str):
+def prompt_model_to_choose_name(context_str):
   prompt_text = f"""
     Here is a string that represents the box score for a specific NBA game:
 
@@ -36,16 +36,9 @@ def prompt_model(context_str):
     If the names are not anonymized, your response should contain the actual player name instead of an anonymized version.
   """
 
-  # TODO update model
-  data = {
-    "model": "gpt-3.5-turbo",
-    "prompt": prompt_text,
-    "max_tokens": 60
-  }
-
   client = OpenAI(api_key=api_key)
   response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model="gpt-4o-mini",
     messages=[
       {
         "role": "user",
@@ -78,38 +71,78 @@ def anonymize_context(box_score_str):
 
 # Wrapper function to prompt the model for a box score string and return names chosen before and after anonymization
 def predict_name_from_box_score(box_score_str):
-  chosen_name = prompt_model(box_score_str)
+  chosen_name = prompt_model_to_choose_name(box_score_str)
   box_score_player_replaced, player_dict = anonymize_context(box_score_str)
-  chosen_name_replaced = prompt_model(box_score_player_replaced)
+  chosen_name_replaced = prompt_model_to_choose_name(box_score_player_replaced)
   try:
     chosen_name_anonymous = player_dict[chosen_name_replaced]
   except KeyError:
     chosen_name_anonymous = 'None'
   return (chosen_name, chosen_name_anonymous)
 
-# Returns: 2x2 matrix representing changes in model behavior after anonymizing player
-# B = model predicts player for the headline BEFORE switching
-# A = model predicts player for the headline AFTER switching
-# [  (B,A)      (B, no A)  ]
-# [(no B, A)  (no B, no A) ]
-def build_player_change_matrix(contexts_with_name, name):
-  player_matrix = np.zeros((2, 2))
-  predictions = []
-  for context, chosen_name, chosen_name_anonymous in contexts_with_name:
-    # increment corresponding matrix cell
-    if chosen_name == name:
-      if chosen_name_anonymous == name:
-        player_matrix[0][0] += 1
-      else:
-        player_matrix[0][1] += 1
-    else:
-      if chosen_name_anonymous == name:
-        player_matrix[1][0] += 1
-      else:
-        player_matrix[1][1] += 1
-    predictions.append((context, chosen_name, chosen_name_anonymous))
+def pull_names_from_recap_headline(box_score_str, recap_headline) -> list:
+  prompt_text = f"""
 
-  return player_matrix, predictions
+  """ # TODO fill in so the model returns full names of any players in the recap headline as they show up in the box score
+
+  client = OpenAI(api_key=api_key)
+  response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+      {
+        "role": "user",
+        "content": prompt_text,
+      }
+    ],
+    temperature=0,
+    max_tokens=120,
+    top_p=0.5,
+  )
+
+  player_names = response.choices[0].message.content
+  return player_names # TODO ensure somehow that this is a list of string player names
+
+# Returns: 2x2x2 array representing changes in model behavior after anonymizing player
+# A = model predicts player for the headline BEFORE switching
+# B = model predicts player for the headline AFTER switching
+# C = player actually shows up in the recap headline
+#   outcomes = [
+#   [  # C = True
+#     [val_000, val_001],  # A = False, B = False / A = False, B = True
+#     [val_010, val_011],  # A = True,  B = False / ...
+#   ],
+#   [  # C = False
+#     [val_100, val_101],
+#     [val_110, val_111],
+#   ],
+# ]
+def build_player_matrix(games_with_player, name):
+  player_matrix = np.zeros((2, 2, 2))
+  for box_score_str, recap_headline, predicted_name, predicted_name_anonymous, actual_names in games_with_player:
+    # increment corresponding matrix cell
+    if name in actual_names:
+      if predicted_name == name:
+        if predicted_name_anonymous == name:
+          player_matrix[0][0][0] += 1
+        else:
+          player_matrix[0][0][1] += 1
+      else:
+        if predicted_name_anonymous == name:
+          player_matrix[0][1][0] += 1
+        else:
+          player_matrix[0][1][1] += 1
+    else:
+      if predicted_name == name:
+        if predicted_name_anonymous == name:
+          player_matrix[1][0][0] += 1
+        else:
+          player_matrix[1][0][1] += 1
+      else:
+        if predicted_name_anonymous == name:
+          player_matrix[1][1][0] += 1
+        else:
+          player_matrix[1][1][1] += 1
+  return player_matrix
 
 ### SCRIPT ###
 engine = create_engine(os.environ.get("DATABASE_URL"))
@@ -121,27 +154,24 @@ for game in get_all_games():
   box_score_str = '' # TODO pull and flatten all player stats for this game into a box score string (also normalize each name)
   recap_headline = game.recap_headline
   chosen_name, chosen_name_anonymous = predict_name_from_box_score(box_score_str)
+  
+  actual_names = pull_names_from_recap_headline(box_score_str, recap_headline)
+
   predictions = predictions.append({
     'box_score_str': box_score_str,
     'recap_headline': recap_headline,
     'predicted_name': remove_special_characters(chosen_name),
-    'predicted_name_anonymous': remove_special_characters(chosen_name_anonymous)
+    'predicted_name_anonymous': remove_special_characters(chosen_name_anonymous),
+    'actual_names': [remove_special_characters(name) for name in actual_names]
   }, ignore_index=True)
 
 player_matrices = {}
 for player in get_players(session):
-  # TODO setup a "matrix" for each player with 8 options, decide how to organize 8 instead of 4
-  player_matrix = np.zeros((2, 2))
-
   # return all games in the dataset that contain that player in the box score
   name = remove_special_characters(player.name)
   games_with_player = predictions[predictions['box_score_str'].str.contains(name)]
 
-  # TODO populate the player "matrix" for each game based on:
-  ### A: if the player was picked from the box score
-  ### B: if the player was picked from the anonymized box_score
-  ### C: if the player actually was in the recap headline (TODO need a function to extract player names from recap headlines)
-
+  player_matrix = build_player_matrix(games_with_player)
   player_matrices[name] = player_matrix
 
 # TODO save player_matrices somehow
