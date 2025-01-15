@@ -1,9 +1,8 @@
-from sqlalchemy.orm import sessionmaker
+from utils import remove_special_characters
 from db.players import get_player_by_id
 from db.models import PlayerGameLog
 from db.games import get_game_by_id
 from utils import heroku_print
-from sqlalchemy import select
 from hashlib import sha256
 
 # add a player stat row to the DB
@@ -52,22 +51,16 @@ def get_game_log_dicts_by_game_id(session, game_id):
   logs = session.query(PlayerGameLog).filter(PlayerGameLog.game_id == game_id).all()
   return [log.to_dict() for log in logs]
 
-# get all stats for a certain game as a flattened string (for transformer input)
-def get_flattened_player_game_logs_by_game_id(session, game_date, home_team, away_team):
-  home_team = home_team.replace("LA Clippers", "Los Angeles Clippers")
-  game = get_game_by_id(session, game_date, home_team, away_team)
-
-  output = f"{game_date} {away_team} at {home_team} "
-  non_stats = ['player_game_log_id', 'player_id', 'game_id', 'away_team', 'home_team', 'game_date']
+# get all stats for a certain game as a flattened string (for language model input)
+def get_flattened_player_game_logs_by_game_id(session, game_id, game_date, home_team, away_team):
+  output = f"{game_date} {away_team} @ {home_team}"
+  non_stats = ['player_game_log_id', 'player_id', 'game_id']
   players = {}
 
-  if not game:
-    raise ValueError
-
-  game_logs = get_game_log_dicts_by_game_id(session, game.id)
+  game_logs = get_game_log_dicts_by_game_id(session, game_id)
   for log in game_logs:
     player_name = get_player_by_id(session, log['player_id']).name
-    player_str = f"player_name: {player_name}"
+    player_str = f"player_name: {remove_special_characters(player_name)}"
     points = 0
     for key in log:
       if key not in non_stats:
@@ -83,20 +76,3 @@ def get_flattened_player_game_logs_by_game_id(session, game_date, home_team, awa
     output += player
 
   return output
-
-# check if stats exist for a player in a year to reduce redundant scraping
-def check_if_stats_exist(engine, player_name, year):
-  Session = sessionmaker(bind=engine)
-  session = Session()
-  stmt = select(PlayerGameLog).filter_by(player_name=player_name)
-  res = session.execute(stmt).all()
-  if len(res) == 0:
-    return None
-  
-  for player_stats in res:
-    player_game_date = player_stats[0].game_date
-    if player_game_date.strftime('%Y') == str(year):
-      session.close()
-      return player_game_date
-
-  session.close()

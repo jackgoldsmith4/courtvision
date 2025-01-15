@@ -1,3 +1,4 @@
+from db.player_game_logs import get_flattened_player_game_logs_by_game_id
 from utils import remove_special_characters
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
@@ -82,8 +83,15 @@ def predict_name_from_box_score(box_score_str):
 
 def pull_names_from_recap_headline(box_score_str, recap_headline) -> list:
   prompt_text = f"""
+    Here is a string that represents the box score for a specific NBA game: {box_score_str}
+    Here is the Associated Press recap headline for the same game: {recap_headline}
 
-  """ # TODO fill in so the model returns full names of any players in the recap headline as they show up in the box score
+    Your job is to pull out the names of any players that show up in the recap headline, exactly as they appear in the box score.
+    For example, if the recap headline is "Smith scores 10 as Nuggets top Blazers 116-108", pull out the full name of the player that "Smith" refers to and return it.
+    Recap headlines may contain no players, one player, or multiple players. Find any players referenced in the headline and return their full names exactly as they appear in the box score.
+    If there are no players mentioned in the recap headline, return "None".
+    If there are multiple players mentioned, return the name of each player separated by commas.
+  """
 
   client = OpenAI(api_key=api_key)
   response = client.chat.completions.create(
@@ -100,7 +108,7 @@ def pull_names_from_recap_headline(box_score_str, recap_headline) -> list:
   )
 
   player_names = response.choices[0].message.content
-  return player_names # TODO ensure somehow that this is a list of string player names
+  return player_names.split(', ')
 
 # Returns: 2x2x2 array representing changes in model behavior after anonymizing player
 # A = model predicts player for the headline BEFORE switching
@@ -151,10 +159,16 @@ session = Session()
 
 predictions = pd.DataFrame(columns=['box_score_str', 'recap_headline', 'predicted_name', 'predicted_name_anonymous'])
 for game in get_all_games():
-  box_score_str = '' # TODO pull and flatten all player stats for this game into a box score string (also normalize each name)
+  # skip games with no recap headline
+  if not game.recap_headline:
+    continue
+
   recap_headline = game.recap_headline
+  box_score_str = get_flattened_player_game_logs_by_game_id(session, game.id, game.game_date, game.home_team, game.away_team)
+  print(recap_headline)
+  print(box_score_str)
+
   chosen_name, chosen_name_anonymous = predict_name_from_box_score(box_score_str)
-  
   actual_names = pull_names_from_recap_headline(box_score_str, recap_headline)
 
   predictions = predictions.append({
