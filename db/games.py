@@ -37,6 +37,9 @@ def get_game_by_id(session, game_date: date, home_team, away_team):
 def get_all_games(session):
   return session.query(Game).all()
 
+def get_all_games_with_recaps(session):
+  return session.query(Game).filter(Game.recap_headline != None).all()
+
 def add_game_recap_to_game(session, recap_url, headline, author, recap_text, game_date: date, home_team, away_team):
   game = session.query(Game).filter_by(
     game_date=game_date,

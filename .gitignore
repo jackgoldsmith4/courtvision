@@ -1,5 +1,5 @@
 local_db.py
-*.csv
+transformers/*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

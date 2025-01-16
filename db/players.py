@@ -1,10 +1,8 @@
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
 from utils import heroku_print
+from db.db import get_session
 from db.models import Player
 import traceback
-import os
 
 def insert_player(session, player_id, player_name, start_year, end_year):
   existing_player = session.query(Player).filter_by(id=player_id).first()
@@ -44,13 +42,10 @@ def get_player_by_id(session, player_id):
   return session.query(Player).filter_by(id=player_id).first()
 
 def clean_player_names():
-  engine = create_engine(os.environ.get("DATABASE_URL"))
-  Session = sessionmaker(bind=engine)
-  session = Session()
-
-  players = session.query(Player).all()
-  for player in players:
-    if '*' in player.name:
-      player.name = player.name.replace('*', '')
-      heroku_print(f"{player.name} name cleaned.")
-      session.commit()
+  with get_session() as session:
+    players = session.query(Player).all()
+    for player in players:
+      if '*' in player.name:
+        player.name = player.name.replace('*', '')
+        heroku_print(f"{player.name} name cleaned.")
+        session.commit()

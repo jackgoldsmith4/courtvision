@@ -4,10 +4,9 @@ from db.player_game_logs import insert_player_game_log
 from db.players import get_players, insert_player
 from selenium.webdriver.common.by import By
 from constants.team_codes import TEAM_CODES
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
 from db.games import insert_game
 from datetime import datetime
+from db.db import get_session
 import time
 import os
 
@@ -66,125 +65,112 @@ def scrape_game_log(player_id, player_name, rookie_year, final_year):
 
       driver.quit()
       keys = GAMELOG_HEADER_TITLES_DICT.split(",")
-      for line in stats.split('\n'):
-        # Connect to DB
-        engine = create_engine(os.environ.get("DATABASE_URL"))
-        Session = sessionmaker(bind=engine)
-        session = Session()
-
-        try:
-          if line == '':
-            continue
-
-          values = line.split(",")
-          
-          # Pairing each key with its corresponding value and creating a dictionary
-          row = dict(zip(keys, values))
-
-          game_date = datetime.strptime(row['Date'], "%Y-%m-%d").date()
-
-          is_home_game = 1
-          if row['Unnamed: 5'] == '@':
-            is_home_game = 0
-
-          home_team = ''
-          away_team = ''
-          if is_home_game == 1:
-            home_team = TEAM_CODES[row['Tm']]
-            away_team = TEAM_CODES[row['Opp']]
-          else:
-            home_team = TEAM_CODES[row['Opp']]
-            away_team = TEAM_CODES[row['Tm']]
-          
-          years, days = row['Age'].split('-')
-          player_age = 365*int(years) + int(days)
-          wl, margin = row['Unnamed: 7'].split(' (')
-          margin = int(margin[1:-1])
-          game_outcome = 0
-          if wl == 'W':
-            game_outcome = margin
-          else:
-            game_outcome = -margin
-
-          # get/create Player and Game objects
-          game = insert_game(session, game_date, home_team, away_team)
-          player = insert_player(session, player_id, player_name, rookie_year, final_year)
-
-          game_started = int(row['GS'])
+      with get_session() as session:
+        for line in stats.split('\n'):
           try:
-            plus_minus=int(row['+/-'])
-          except ValueError:
-            plus_minus=0
+            if line == '':
+              continue
 
-          insert_player_game_log(
-            session,
-            game=game,
-            player=player,
-            is_home_game=is_home_game,
-            player_age=player_age,
-            game_started=game_started,
-            game_outcome=game_outcome,
-            minutes_played=convert_time_to_float(row['MP']),
-            points=int(row['PTS']),
-            fg_made=int(row['FG']),
-            fg_attempted=int(row['FGA']),
-            threes_made=int(row['3P']),
-            threes_attempted=int(row['3PA']),
-            ft_made=int(row['FT']),
-            ft_attempted=int(row['FTA']),
-            orb=int(row['ORB']),
-            drb=int(row['DRB']),
-            assists=int(row['AST']),
-            steals=int(row['STL']),
-            blocks=int(row['BLK']),
-            turnovers=int(row['TOV']),
-            plus_minus=plus_minus
-          )
-        except ValueError as e:
-          # player was inactive for this game, so should show up in the box score with all zeroes
-          insert_player_game_log(
-            session,
-            game=game,
-            player=player,
-            is_home_game=is_home_game,
-            player_age=player_age,
-            game_started=0,
-            game_outcome=game_outcome,
-            minutes_played=0.0,
-            points=0,
-            fg_made=0,
-            fg_attempted=0,
-            threes_made=0,
-            threes_attempted=0,
-            ft_made=0,
-            ft_attempted=0,
-            orb=0,
-            drb=0,
-            assists=0,
-            steals=0,
-            blocks=0,
-            turnovers=0,
-            plus_minus=0
-          )
+            values = line.split(",")
+            
+            # Pairing each key with its corresponding value and creating a dictionary
+            row = dict(zip(keys, values))
 
-        session.close()
-        engine.dispose()
-      heroku_print(f"Scraped {player_name}'s {year} gamelog")
-      year += 1
+            game_date = datetime.strptime(row['Date'], "%Y-%m-%d").date()
+
+            is_home_game = 1
+            if row['Unnamed: 5'] == '@':
+              is_home_game = 0
+
+            home_team = ''
+            away_team = ''
+            if is_home_game == 1:
+              home_team = TEAM_CODES[row['Tm']]
+              away_team = TEAM_CODES[row['Opp']]
+            else:
+              home_team = TEAM_CODES[row['Opp']]
+              away_team = TEAM_CODES[row['Tm']]
+            
+            years, days = row['Age'].split('-')
+            player_age = 365*int(years) + int(days)
+            wl, margin = row['Unnamed: 7'].split(' (')
+            margin = int(margin[1:-1])
+            game_outcome = 0
+            if wl == 'W':
+              game_outcome = margin
+            else:
+              game_outcome = -margin
+
+            # get/create Player and Game objects
+            game = insert_game(session, game_date, home_team, away_team)
+            player = insert_player(session, player_id, player_name, rookie_year, final_year)
+
+            game_started = int(row['GS'])
+            try:
+              plus_minus=int(row['+/-'])
+            except ValueError:
+              plus_minus=0
+
+            insert_player_game_log(
+              session,
+              game=game,
+              player=player,
+              is_home_game=is_home_game,
+              player_age=player_age,
+              game_started=game_started,
+              game_outcome=game_outcome,
+              minutes_played=convert_time_to_float(row['MP']),
+              points=int(row['PTS']),
+              fg_made=int(row['FG']),
+              fg_attempted=int(row['FGA']),
+              threes_made=int(row['3P']),
+              threes_attempted=int(row['3PA']),
+              ft_made=int(row['FT']),
+              ft_attempted=int(row['FTA']),
+              orb=int(row['ORB']),
+              drb=int(row['DRB']),
+              assists=int(row['AST']),
+              steals=int(row['STL']),
+              blocks=int(row['BLK']),
+              turnovers=int(row['TOV']),
+              plus_minus=plus_minus
+            )
+          except ValueError as e:
+            # player was inactive for this game, so should show up in the box score with all zeroes
+            insert_player_game_log(
+              session,
+              game=game,
+              player=player,
+              is_home_game=is_home_game,
+              player_age=player_age,
+              game_started=0,
+              game_outcome=game_outcome,
+              minutes_played=0.0,
+              points=0,
+              fg_made=0,
+              fg_attempted=0,
+              threes_made=0,
+              threes_attempted=0,
+              ft_made=0,
+              ft_attempted=0,
+              orb=0,
+              drb=0,
+              assists=0,
+              steals=0,
+              blocks=0,
+              turnovers=0,
+              plus_minus=0
+            )
+        heroku_print(f"Scraped {player_name}'s {year} gamelog")
+        year += 1
     except Exception as e:
       heroku_print(f"Error scraping: {e}")
       continue
 
 ######## SCRIPT: run scrape function on all NBA players
-engine = create_engine(os.environ.get("DATABASE_URL"))
-Session = sessionmaker(bind=engine)
-session = Session()
-
-players = get_players(session, after_year=YEAR_TO_START)
-for index, player in enumerate(players):
-  player_name = player['name']
-  heroku_print(f"Scraping {player_name} ({index}/{len(players)})")
-  scrape_game_log(player['id'], player_name, player['start_year'], min(YEAR_TO_END, player['end_year']))
-
-session.close()
-engine.dispose()
+with get_session() as session:
+  players = get_players(session, after_year=YEAR_TO_START)
+  for index, player in enumerate(players):
+    player_name = player['name']
+    heroku_print(f"Scraping {player_name} ({index}/{len(players)})")
+    scrape_game_log(player['id'], player_name, player['start_year'], min(YEAR_TO_END, player['end_year']))

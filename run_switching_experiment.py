@@ -1,9 +1,8 @@
 from db.player_game_logs import get_flattened_player_game_logs_by_game_id
-from utils import remove_special_characters
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
-from db.games import get_all_games
+from utils import remove_special_characters, heroku_print
+from db.games import get_all_games_with_recaps
 from db.players import get_players
+from db.db import get_session
 from openai import OpenAI
 import pandas as pd
 import numpy as np
@@ -25,7 +24,7 @@ def prompt_model_to_choose_name(context_str):
     {context_str}
 
     Your job is to pick the player in this box score that you think is most likely
-    to show up in the headline of the Associated Press game recap article.
+    to show up in the headline of the game recap article on NBA.com.
 
     Your response should only consist of a name that is present in the provided box score,
     or just the word None if you think it is most likely that the headline doesn't mention a specific player.
@@ -91,6 +90,8 @@ def pull_names_from_recap_headline(box_score_str, recap_headline) -> list:
     Recap headlines may contain no players, one player, or multiple players. Find any players referenced in the headline and return their full names exactly as they appear in the box score.
     If there are no players mentioned in the recap headline, return "None".
     If there are multiple players mentioned, return the name of each player separated by commas.
+
+    Return only player name or names. Do not add anything else, and return the name exactly as it shows up in the box score. Do not explain your reasoning.
   """
 
   client = OpenAI(api_key=api_key)
@@ -111,84 +112,106 @@ def pull_names_from_recap_headline(box_score_str, recap_headline) -> list:
   return player_names.split(', ')
 
 # Returns: 2x2x2 array representing changes in model behavior after anonymizing player
-# A = model predicts player for the headline BEFORE switching
-# B = model predicts player for the headline AFTER switching
-# C = player actually shows up in the recap headline
+# A = player actually shows up in the recap headline (name in actual_names)
+# B = model predicts player for the headline BEFORE anonymization (name == predicted_name)
+# C = model predicts player for the headline AFTER anonymization (name == predicted_name_anonymous)
 #   outcomes = [
-#   [  # C = True
-#     [val_000, val_001],  # A = False, B = False / A = False, B = True
-#     [val_010, val_011],  # A = True,  B = False / ...
+#   [  # A = False
+#     [val_000, val_001],  # B = False, C = False / B = False, C = True
+#     [val_010, val_011],  # B = True,  C = False / B = True, C = True
 #   ],
-#   [  # C = False
+#   [  # A = True
 #     [val_100, val_101],
 #     [val_110, val_111],
 #   ],
 # ]
 def build_player_matrix(games_with_player, name):
   player_matrix = np.zeros((2, 2, 2))
-  for box_score_str, recap_headline, predicted_name, predicted_name_anonymous, actual_names in games_with_player:
+  for index, game_row in games_with_player.iterrows():
+    (box_score_str, recap_headline, predicted_name, predicted_name_anonymous, actual_names) = game_row
     # increment corresponding matrix cell
     if name in actual_names:
       if predicted_name == name:
         if predicted_name_anonymous == name:
-          player_matrix[0][0][0] += 1
+          player_matrix[1][1][1] += 1
         else:
-          player_matrix[0][0][1] += 1
+          player_matrix[1][1][0] += 1
       else:
         if predicted_name_anonymous == name:
-          player_matrix[0][1][0] += 1
+          player_matrix[1][0][1] += 1
         else:
-          player_matrix[0][1][1] += 1
+          player_matrix[1][0][0] += 1
     else:
       if predicted_name == name:
         if predicted_name_anonymous == name:
-          player_matrix[1][0][0] += 1
+          player_matrix[0][1][1] += 1
         else:
-          player_matrix[1][0][1] += 1
+          player_matrix[0][1][0] += 1
       else:
         if predicted_name_anonymous == name:
-          player_matrix[1][1][0] += 1
+          player_matrix[0][0][1] += 1
         else:
-          player_matrix[1][1][1] += 1
+          player_matrix[0][0][0] += 1
   return player_matrix
 
-### SCRIPT ###
-engine = create_engine(os.environ.get("DATABASE_URL"))
-Session = sessionmaker(bind=engine)
-session = Session()
+### SCRIPT ###=
+# predictions = pd.DataFrame(columns=['box_score_str', 'recap_headline', 'predicted_name', 'predicted_name_anonymous'])
+predictions = pd.read_csv('predictions.csv')
+with get_session() as session:
+  games = get_all_games_with_recaps(session)
 
-predictions = pd.DataFrame(columns=['box_score_str', 'recap_headline', 'predicted_name', 'predicted_name_anonymous'])
-for game in get_all_games():
-  # skip games with no recap headline
-  if not game.recap_headline:
-    continue
+for index, game in enumerate(games):
+  with get_session() as session:
+    heroku_print(f"Making recap predictions for game: {game.game_date} {game.away_team} @ {game.home_team} ({index+1}/{len(games)})")
 
-  recap_headline = game.recap_headline
-  box_score_str = get_flattened_player_game_logs_by_game_id(session, game.id, game.game_date, game.home_team, game.away_team)
-  print(recap_headline)
-  print(box_score_str)
+    recap_headline = game.recap_headline
+    if recap_headline in predictions['recap_headline'].values:
+      heroku_print("Predictions already made for this game.")
+      continue
+    box_score_str = get_flattened_player_game_logs_by_game_id(session, game.id, game.game_date, game.home_team, game.away_team)
 
-  chosen_name, chosen_name_anonymous = predict_name_from_box_score(box_score_str)
-  actual_names = pull_names_from_recap_headline(box_score_str, recap_headline)
+    # LLM calls
+    chosen_name, chosen_name_anonymous = predict_name_from_box_score(box_score_str)
+    actual_names = pull_names_from_recap_headline(box_score_str, recap_headline)
 
-  predictions = predictions.append({
-    'box_score_str': box_score_str,
-    'recap_headline': recap_headline,
-    'predicted_name': remove_special_characters(chosen_name),
-    'predicted_name_anonymous': remove_special_characters(chosen_name_anonymous),
-    'actual_names': [remove_special_characters(name) for name in actual_names]
-  }, ignore_index=True)
+    new_row = {
+      'box_score_str': box_score_str,
+      'recap_headline': recap_headline,
+      'predicted_name': remove_special_characters(chosen_name),
+      'predicted_name_anonymous': remove_special_characters(chosen_name_anonymous),
+      'actual_names': [remove_special_characters(name) for name in actual_names]
+    }
 
-player_matrices = {}
-for player in get_players(session):
+    predictions = pd.concat([predictions, pd.DataFrame([new_row])], ignore_index=True)
+
+    # periodically save results
+    if index % 10 == 0:
+      predictions.to_csv('predictions.csv', index=False)
+      heroku_print("Predictions saved.")
+predictions.to_csv('predictions.csv', index=False)
+
+# From predictions, build a matrix for each player
+player_matrices = pd.DataFrame(columns=["player_name", "player_matrix"])
+with get_session() as session:
+  players = get_players(session)
+for index, player in enumerate(players):
+  heroku_print(f"Processing player: {player['name']} ({index+1}/{len(players)})")
+  
   # return all games in the dataset that contain that player in the box score
-  name = remove_special_characters(player.name)
+  name = remove_special_characters(player['name'])
+  name = name[:-1]
   games_with_player = predictions[predictions['box_score_str'].str.contains(name)]
 
-  player_matrix = build_player_matrix(games_with_player)
-  player_matrices[name] = player_matrix
+  if len(games_with_player) == 0:
+    heroku_print("No games for player.")
+    continue
 
-# TODO save player_matrices somehow
-
-session.close()
-engine.dispose()
+  player_matrix = build_player_matrix(games_with_player, name)
+  new_row = {
+    'player_name': name,
+    'player_matrix': player_matrix
+  }
+  player_matrices = pd.concat([player_matrices, pd.DataFrame([new_row])], ignore_index=True)
+  if index % 10 == 0:
+    player_matrices.to_csv('player_matrices.csv', index=False)
+player_matrices.to_csv('player_matrices.csv', index=False)
